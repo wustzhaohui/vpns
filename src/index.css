@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 62.5%; /* Makes 1rem = 10px, for easier rem calculations */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5; /* Light gray background for contrast */
+  font-size: 1.8rem; /* Default body font size: 18px */
+  color: theme(
+    'colors.brand-text-primary'
+  ); /* Default text color set to #333333 */
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b3b3b3; /* Darkened for better visibility */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a5a5a5;
+}
+
+@layer components {
+  .button-gradient {
+    /* prettier-ignore */
+    @apply flex items-center justify-center text-white px-8 py-3 text-[1.8rem] rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-gradient-to-r from-brand-gradient-from to-brand-gradient-to;
+  }
+
+  .button-light {
+    /* prettier-ignore */
+    @apply flex items-center justify-center bg-white text-brand-purple px-8 py-3 text-[1.8rem] rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-white p-6 rounded-xl shadow-lg;
+  }
+
+  .text-gradient-purple-pink {
+    @apply bg-gradient-to-r from-header-gradient-start via-header-gradient-middle to-header-gradient-end bg-clip-text text-transparent;
+  }
+
+  .desktop-qr-popover-with-caret {
+    position: relative;
+  }
+
+  .desktop-qr-popover-with-caret::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Height of the triangle */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; /* Half of the base width */
+    border-right: 10px solid transparent; /* Half of the base width */
+    border-bottom: 10px solid white; /* Triangle color, matching popover background */
+    /* Optional: add a subtle shadow to the caret if needed, or adjust to match popover's border */
+    /* This pseudo-element creates an upward-pointing triangle */
+  }
+}

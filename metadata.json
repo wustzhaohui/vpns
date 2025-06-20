@@ -1,0 +1,6 @@
+{
+  "name": "快连VPN - Landing Page",
+  "description": "A responsive landing page for a VPN service, built with React, TypeScript, Tailwind CSS, and Less. Supports offline functionality.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
