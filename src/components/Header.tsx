@@ -1,34 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 
-// Minimal Language Switcher Component (as seen in screenshot for login page)
-const LanguageSwitcher: React.FC = () => (
-  <div className="flex items-center text-sm text-white">
-    <span
-      role="img"
-      aria-hidden="true"
-      className="mr-1"
-    >
-      🌐
-    </span>
-    简体中文
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-4 w-4 ml-1"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M19 9l-7 7-7-7"
-      />
-    </svg>
-  </div>
-);
-
 // Icon for Login Button
 const PersonIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
@@ -41,21 +13,22 @@ const PersonIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 // Icon for Scan QR to Download (still used in mobile popover trigger)
-const QrCodeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    {...props}
-  >
-    <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zm8-12v8h8V3h-8zm6 6h-4V5h4v4zm0 8h-2v2h-2v-2h-2v2h-2v-2h2v-2h-2v-2h2v-2h2v2h2v2zm-2-2h-2v-2h2v2zM13 13h2v2h-2z" />
-  </svg>
-);
+// QrCodeIcon is not used in this version of Header for QR popover trigger, but kept if needed elsewhere or for consistency.
+// const QrCodeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => ( ... ); // Kept for brevity if not directly used
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [headerIsNudgingUp, setHeaderIsNudgingUp] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
   const [isQrPopoverOpen, setIsQrPopoverOpen] = useState(false);
+
+  // State and ref for header language switcher (login page)
+  const [currentHeaderLanguage, setCurrentHeaderLanguage] = useState<
+    '中文' | 'English'
+  >('中文');
+  const [isHeaderLanguageDropdownOpen, setIsHeaderLanguageDropdownOpen] =
+    useState(false);
+  const headerLanguageDropdownRef = useRef<HTMLDivElement>(null);
 
   const qrPopoverRef = useRef<HTMLDivElement>(null);
   const qrButtonRef = useRef<HTMLButtonElement>(null);
@@ -69,6 +42,39 @@ const Header: React.FC = () => {
   const isOnLoginPage = location.pathname === '/login';
   const isOnBlogPage = location.pathname === '/blog';
   const animationDuration = 300;
+
+  // Effect for header language switcher dropdown (click outside)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        headerLanguageDropdownRef.current &&
+        !headerLanguageDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsHeaderLanguageDropdownOpen(false);
+      }
+    };
+
+    if (isHeaderLanguageDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isHeaderLanguageDropdownOpen]);
+
+  const toggleHeaderLanguageDropdown = () => {
+    setIsHeaderLanguageDropdownOpen((prev) => !prev);
+  };
+
+  const selectHeaderLanguage = (language: '中文' | 'English') => {
+    setCurrentHeaderLanguage(language);
+    setIsHeaderLanguageDropdownOpen(false);
+    // Here you would typically also call a function to change the actual application language
+    // e.g., i18n.changeLanguage(language === '中文' ? 'zh' : 'en');
+  };
 
   useEffect(() => {
     const initialY = window.scrollY;
@@ -237,19 +243,19 @@ const Header: React.FC = () => {
         src="/assets/pro_telegram.67630c52.png"
         alt="下载APP二维码"
         className={`mx-auto rounded-lg ${
-          isMobile ? 'w-36 h-36 mb-2' : 'w-100 h-auto mb-3'
+          isMobile ? 'w-36 h-36 mb-2' : 'w-100 h-auto mb-3' // For desktop: w-100 (100% of 300px width), h-auto
         }`}
       />
       <p
         className={`text-center text-gray-700 leading-snug ${
-          isMobile ? 'text-sm mb-0.5' : 'text-[2rem] mb-0.5'
+          isMobile ? 'text-sm mb-0.5' : 'text-[2rem] mb-0.5' // Desktop font size changed
         }`}
       >
         打开手机扫描二维码
       </p>
       <p
         className={`text-center text-gray-700 font-medium ${
-          isMobile ? 'text-sm mb-2' : 'text-[2rem] mb-3'
+          isMobile ? 'text-sm mb-2' : 'text-[2rem] mb-3' // Desktop font size changed
         }`}
       >
         立即下载APP
@@ -261,7 +267,7 @@ const Header: React.FC = () => {
       />
       <p
         className={`text-center text-gray-500 ${
-          isMobile ? 'text-xs' : 'text-[1.5rem]'
+          isMobile ? 'text-xs' : 'text-[1.5rem]' // Desktop font size changed
         }`}
       >
         推荐使用浏览器扫码
@@ -280,7 +286,7 @@ const Header: React.FC = () => {
           isOnLoginPage && !(isOnBlogPage || isAtTop)
             ? '!bg-gradient-to-r from-header-gradient-start via-header-gradient-middle to-header-gradient-end'
             : ''
-        } 
+        }
       `}
       style={isOnLoginPage && !(isOnBlogPage || isAtTop) ? {} : headerStyle}
       role="banner"
@@ -303,7 +309,73 @@ const Header: React.FC = () => {
 
           {isOnLoginPage ? (
             <div className="flex items-center">
-              <LanguageSwitcher />
+              <div
+                className="relative"
+                ref={headerLanguageDropdownRef}
+              >
+                <button
+                  onClick={toggleHeaderLanguageDropdown}
+                  className="flex items-center text-[1.5rem] text-black hover:text-gray-700 focus:outline-none"
+                  aria-haspopup="true"
+                  aria-expanded={isHeaderLanguageDropdownOpen}
+                  aria-label={`Change language, current language is ${currentHeaderLanguage}`}
+                >
+                  <span
+                    role="img"
+                    aria-hidden="true"
+                    className="mr-1"
+                  >
+                    🌐
+                  </span>
+                  {currentHeaderLanguage}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-4 w-4 ml-1 transition-transform duration-200 ${
+                      isHeaderLanguageDropdownOpen ? 'transform rotate-180' : ''
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {isHeaderLanguageDropdownOpen && (
+                  <div
+                    className="absolute right-0 mt-2 w-max bg-white rounded-md shadow-lg border border-gray-200 py-1 z-20"
+                    role="menu"
+                    aria-orientation="vertical"
+                  >
+                    <button
+                      onClick={() => selectHeaderLanguage('中文')}
+                      className={`block w-full text-left px-4 py-2 text-[1.5rem] ${
+                        currentHeaderLanguage === '中文'
+                          ? 'font-semibold text-brand-purple'
+                          : 'text-black'
+                      } hover:bg-gray-100 hover:text-brand-purple`}
+                      role="menuitem"
+                    >
+                      中文
+                    </button>
+                    <button
+                      onClick={() => selectHeaderLanguage('English')}
+                      className={`block w-full text-left px-4 py-2 text-[1.5rem] ${
+                        currentHeaderLanguage === 'English'
+                          ? 'font-semibold text-brand-purple'
+                          : 'text-black'
+                      } hover:bg-gray-100 hover:text-brand-purple`}
+                      role="menuitem"
+                    >
+                      English
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           ) : (
             <>
@@ -375,8 +447,6 @@ const Header: React.FC = () => {
                       stroke="currentColor"
                       aria-hidden="true"
                     >
-                      {' '}
-                      {/* Adjusted mobile icon size */}
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -393,8 +463,6 @@ const Header: React.FC = () => {
                       stroke="currentColor"
                       aria-hidden="true"
                     >
-                      {' '}
-                      {/* Adjusted mobile icon size */}
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -416,8 +484,6 @@ const Header: React.FC = () => {
           className={`md:hidden absolute top-[60px] md:top-[100px] left-0 w-full ${mobileMenuBg} shadow-lg`}
           id="mobile-menu"
         >
-          {' '}
-          {/* Adjusted mobile menu top position */}
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {mainNavLinks.map((link) => (
               <NavLink
@@ -444,7 +510,6 @@ const Header: React.FC = () => {
               aria-expanded={isQrPopoverOpen}
               aria-controls="qr-popover-mobile"
             >
-              {/* Removed QrCodeIcon for mobile */}
               扫码下载
             </button>
             <Link
@@ -454,7 +519,6 @@ const Header: React.FC = () => {
               )} border border-transparent hover:border-white/50 w-full justify-start`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              {/* Removed PersonIcon for mobile */}
               登录账户
             </Link>
           </div>
