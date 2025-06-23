@@ -1,0 +1,260 @@
+{
+  "header": {
+    "home": "首頁",
+    "referral": "推廣賺現金",
+    "blog": "部落格",
+    "helpCenter": "幫助中心",
+    "scanToDownload": "掃碼下載",
+    "loginAccount": "登入帳戶",
+    "qrPopover": {
+      "title": "掃碼下載APP",
+      "scanPrompt": "打開手機掃描QR Code",
+      "downloadPrompt": "立即下載APP",
+      "recommendBrowser": "推薦使用瀏覽器掃碼"
+    },
+    "mobileMenu": {
+      "open": "開啟主選單",
+      "closeQR": "關閉QR Code彈窗"
+    },
+    "languageSwitcher": {
+      "currentLabel": "更改語言，目前語言為 {{language}}",
+      "changeLanguage": "更換語言"
+    },
+    "language": {
+      "chinese": "簡體中文",
+      "english": "英文",
+      "traditionalChinese": "繁體中文",
+      "russian": "俄語"
+    }
+  },
+  "footer": {
+    "contactUs": "聯絡我們:",
+    "copyright": "版權所有 © {{year}} LetsVPN 團隊",
+    "softwareDownloads": {
+      "title": "軟體下載",
+      "pc": "PC 版本",
+      "android": "Android 版本",
+      "ios": "iOS 版本",
+      "mac": "Mac 版本"
+    },
+    "relatedResources": {
+      "title": "相關資源",
+      "referral": "推廣賺現金",
+      "blog": "部落格",
+      "helpCenter": "幫助中心"
+    },
+    "userAgreements": {
+      "title": "使用者協議",
+      "privacy": "隱私權政策",
+      "terms": "服務條款",
+      "registration": "註冊協議"
+    },
+    "changeLanguage": {
+      "title": "更換語言"
+    }
+  },
+  "homePage": {
+    "hero": {
+      "title": "永遠能連上的VPN",
+      "subtitle": "macOS AppStore 香港地區工具排行榜 Top 3",
+      "stats": {
+        "connectSpeed": "極速連接",
+        "freeTrial": "免費試用",
+        "appsSupported": "應用程式支援"
+      },
+      "buttons": {
+        "macDownload": "Mac 版下載",
+        "otherPlatforms": "其他平台下載"
+      }
+    },
+    "popularApps": {
+      "title": "全球熱門應用程式“任您暢玩”"
+    },
+    "features": [
+      {
+        "badgeText": "熱門賣點",
+        "title": "一鍵“快連”，縱享絲滑",
+        "description": "快連 VPN 採用全新核心，AI 智能連接，自動為您匹配全球最快的網路節點，只需要輕點“開啟快連”，3秒之內，縱享絲綢般順滑的衝浪體驗。"
+      },
+      {
+        "badgeText": "熱門賣點",
+        "title": "天涯海角，無不可達",
+        "description": "快連 VPN 支援全球網路資源，無限制無記錄的存取任何資源，同時使用最先進的技術幫助您抹除任何痕跡，真正實現天涯海角隨處達。"
+      },
+      {
+        "badgeText": "熱門賣點",
+        "title": "行業領先，安全無憂",
+        "description": "快連 VPN 於 AppStore 工具類排行長期領先，並獲得 Google 獨立安全審核，以及 App Esteem 國際網路安全認證，帶來網路自由的同時，不儲存任何個人資訊，堅守對您隱私的絕對保護。"
+      },
+      {
+        "badgeText": "熱門賣點",
+        "title": "隨用隨享，永不套牢",
+        "description": "全球唯一一家敢提供短期會員的知名 VPN，安全穩定的同時致力於保障使用者權益，隨時想用，隨時訂購，永遠不用擔心跑路，永遠不用擔心被套牢。"
+      },
+      {
+        "badgeText": "熱門賣點",
+        "title": "不限平台，無縫銜接",
+        "description": "快連 VPN 支援市面上所有主流的裝置，只需一個帳號即可在多個裝置中共享會員，支援多裝置同時在線，保障您不同使用場景下的無縫銜接。"
+      },
+      {
+        "badgeText": "熱門賣點",
+        "title": "真人客服，永不失聯",
+        "description": "快連 VPN 提供 24 小時在線服務，100+ 真人客服與網路工程師隨時待命，為您上網體驗保駕護航，真真正正的提供隨叫隨到，永不失聯的 VIP 服務。"
+      }
+    ],
+    "animatedFeatureSection": {
+      "badgeIconAlt": "熱門賣點 圖示"
+    },
+    "userReviews": {
+      "title": "使用者評價",
+      "prevReview": "上一條評價",
+      "nextReview": "下一條評價",
+      "selectReview": "選擇來自 {{name}} 的評價",
+      "reviews": [
+        {
+          "name": "芒果味的小仙女",
+          "title": "個人用戶",
+          "text": "快連這個軟體非常良心，介面操作簡便不繁瑣一用就會了，連結速度穩定不斷線，看影片打遊戲都很好用，偶爾上ins找我的男神表白，太爽了。"
+        },
+        {
+          "name": "王女士",
+          "title": "設計師, 上海",
+          "text": "用了快連VPN之後，網速真的快了很多，看影片再也不卡了！非常推薦！"
+        },
+        {
+          "name": "李先生",
+          "title": "專案經理, 北京",
+          "text": "介面簡潔易用，一鍵連接非常方便，全球節點很多，客服也很專業。"
+        },
+        {
+          "name": "小張",
+          "title": "學生, 廣州",
+          "text": "安全性和穩定性都很好，價格也合理，對於我們學生黨來說非常友好。"
+        },
+        {
+          "name": "匿名用戶",
+          "title": "遊戲愛好者",
+          "text": "打外服遊戲延遲低了不少，讚一個！希望多出點活動。"
+        },
+        {
+          "name": "第六人",
+          "title": "測試員",
+          "text": "第六個評論測試內容，確保桌面端顯示正常。"
+        }
+      ]
+    },
+    "freeTrial": {
+      "title": "立即免費試用",
+      "buttons": {
+        "pc": "PC 版下載",
+        "ios": "iOS 版下載",
+        "android": "安卓版下載",
+        "mac": "Mac 版下載"
+      },
+      "appPreviewAlt": "{{platform}} 應用程式預覽"
+    }
+  },
+  "referralPage": {
+    "hero": {
+      "title": "推廣賺<1>現金</1>",
+      "description": "推薦一人安裝，最高可賺 5 元，每週還能領取 100 元額外獎勵，可提現至支付寶或銀行卡。註冊推廣員無需提供身份證等隱私資訊，提供推廣教程，簡單易上手！",
+      "scanPrompt": "掃碼立即成為推廣員"
+    },
+    "infoCards": [
+      {
+        "title": "推薦一人可賺 5 元",
+        "description": "每人有獨立的推薦 ID, 新使用者首次安裝快連時填寫您的 ID 即算推薦成功, 過程極其簡單;"
+      },
+      {
+        "title": "每週額外領取 100 元",
+        "description": "您的推廣數量每週達到 100 人時, 除基礎推薦獎勵外還可以免費賺取額外 100 元獎勵;"
+      },
+      {
+        "title": "週週結算提現簡單",
+        "description": "無需提供身份證等隱私資訊, 所有的收入均可提現至支付寶或銀行卡;"
+      }
+    ],
+    "illustrations": {
+      "referralBonus": "推薦獎勵圖示",
+      "weeklyBonus": "每週額外獎勵圖示",
+      "settlement": "結算提現圖示"
+    }
+  },
+  "blogPage": {
+    "featuredPostBadge": "最新發布",
+    "imagePlaceholder": "圖像佔位符: {{title}}",
+    "posts": [
+      {
+        "title": "快連 VPN 祝全球華人使用者蛇年大吉！",
+        "summary": "值此辭舊迎新之際，快連 VPN 團隊祝您蛇年大吉，蒸蒸日上，財源滾滾，幸福安康！續乘龍氣迎風上，又如靈蛇自在遊。",
+        "badgeText": "最新發布"
+      },
+      {
+        "title": "防毒軟體報 VPN 病毒，VPN 真的安全嗎？",
+        "summary": ""
+      },
+      {
+        "title": "連多裝置共享都做不到，快連 VPN 團隊在摸魚嗎？",
+        "summary": ""
+      },
+      {
+        "title": "已經有人上當了! 針對華人 VPN 使用者最新騙局",
+        "summary": ""
+      },
+      {
+        "title": "深度評測：快連VPN的速度與穩定性如何？",
+        "summary": ""
+      },
+      {
+        "title": "VPN選擇困難？看這一篇就夠了！",
+        "summary": ""
+      },
+      {
+        "title": "保護您的線上隱私：VPN的重要性",
+        "summary": ""
+      }
+    ]
+  },
+  "loginPage": {
+    "login": {
+      "title": "登入快連帳戶",
+      "usernamePlaceholder": "使用者名稱或電子郵件",
+      "passwordPlaceholder": "密碼",
+      "loginButton": "登入",
+      "forgotPasswordLink": "忘記密碼?",
+      "registerLink": "註冊帳戶",
+      "showPassword": "顯示密碼",
+      "hidePassword": "隱藏密碼",
+      "loginAttemptMessage": "登入功能尚未實作。（模擬）"
+    },
+    "forgotPassword": {
+      "title": "忘記密碼",
+      "description": "您可以在客戶端的帳戶管理中查看自己的使用者名稱及密碼，如果沒有客戶端請先返回官網首頁下載。",
+      "goHomeButton": "返回首頁",
+      "haveAccount": "已有帳戶？",
+      "goToLogin": "去登入"
+    },
+    "register": {
+      "title": "註冊快連帳戶",
+      "description": "暫時不支援在網站上註冊帳戶，請您在客戶端中進行註冊，如果沒有客戶端請返回官網首頁下載。",
+      "goHomeButton": "返回首頁",
+      "haveAccount": "已有帳戶？",
+      "goToLogin": "去登入"
+    }
+  },
+  "notFoundPage": {
+    "title": "哎呀！頁面找不到了。",
+    "description": "您正在尋找的頁面可能已被移除、名稱已更改或暫時不可用。",
+    "goHomeButton": "返回首頁"
+  },
+  "altTexts": {
+    "logo": "快連VPN Logo",
+    "footerLogo": "快連VPN 頁腳Logo",
+    "appStoreIcon": "App Store 圖示",
+    "qrCodeDownload": "下載APP QR Code",
+    "scanToDownloadQR": "掃碼下載APP",
+    "telegramQrCode": "Telegram QR Code",
+    "referralAnimation": "推廣獎勵動畫圖示",
+    "loginIllustration": "登入圖示"
+  }
+}

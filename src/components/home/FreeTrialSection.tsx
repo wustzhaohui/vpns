@@ -1,14 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-// New SVG Icon for PC
 const NewWindowsIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     className="icon"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    {...props} // Spread props to allow className, etc.
-    fill="currentColor" // Ensure fill is applied if not specified in props
+    {...props}
+    fill="currentColor"
   >
     <path d="M523.8 191.4v288.9h382V128.1zM523.8 833.6l382 62.2v-352h-382zM120.1 480.2H443V201.9l-322.9 53.5zM120.1 770.6L443 823.2V543.8H120.1z"></path>
   </svg>
@@ -25,7 +25,6 @@ const AppleIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-// New SVG Icon for Android
 const NewAndroidIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     className="icon"
@@ -39,61 +38,70 @@ const NewAndroidIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-const trialItems = [
-  {
-    platform: 'PC 版下载',
-    icon: (
-      <NewWindowsIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />
-    ),
-    gradient: 'from-blue-500 to-fuchsia-500',
-  },
-  {
-    platform: 'iOS 版下载',
-    icon: (
-      <AppleIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />
-    ),
-    gradient: 'from-blue-500 to-pink-500',
-  },
-  {
-    platform: '安卓版下载',
-    icon: (
-      <NewAndroidIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />
-    ),
-    gradient: 'from-blue-500 to-indigo-500',
-  },
-  {
-    platform: 'Mac 版下载',
-    icon: (
-      <AppleIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />
-    ),
-    gradient: 'from-blue-500 to-pink-500',
-  },
-];
 
 const FreeTrialSection: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+
+  const titleFontSize = useLargeFont
+    ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[4.2rem] lg:text-[5rem] xl:text-[6.4rem]'
+    : 'text-[2.6rem] sm:text-[3.2rem] md:text-[3.8rem] lg:text-[4.5rem] xl:text-[5.0rem]';
+  
+  const buttonTextFontSize = useLargeFont
+    ? 'text-[1.5rem] sm:text-[1.7rem] md:text-[1.9rem] lg:text-[2rem] xl:text-[2.2rem]'
+    : 'text-[1.4rem] sm:text-[1.6rem] md:text-[1.7rem] lg:text-[1.8rem] xl:text-[2.0rem]';
+
+
+  const trialItems = [
+    {
+      platformKey: 'homePage.freeTrial.buttons.pc',
+      icon: <NewWindowsIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />, 
+      gradient: 'from-blue-500 to-fuchsia-500',
+      imgSrc: '/assets/test-01.png'
+    },
+    {
+      platformKey: 'homePage.freeTrial.buttons.ios',
+      icon: <AppleIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />,
+      gradient: 'from-blue-500 to-pink-500',
+      imgSrc: '/assets/test-02.png'
+    },
+    {
+      platformKey: 'homePage.freeTrial.buttons.android',
+      icon: <NewAndroidIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />,
+      gradient: 'from-blue-500 to-indigo-500',
+      imgSrc: '/assets/test-03.png'
+    },
+    {
+      platformKey: 'homePage.freeTrial.buttons.mac',
+      icon: <AppleIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />,
+      gradient: 'from-blue-500 to-pink-500',
+      imgSrc: '/assets/test-04.png'
+    },
+  ];
+
   return (
     <section className="py-20 lg:py-28 bg-white text-center">
       <div className="main-container mx-auto px-4 sm:px-6 lg:px-8 max-w-container-wide">
-        <h2 className="text-[2.8rem] sm:text-[3.5rem] md:text-[4.2rem] lg:text-[5rem] xl:text-[6.4rem] font-bold text-brand-text-primary mb-12 md:mb-16">
-          立即免费试用
+        <h2 className={`${titleFontSize} font-bold text-brand-text-primary mb-12 md:mb-16`}>
+          {t('homePage.freeTrial.title')}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {trialItems.map((item, index) => (
+          {trialItems.map((item) => (
             <div
-              key={item.platform}
+              key={item.platformKey}
               className="flex flex-col items-center"
             >
               <img
-                src={`/assets/test-0${index + 1}.png`}
-                alt={`${item.platform} app preview`}
+                src={item.imgSrc}
+                alt={t('homePage.freeTrial.appPreviewAlt', { platform: t(item.platformKey) })}
                 className="w-full object-contain rounded-lg mb-8 sm:mb-12 md:mb-16"
-                aria-label={`${item.platform} app preview`}
+                aria-label={t('homePage.freeTrial.appPreviewAlt', { platform: t(item.platformKey) })}
               />
               <button
-                className={`w-full max-w-[28rem] flex items-center justify-center text-white px-6 h-[6rem] sm:h-[6.5rem] md:h-[7rem] text-[1.5rem] sm:text-[1.7rem] md:text-[1.9rem] lg:text-[2rem] xl:text-[2.2rem] rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-gradient-to-r ${item.gradient}`}
+                className={`w-full max-w-[28rem] flex items-center justify-center text-white px-6 h-[6rem] sm:h-[6.5rem] md:h-[7rem] ${buttonTextFontSize} rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-gradient-to-r ${item.gradient}`}
               >
                 {item.icon}
-                {item.platform}
+                {t(item.platformKey)}
               </button>
             </div>
           ))}

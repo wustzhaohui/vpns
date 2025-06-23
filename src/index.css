@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Charter';
+  src: url('/fonts/Charter.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,15 +24,12 @@ html {
 
 body {
   margin: 0;
-  font-family: Helvetica, Charter, PingFang SC, Microsoft YaHei, Arial,
-    sans-serif;
+  font-family: Helvetica, Charter, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f0f2f5; /* Light gray background for contrast */
   font-size: 1.8rem; /* Default body font size: 18px */
-  color: theme(
-    'colors.brand-text-primary'
-  ); /* Default text color set to #333333 */
+  color: theme('colors.brand-text-primary'); /* Default text color set to #333333 */
 }
 
 /* Custom scrollbar for better aesthetics */
@@ -49,7 +62,7 @@ body {
     /* prettier-ignore */
     @apply flex items-center justify-center bg-white text-brand-purple px-8 py-3 text-[1.8rem] rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300;
   }
-
+  
   .card {
     @apply bg-white p-6 rounded-xl shadow-lg;
   }

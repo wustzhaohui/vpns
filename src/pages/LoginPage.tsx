@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const LoginPage: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -29,43 +33,51 @@ const LoginPage: React.FC = () => {
     }
 
     if (isValid) {
-      // Handle login logic here
       console.log('Login attempt:', { username, password });
-      alert('Login functionality is not implemented yet.');
+      // Simulating a successful login for demonstration if needed, or actual logic
+      // For now, it just logs and alerts
+      alert(t('loginPage.login.loginAttemptMessage')); // Using a translated message
     }
   };
+
+  const titleFontSize = useLargeFont ? 'md:text-[64px]' : 'md:text-[48px]';
+  const descriptionFontSize = useLargeFont ? 'md:text-[2rem]' : 'md:text-[1.8rem]';
+  const inputPlaceholderFontSize = useLargeFont ? 'md:placeholder:text-[30px] md:text-[30px]' : 'md:placeholder:text-[24px] md:text-[24px]';
+  const buttonTextFontSize = useLargeFont ? 'md:text-[28px]' : 'md:text-[22px]';
+  const linkTextFontSize = useLargeFont ? 'md:text-[22px] lg:text-[24px]' : 'md:text-[18px] lg:text-[20px]';
+
 
   const renderContent = () => {
     if (viewMode === 'forgotPassword') {
       return (
         <>
           <div className="mb-6 md:mb-[45px]">
-            <h2 className="text-left text-3xl md:text-[64px] font-bold text-brand-text-primary">
-              忘记密码
+            <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}>
+              {t('loginPage.forgotPassword.title')}
             </h2>
           </div>
-          <p className="text-left text-base md:text-[2rem] text-brand-text-muted mb-8 md:mb-12 leading-relaxed">
-            您可以在客户端的账户管理中查看自己的用户名及密码，如果没有客户端请先返回官网首页下载。
+          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-12 leading-relaxed`}>
+            {t('loginPage.forgotPassword.description')}
           </p>
           <div className="w-full mb-6 md:mb-[40px]">
             <Link
               to="/"
-              className="group relative w-full h-14 md:h-[7.5rem] rounded-full text-lg md:text-[28px] flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-[#2533E8] via-[#8936EB] to-[#DC30A6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95"
-              aria-label="返回首页"
+              className={`group relative w-full h-14 md:h-[7.5rem] rounded-full text-lg ${buttonTextFontSize} flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-[#2533E8] via-[#8936EB] to-[#DC30A6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95`}
+              aria-label={t('loginPage.forgotPassword.goHomeButton')}
             >
-              返回首页
+              {t('loginPage.forgotPassword.goHomeButton')}
             </Link>
           </div>
           <div className="text-left">
-            <div className="font-medium text-sm sm:text-base md:text-[22px] lg:text-[24px]">
-              <span className="text-brand-text-primary">已有账号 </span>
+            <div className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}>
+              <span className="text-brand-text-primary">{t('loginPage.forgotPassword.haveAccount')}</span>
               <button
                 type="button"
                 onClick={() => setViewMode('login')}
                 className="text-gradient-purple-pink py-2 transition-opacity duration-150 hover:opacity-80 focus:outline-none"
-                aria-label="去登录"
+                aria-label={t('loginPage.forgotPassword.goToLogin')}
               >
-                去登录
+                {t('loginPage.forgotPassword.goToLogin')}
               </button>
             </div>
           </div>
@@ -77,32 +89,32 @@ const LoginPage: React.FC = () => {
       return (
         <>
           <div className="mb-6 md:mb-[45px]">
-            <h2 className="text-left text-3xl md:text-[64px] font-bold text-brand-text-primary">
-              注册快连账户
+            <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}>
+              {t('loginPage.register.title')}
             </h2>
           </div>
-          <p className="text-left text-base md:text-[2rem] text-brand-text-muted mb-8 md:mb-12 leading-relaxed">
-            暂时不支持在网站上注册账户，请您在客户端中进行注册，如果没有客户端请返回官网首页下载。
+          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-12 leading-relaxed`}>
+            {t('loginPage.register.description')}
           </p>
           <div className="w-full mb-6 md:mb-[40px]">
             <Link
               to="/"
-              className="group relative w-full h-14 md:h-[7.5rem] rounded-full text-lg md:text-[28px] flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-[#2533E8] via-[#8936EB] to-[#DC30A6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95"
-              aria-label="返回首页"
+              className={`group relative w-full h-14 md:h-[7.5rem] rounded-full text-lg ${buttonTextFontSize} flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-[#2533E8] via-[#8936EB] to-[#DC30A6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95`}
+              aria-label={t('loginPage.register.goHomeButton')}
             >
-              返回首页
+              {t('loginPage.register.goHomeButton')}
             </Link>
           </div>
           <div className="text-left">
-            <div className="font-medium text-sm sm:text-base md:text-[22px] lg:text-[24px]">
-              <span className="text-brand-text-primary">已有账号 </span>
+            <div className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}>
+              <span className="text-brand-text-primary">{t('loginPage.register.haveAccount')}</span>
               <button
                 type="button"
                 onClick={() => setViewMode('login')}
                 className="text-gradient-purple-pink py-2 transition-opacity duration-150 hover:opacity-80 focus:outline-none"
-                aria-label="去登录"
+                aria-label={t('loginPage.register.goToLogin')}
               >
-                去登录
+                {t('loginPage.register.goToLogin')}
               </button>
             </div>
           </div>
@@ -110,16 +122,14 @@ const LoginPage: React.FC = () => {
       );
     }
 
-    // Default to login form
     return (
       <>
         <div className="mb-6 md:mb-[45px]">
-          <h2 className="text-left text-3xl md:text-[64px] font-bold text-brand-text-primary md:whitespace-nowrap">
-            登录快连账户
+          <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary md:whitespace-nowrap`}>
+            {t('loginPage.login.title')}
           </h2>
         </div>
         <form onSubmit={handleSubmit}>
-          {/* Username Input Field */}
           <div
             className={`
               relative flex items-center bg-slate-100 rounded-full md:rounded-[4rem]
@@ -154,8 +164,8 @@ const LoginPage: React.FC = () => {
               type="text"
               autoComplete="username"
               required
-              className="appearance-none rounded-none relative block w-full bg-transparent border-none text-base md:text-[30px] leading-normal md:leading-[40px] text-brand-text-primary placeholder:text-input-icon-placeholder placeholder:text-base md:placeholder:text-[30px] focus:outline-none focus:ring-0 focus:border-transparent h-full"
-              placeholder="用户名或邮箱"
+              className={`appearance-none rounded-none relative block w-full bg-transparent border-none text-base ${inputPlaceholderFontSize} leading-normal md:leading-[40px] text-brand-text-primary placeholder:text-input-icon-placeholder placeholder:text-base focus:outline-none focus:ring-0 focus:border-transparent h-full`}
+              placeholder={t('loginPage.login.usernamePlaceholder')}
               value={username}
               onChange={(e) => {
                 setUsername(e.target.value);
@@ -164,7 +174,6 @@ const LoginPage: React.FC = () => {
             />
           </div>
 
-          {/* Password Input Field */}
           <div
             className={`
               relative flex items-center bg-slate-100 rounded-full md:rounded-[4rem]
@@ -199,8 +208,8 @@ const LoginPage: React.FC = () => {
               type={showPassword ? 'text' : 'password'}
               autoComplete="current-password"
               required
-              className="appearance-none rounded-none relative block w-full bg-transparent border-none text-base md:text-[30px] leading-normal md:leading-[40px] text-brand-text-primary placeholder:text-input-icon-placeholder placeholder:text-base md:placeholder:text-[30px] focus:outline-none focus:ring-0 focus:border-transparent h-full"
-              placeholder="密码"
+              className={`appearance-none rounded-none relative block w-full bg-transparent border-none text-base ${inputPlaceholderFontSize} leading-normal md:leading-[40px] text-brand-text-primary placeholder:text-input-icon-placeholder placeholder:text-base focus:outline-none focus:ring-0 focus:border-transparent h-full`}
+              placeholder={t('loginPage.login.passwordPlaceholder')}
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -211,7 +220,7 @@ const LoginPage: React.FC = () => {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="text-input-icon-placeholder hover:text-brand-text-primary focus:outline-none p-2"
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
+              aria-label={t(showPassword ? 'loginPage.login.hidePassword' : 'loginPage.login.showPassword')}
             >
               {showPassword ? (
                 <svg
@@ -252,34 +261,32 @@ const LoginPage: React.FC = () => {
             </button>
           </div>
 
-          {/* Login Button */}
           <div className="w-full mb-4 md:mb-[30px]">
             <button
               type="submit"
-              className="group relative w-full h-14 md:h-[7.5rem] rounded-full text-lg md:text-[28px] flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-brand-gradient-from to-brand-gradient-to focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95"
-              aria-label="登录账户"
+              className={`group relative w-full h-14 md:h-[7.5rem] rounded-full text-lg ${buttonTextFontSize} flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-brand-gradient-from to-brand-gradient-to focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95`}
+              aria-label={t('loginPage.login.loginButton')}
             >
-              登录
+              {t('loginPage.login.loginButton')}
             </button>
           </div>
 
-          {/* Links under the button */}
           <div className="flex flex-row items-center justify-between mt-6 md:mt-[40px]">
             <button
               type="button"
               onClick={() => setViewMode('forgotPassword')}
-              className="font-medium text-sm sm:text-base md:text-[22px] lg:text-[24px] text-gradient-purple-pink py-2 transition-opacity duration-150 hover:opacity-80 focus:outline-none"
-              aria-label="忘记密码"
+              className={`font-medium text-sm sm:text-base ${linkTextFontSize} text-gradient-purple-pink py-2 transition-opacity duration-150 hover:opacity-80 focus:outline-none`}
+              aria-label={t('loginPage.login.forgotPasswordLink')}
             >
-              忘记密码?
+              {t('loginPage.login.forgotPasswordLink')}
             </button>
             <button
               type="button"
               onClick={() => setViewMode('register')}
-              className="font-medium text-sm sm:text-base md:text-[22px] lg:text-[24px] text-gradient-purple-pink py-2 transition-opacity duration-150 hover:opacity-80 focus:outline-none"
-              aria-label="注册账户"
+              className={`font-medium text-sm sm:text-base ${linkTextFontSize} text-gradient-purple-pink py-2 transition-opacity duration-150 hover:opacity-80 focus:outline-none`}
+              aria-label={t('loginPage.login.registerLink')}
             >
-              注册账户
+              {t('loginPage.login.registerLink')}
             </button>
           </div>
         </form>
@@ -289,19 +296,15 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="h-[calc(100vh-60px)] md:h-[calc(100vh-100px)] overflow-y-auto flex items-center justify-center py-8 px-4 sm:py-12 sm:px-6 lg:px-8 bg-slate-50">
-      {/* Card Wrapper: Constrains width, centers. Shadow and background removed. */}
       <div className="w-full max-w-container-wide mx-auto rounded-xl overflow-hidden">
-        {/* Main login layout: flex-col for mobile, grid for md+ */}
         <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-0">
-          {/* Illustration area: Visible on all screens, ordered first on mobile */}
           <div className="flex order-1 md:order-none flex-col items-center justify-center p-4 sm:p-6 md:p-12 mb-6 md:mb-0">
             <img
               className="max-w-full h-auto block object-contain max-h-[200px] sm:max-h-[250px] md:max-h-full"
               src="/assets/login_info.8a76c6cc.png"
-              alt="Login illustration"
+              alt={t('altTexts.loginIllustration')}
             />
           </div>
-          {/* Form area: Ordered second on mobile */}
           <div className="order-2 md:order-none pt-0 pb-6 sm:pb-8 md:py-12 px-4 sm:px-6 md:px-8 flex flex-col justify-center">
             <div className="w-full">{renderContent()}</div>
           </div>
