@@ -14,7 +14,8 @@
     },
     "mobileMenu": {
       "open": "Открыть главное меню",
-      "closeQR": "Закрыть QR-код"
+      "closeQR": "Закрыть QR-код",
+      "closeDrawerAriaLabel": "Закрыть меню навигации"
     },
     "languageSwitcher": {
       "currentLabel": "Изменить язык, текущий язык: {{language}}",
@@ -57,6 +58,9 @@
     "hero": {
       "title": "VPN, который всегда подключается",
       "subtitle": "macOS AppStore Гонконг Инструменты Топ 3",
+      "googleSafetyAudit": "Прошла независимую проверку безопасности Google",
+      "subtitleIosMobile": "iOS AppStore Гонконг Инструменты Топ 5",
+      "googleInstallationAudit": "Прошла независимую проверку установки Google",
       "stats": {
         "connectSpeed": "Молниеносное соединение",
         "freeTrial": "Бесплатная пробная версия",
@@ -64,7 +68,11 @@
       },
       "buttons": {
         "macDownload": "Загрузить для Mac",
-        "otherPlatforms": "Другие платформы"
+        "otherPlatforms": "Другие платформы",
+        "iosDownload": "Загрузить для iOS",
+        "androidDownload": "Загрузить для Android",
+        "otherPlatformsMobileLink": "Другие платформы",
+        "scrollToFreeTrialAriaLabel": "Прокрутить к разделу бесплатной пробной версии"
       }
     },
     "popularApps": {
@@ -160,6 +168,7 @@
       "description": "Пригласите одного человека установить и заработайте до 5 юаней. Получайте дополнительный еженедельный бонус в 100 юаней. Выводите на Alipay или банковскую карту. Для регистрации не требуется личная информация, такая как ID. Простое руководство!",
       "scanPrompt": "Сканируйте, чтобы стать промоутером сейчас"
     },
+    "telegramButton": "Telegram",
     "infoCards": [
       {
         "title": "Заработайте 5 юаней за каждого реферала",
@@ -251,10 +260,13 @@
     "logo": "Логотип LetsVPN",
     "footerLogo": "Логотип LetsVPN в подвале",
     "appStoreIcon": "Значок App Store",
+    "googleIcon": "Значок Google",
     "qrCodeDownload": "QR-код для загрузки приложения",
     "scanToDownloadQR": "Сканируйте QR-код для загрузки приложения",
     "telegramQrCode": "QR-код Telegram",
+    "telegramIcon": "Значок Telegram",
     "referralAnimation": "Анимация реферального бонуса",
-    "loginIllustration": "Иллюстрация входа"
+    "loginIllustration": "Иллюстрация входа",
+    "vpnConnectionAnimation": "Анимация VPN-соединения"
   }
 }

@@ -13,6 +13,28 @@ const PersonIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
+const NewMenuIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    viewBox="0 0 1024 1024"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M128 192l768 0 0 128-768 0 0-128Z"
+      fill="currentColor"
+    ></path>
+    <path
+      d="M128 448l768 0 0 128-768 0 0-128Z"
+      fill="currentColor"
+    ></path>
+    <path
+      d="M128 704l768 0 0 128-768 0 0-128Z"
+      fill="currentColor"
+    ></path>
+  </svg>
+);
+
 const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
   // Determine if a language uses larger font sizes (e.g., Chinese scripts)
@@ -22,14 +44,13 @@ const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [headerIsNudgingUp, setHeaderIsNudgingUp] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
-  const [isQrPopoverOpen, setIsQrPopoverOpen] = useState(false);
+  const [isQrPopoverOpen, setIsQrPopoverOpen] = useState(false); // For desktop QR popover
 
   const [isHeaderLanguageDropdownOpen, setIsHeaderLanguageDropdownOpen] =
     useState(false);
   const headerLanguageDropdownRef = useRef<HTMLDivElement>(null);
 
-  const qrPopoverRef = useRef<HTMLDivElement>(null); // For mobile QR popover
-  const qrButtonRef = useRef<HTMLButtonElement>(null); // For mobile QR popover trigger & general reference
+  const qrButtonRef = useRef<HTMLButtonElement>(null); // For desktop QR popover trigger
   const qrPopoverDesktopRef = useRef<HTMLDivElement>(null); // For desktop QR popover
 
   const isBehaviorActiveRef = useRef(false);
@@ -43,8 +64,22 @@ const Header: React.FC = () => {
     location.pathname === '/' || location.pathname === '/referral';
   const animationDuration = 300;
 
-  const useLightText = isOnHeroBackgroundPage;
-  const logoSrc = isOnHeroBackgroundPage
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Determine if hero header styles (light text, background image) should be applied
+  const applyHeroHeaderStyles =
+    isOnHeroBackgroundPage || (isMobileView && isOnLoginPage);
+
+  const useLightText = applyHeroHeaderStyles;
+  const logoSrc = applyHeroHeaderStyles
     ? '/assets/logo.png'
     : '/assets/footer-logo.png';
 
@@ -56,11 +91,9 @@ const Header: React.FC = () => {
       ) {
         setIsHeaderLanguageDropdownOpen(false);
       }
-      // Desktop QR popover click-outside logic is removed as it's now hover-based
     };
 
     if (isHeaderLanguageDropdownOpen) {
-      // Only listen if language dropdown is open
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -91,13 +124,24 @@ const Header: React.FC = () => {
       const scrollingDown = currentY > lastYRef.current;
       setIsAtTop(currentY <= 10);
 
-      if (isOnLoginPage || isOnBlogPage) {
+      if (isOnBlogPage || (isOnLoginPage && !isMobileView)) {
+        // Standard behavior for blog, or desktop login
         setHeaderIsNudgingUp(false);
         isBehaviorActiveRef.current = false;
         if (pauseTimerRef.current) {
           clearTimeout(pauseTimerRef.current);
           pauseTimerRef.current = null;
         }
+        lastYRef.current = currentY;
+        return;
+      }
+
+      // For pages with hero background (home, referral, mobile login), different scroll behavior
+      if (applyHeroHeaderStyles && isMobileView && isOnLoginPage) {
+        // Mobile login page with hero styles should not nudge up/down
+        setHeaderIsNudgingUp(false);
+        isBehaviorActiveRef.current = false;
+        if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
         lastYRef.current = currentY;
         return;
       }
@@ -129,36 +173,30 @@ const Header: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
       if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
     };
-  }, [isOnLoginPage, isOnBlogPage, animationDuration]);
+  }, [
+    isOnLoginPage,
+    isOnBlogPage,
+    animationDuration,
+    applyHeroHeaderStyles,
+    isMobileView,
+  ]);
 
-  // Click outside for mobile QR modal
+  // Close mobile menu on route change
   useEffect(() => {
-    const handleClickOutsideMobileQr = (event: MouseEvent) => {
-      if (
-        isQrPopoverOpen &&
-        qrPopoverRef.current && // mobile popover ref
-        !qrPopoverRef.current.contains(event.target as Node)
-      ) {
-        // Check if the click was on the button that opens the mobile modal.
-        // If so, the button's own onClick should handle toggling, not this.
-        if (
-          qrButtonRef.current &&
-          qrButtonRef.current.contains(event.target as Node) &&
-          window.innerWidth < 768
-        ) {
-          // Click was on the trigger button for mobile modal, do nothing here.
-        } else {
-          setIsQrPopoverOpen(false);
-        }
-      }
-    };
-    if (isQrPopoverOpen && window.innerWidth < 768) {
-      document.addEventListener('mousedown', handleClickOutsideMobileQr);
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
     return () => {
-      document.removeEventListener('mousedown', handleClickOutsideMobileQr);
+      document.body.style.overflow = '';
     };
-  }, [isQrPopoverOpen]);
+  }, [isMobileMenuOpen]);
 
   const mainNavLinks = [
     { to: '/', labelKey: 'header.home', end: true },
@@ -167,21 +205,22 @@ const Header: React.FC = () => {
     { to: '/help', labelKey: 'header.helpCenter' },
   ];
 
-  const headerBaseClass = `sticky top-0 z-50 h-[50px] md:h-[100px] transition-all duration-[${animationDuration}ms] ease-in-out`;
+  const headerBaseClass = `sticky top-0 z-50 h-[60px] md:h-[100px] transition-all duration-[${animationDuration}ms] ease-in-out`;
 
-  const headerStyle: React.CSSProperties = isOnHeroBackgroundPage
+  const headerStyle: React.CSSProperties = applyHeroHeaderStyles
     ? {
         backgroundImage: 'url(/assets/home_bg_pc.png)',
         backgroundPosition: 'top center',
-        backgroundSize: '100% auto',
+        ...(isMobileView ? {} : { backgroundSize: 'cover' }),
         backgroundRepeat: 'no-repeat',
       }
     : {};
 
   let headerDynamicClasses = '';
-  if (isOnHeroBackgroundPage) {
+  if (applyHeroHeaderStyles) {
     headerDynamicClasses = 'shadow-none';
   } else {
+    // For pages like Blog, or Desktop Login
     headerDynamicClasses = 'bg-white';
     if (isAtTop) {
       headerDynamicClasses += ' shadow-none';
@@ -191,230 +230,134 @@ const Header: React.FC = () => {
   }
 
   return (
-    <header
-      className={`${headerBaseClass} ${headerDynamicClasses} ${
-        headerIsNudgingUp ? '-translate-y-full' : 'translate-y-0'
-      }`}
-      style={headerStyle}
-      aria-label="Main Navigation"
-    >
-      <div className="main-container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full max-w-container-wide">
-        <Link
-          to="/"
-          className="flex-shrink-0 flex items-center"
-        >
-          <img
-            className="w-[132px] h-[30px] md:w-[220px] md:h-[50px] object-contain"
-            src={logoSrc}
-            alt={t('altTexts.logo')}
-          />
-        </Link>
+    <>
+      <header
+        className={`${headerBaseClass} ${headerDynamicClasses} ${
+          headerIsNudgingUp ? '-translate-y-full' : 'translate-y-0'
+        }`}
+        style={headerStyle}
+        aria-label="Main Navigation"
+      >
+        <div className="main-container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full max-w-container-wide">
+          <Link
+            to="/"
+            className="flex-shrink-0 flex items-center"
+          >
+            <img
+              className="w-auto h-[30px] sm:h-[32px] md:w-[220px] md:h-[50px] object-contain" // Updated mobile logo height
+              src={logoSrc}
+              alt={t('altTexts.logo')}
+            />
+          </Link>
 
-        {!isOnLoginPage && (
-          <nav className="hidden md:flex items-center space-x-24 justify-end">
-            {mainNavLinks.map((link) => (
-              <NavLink
-                key={link.labelKey}
-                to={link.to}
-                end={link.end}
-                className={({ isActive }) =>
-                  `text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] font-medium transition-colors duration-150 ${
-                    isActive
+          {/* Desktop Navigation */}
+          {!isOnLoginPage && (
+            <nav className="hidden md:flex items-center space-x-24 justify-end">
+              {mainNavLinks.map((link) => (
+                <NavLink
+                  key={link.labelKey}
+                  to={link.to}
+                  end={link.end}
+                  className={({ isActive }) =>
+                    `text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] font-medium transition-colors duration-150 ${
+                      isActive
+                        ? useLightText
+                          ? 'text-white'
+                          : 'text-brand-purple'
+                        : useLightText
+                        ? 'text-gray-200 hover:text-white'
+                        : 'text-brand-text-muted hover:text-brand-purple'
+                    }`
+                  }
+                >
+                  {t(link.labelKey)}
+                </NavLink>
+              ))}
+              {/* Scan to Download - Desktop */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsQrPopoverOpen(true)}
+                onMouseLeave={() => setIsQrPopoverOpen(false)}
+              >
+                <button
+                  ref={qrButtonRef}
+                  className={`text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] font-medium transition-colors duration-150 cursor-default ${
+                    isQrPopoverOpen && window.innerWidth >= 768
                       ? useLightText
                         ? 'text-white'
                         : 'text-brand-purple'
                       : useLightText
                       ? 'text-gray-200 hover:text-white'
                       : 'text-brand-text-muted hover:text-brand-purple'
-                  }`
-                }
-              >
-                {t(link.labelKey)}
-              </NavLink>
-            ))}
-            {/* Scan to Download - Desktop */}
-            <div
-              className="relative"
-              onMouseEnter={() => setIsQrPopoverOpen(true)}
-              onMouseLeave={() => setIsQrPopoverOpen(false)}
-            >
-              <button
-                ref={qrButtonRef}
-                className={`text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] font-medium transition-colors duration-150 cursor-default ${
-                  isQrPopoverOpen && window.innerWidth >= 768
-                    ? useLightText
-                      ? 'text-white'
-                      : 'text-brand-purple'
-                    : useLightText
-                    ? 'text-gray-200 hover:text-white'
-                    : 'text-brand-text-muted hover:text-brand-purple'
-                }`}
-                aria-haspopup="true"
-                aria-expanded={isQrPopoverOpen && window.innerWidth >= 768}
-              >
-                {t('header.scanToDownload')}
-              </button>
-              {isQrPopoverOpen && window.innerWidth >= 768 && (
-                <div
-                  ref={qrPopoverDesktopRef}
-                  className="desktop-qr-popover-with-caret absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[220px] z-20"
-                  role="tooltip"
+                  }`}
+                  aria-haspopup="true"
+                  aria-expanded={isQrPopoverOpen && window.innerWidth >= 768}
                 >
-                  <div className="rounded-xl shadow-2xl overflow-hidden border border-gray-200">
-                    <div className="bg-white p-4 flex flex-col items-center pt-6">
-                      {' '}
-                      {/* Added pt-6 for top padding for caret */}
-                      <img
-                        src="/assets/download-app.png"
-                        alt={t('altTexts.scanToDownloadQR')}
-                        className="w-full h-auto object-contain my-2"
-                      />
-                      <p className="text-center text-brand-text-primary mt-2 text-[2rem]">
-                        {t('header.qrPopover.scanPrompt')}
-                      </p>
-                      <p className="text-center text-brand-text-primary mt-1 text-[2rem] font-medium">
-                        {t('header.qrPopover.downloadPrompt')}
-                      </p>
-                      <hr className="w-full border-t border-dashed border-gray-300 my-2" />
-                      <p className="text-center text-gray-500 text-[1.5rem] italic">
-                        {t('header.qrPopover.recommendBrowser')}
-                      </p>
+                  {t('header.scanToDownload')}
+                </button>
+                {isQrPopoverOpen && window.innerWidth >= 768 && (
+                  <div
+                    ref={qrPopoverDesktopRef}
+                    className="desktop-qr-popover-with-caret absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[220px] z-20"
+                    role="tooltip"
+                  >
+                    <div className="rounded-xl shadow-2xl overflow-hidden border border-gray-200">
+                      <div className="bg-white p-4 flex flex-col items-center pt-6">
+                        <img
+                          src="/assets/download-app.png"
+                          alt={t('altTexts.scanToDownloadQR')}
+                          className="w-full h-auto object-contain my-2"
+                        />
+                        <p className="text-center text-brand-text-primary mt-2 text-[2rem]">
+                          {t('header.qrPopover.scanPrompt')}
+                        </p>
+                        <p className="text-center text-brand-text-primary mt-1 text-[2rem] font-medium">
+                          {t('header.qrPopover.downloadPrompt')}
+                        </p>
+                        <hr className="w-full border-t border-dashed border-gray-300 my-2" />
+                        <p className="text-center text-gray-500 text-[1.5rem] italic">
+                          {t('header.qrPopover.recommendBrowser')}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
-            {/* Login Button - Desktop */}
-            <div className="flex items-center">
-              <Link
-                to="/login"
-                className={`flex items-center justify-center text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] font-medium px-8 h-[5rem] rounded-full transition-all duration-300 transform hover:scale-105
-                  ${
-                    useLightText
-                      ? 'bg-transparent border border-white text-white shadow-none hover:bg-white/10'
-                      : 'text-white shadow-lg hover:shadow-xl bg-gradient-to-r from-header-gradient-start via-header-gradient-middle to-header-gradient-end hover:opacity-90'
-                  }`}
-              >
-                <PersonIcon className="w-[25px] h-[25px] mr-2 text-white" />
-                {t('header.loginAccount')}
-              </Link>
-            </div>
-          </nav>
-        )}
-
-        {isOnLoginPage && (
-          <div
-            className="hidden md:flex items-center relative"
-            ref={headerLanguageDropdownRef}
-          >
-            <button
-              onClick={toggleHeaderLanguageDropdown}
-              className="text-brand-text-muted hover:text-brand-purple transition-colors flex items-center text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] font-medium"
-              aria-haspopup="true"
-              aria-expanded={isHeaderLanguageDropdownOpen}
-              aria-label={t('header.languageSwitcher.changeLanguage')}
-            >
-              <svg
-                className="h-[1.8rem] w-[1.8rem] lg:h-[2rem] lg:w-[2rem] xl:h-[2.2rem] xl:w-[2.2rem] mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                ></path>
-              </svg>
-              {i18n.language.startsWith('zh-Hant')
-                ? '繁體中文'
-                : i18n.language.startsWith('ru')
-                ? 'Русский'
-                : i18n.language.startsWith('zh')
-                ? '简体中文'
-                : 'English'}
-              <svg
-                className={`w-5 h-5 ml-1.5 transition-transform duration-200 ${
-                  isHeaderLanguageDropdownOpen ? 'rotate-180' : ''
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
-            {isHeaderLanguageDropdownOpen && (
-              <div className="absolute top-full right-0 mt-2 w-max bg-white rounded-md shadow-xl z-20 py-1">
-                <button
-                  onClick={() => selectHeaderLanguage('zh')}
-                  className={`block w-full text-left px-4 py-2 text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] ${
-                    i18n.language.startsWith('zh') &&
-                    !i18n.language.startsWith('zh-Hant')
-                      ? 'font-semibold text-brand-purple'
-                      : 'text-gray-700'
-                  } hover:bg-gray-100`}
-                >
-                  简体中文
-                </button>
-                <button
-                  onClick={() => selectHeaderLanguage('en')}
-                  className={`block w-full text-left px-4 py-2 text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] ${
-                    i18n.language.startsWith('en')
-                      ? 'font-semibold text-brand-purple'
-                      : 'text-gray-700'
-                  } hover:bg-gray-100`}
-                >
-                  English
-                </button>
-                <button
-                  onClick={() => selectHeaderLanguage('zh-Hant')}
-                  className={`block w-full text-left px-4 py-2 text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] ${
-                    i18n.language.startsWith('zh-Hant')
-                      ? 'font-semibold text-brand-purple'
-                      : 'text-gray-700'
-                  } hover:bg-gray-100`}
-                >
-                  繁體中文
-                </button>
-                <button
-                  onClick={() => selectHeaderLanguage('ru')}
-                  className={`block w-full text-left px-4 py-2 text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] ${
-                    i18n.language.startsWith('ru')
-                      ? 'font-semibold text-brand-purple'
-                      : 'text-gray-700'
-                  } hover:bg-gray-100`}
-                >
-                  Русский
-                </button>
+                )}
               </div>
-            )}
-          </div>
-        )}
+              {/* Login Button - Desktop */}
+              <div className="flex items-center">
+                <Link
+                  to="/login"
+                  className={`flex items-center justify-center text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] font-medium px-8 h-[5rem] rounded-full transition-all duration-300 transform hover:scale-105
+                    ${
+                      useLightText // This is correct, as desktop login page does not use light text
+                        ? 'bg-transparent border border-white text-white shadow-none hover:bg-white/10'
+                        : 'text-white shadow-lg hover:shadow-xl bg-gradient-to-r from-header-gradient-start via-header-gradient-middle to-header-gradient-end hover:opacity-90'
+                    }`}
+                >
+                  <PersonIcon
+                    className="w-[25px] h-[25px] mr-2 text-white" // Icon color explicitly white for gradient button
+                  />
+                  {t('header.loginAccount')}
+                </Link>
+              </div>
+            </nav>
+          )}
 
-        <div className="md:hidden flex items-center">
-          {isOnLoginPage ? (
+          {/* Desktop Language Switcher on Login Page (when not mobile and on login page) */}
+          {isOnLoginPage && !isMobileView && (
             <div
+              className="hidden md:flex items-center"
               ref={headerLanguageDropdownRef}
-              className="relative"
             >
               <button
                 onClick={toggleHeaderLanguageDropdown}
-                className="text-brand-text-muted hover:text-brand-purple transition-colors flex items-center text-xl font-medium"
+                className="text-brand-text-muted hover:text-brand-purple transition-colors flex items-center text-sm md:text-base"
                 aria-haspopup="true"
                 aria-expanded={isHeaderLanguageDropdownOpen}
                 aria-label={t('header.languageSwitcher.changeLanguage')}
               >
                 <svg
-                  className="h-6 w-6 mr-1"
+                  className="w-5 h-5 mr-1 md:w-6 md:h-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -435,7 +378,7 @@ const Header: React.FC = () => {
                   ? '简体中文'
                   : 'English'}
                 <svg
-                  className={`w-5 h-5 ml-1 transition-transform duration-200 ${
+                  className={`w-4 h-4 ml-1 transition-transform duration-200 ${
                     isHeaderLanguageDropdownOpen ? 'rotate-180' : ''
                   }`}
                   fill="none"
@@ -452,10 +395,10 @@ const Header: React.FC = () => {
                 </svg>
               </button>
               {isHeaderLanguageDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-md shadow-xl z-20 py-1">
+                <div className="absolute right-4 top-16 mt-2 w-48 bg-white rounded-md shadow-xl z-20 py-1">
                   <button
                     onClick={() => selectHeaderLanguage('zh')}
-                    className={`block w-full text-left px-4 py-2 text-xl ${
+                    className={`block w-full text-left px-4 py-2 text-sm ${
                       i18n.language.startsWith('zh') &&
                       !i18n.language.startsWith('zh-Hant')
                         ? 'font-semibold text-brand-purple'
@@ -466,7 +409,7 @@ const Header: React.FC = () => {
                   </button>
                   <button
                     onClick={() => selectHeaderLanguage('en')}
-                    className={`block w-full text-left px-4 py-2 text-xl ${
+                    className={`block w-full text-left px-4 py-2 text-sm ${
                       i18n.language.startsWith('en')
                         ? 'font-semibold text-brand-purple'
                         : 'text-gray-700'
@@ -476,7 +419,7 @@ const Header: React.FC = () => {
                   </button>
                   <button
                     onClick={() => selectHeaderLanguage('zh-Hant')}
-                    className={`block w-full text-left px-4 py-2 text-xl ${
+                    className={`block w-full text-left px-4 py-2 text-sm ${
                       i18n.language.startsWith('zh-Hant')
                         ? 'font-semibold text-brand-purple'
                         : 'text-gray-700'
@@ -486,7 +429,7 @@ const Header: React.FC = () => {
                   </button>
                   <button
                     onClick={() => selectHeaderLanguage('ru')}
-                    className={`block w-full text-left px-4 py-2 text-xl ${
+                    className={`block w-full text-left px-4 py-2 text-sm ${
                       i18n.language.startsWith('ru')
                         ? 'font-semibold text-brand-purple'
                         : 'text-gray-700'
@@ -497,19 +440,173 @@ const Header: React.FC = () => {
                 </div>
               )}
             </div>
-          ) : (
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset ${
-                useLightText
-                  ? 'text-white hover:text-gray-300 focus:ring-white'
-                  : 'text-brand-text-muted hover:text-brand-purple focus:ring-brand-purple'
-              }`}
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label={t('header.mobileMenu.open')}
-            >
-              {isMobileMenuOpen ? (
+          )}
+
+          {/* Mobile: Hamburger Menu OR Language Switcher on Login Page */}
+          <div className="md:hidden flex items-center">
+            {isOnLoginPage ? (
+              <div ref={headerLanguageDropdownRef}>
+                {' '}
+                {/* Mobile language switcher on login page */}
+                <button
+                  onClick={toggleHeaderLanguageDropdown}
+                  className={`flex items-center text-sm transition-colors
+                    ${
+                      applyHeroHeaderStyles // useLightText will be true if mobile login
+                        ? 'text-white hover:text-gray-300'
+                        : 'text-brand-text-muted hover:text-brand-purple'
+                    }`}
+                  aria-haspopup="true"
+                  aria-expanded={isHeaderLanguageDropdownOpen}
+                  aria-label={t('header.languageSwitcher.changeLanguage')}
+                >
+                  <svg
+                    className="w-5 h-5 mr-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                    ></path>
+                  </svg>
+                  {i18n.language.startsWith('zh-Hant')
+                    ? '繁體中文'
+                    : i18n.language.startsWith('ru')
+                    ? 'Русский'
+                    : i18n.language.startsWith('zh')
+                    ? '简体中文'
+                    : 'English'}
+                  <svg
+                    className={`w-4 h-4 ml-1 transition-transform duration-200 ${
+                      isHeaderLanguageDropdownOpen ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                {isHeaderLanguageDropdownOpen && (
+                  <div className="absolute right-4 top-16 mt-2 w-48 bg-white rounded-md shadow-xl z-20 py-1">
+                    <button
+                      onClick={() => selectHeaderLanguage('zh')}
+                      className={`block w-full text-left px-4 py-2 text-sm ${
+                        i18n.language.startsWith('zh') &&
+                        !i18n.language.startsWith('zh-Hant')
+                          ? 'font-semibold text-brand-purple'
+                          : 'text-gray-700'
+                      } hover:bg-gray-100`}
+                    >
+                      简体中文
+                    </button>
+                    <button
+                      onClick={() => selectHeaderLanguage('en')}
+                      className={`block w-full text-left px-4 py-2 text-sm ${
+                        i18n.language.startsWith('en')
+                          ? 'font-semibold text-brand-purple'
+                          : 'text-gray-700'
+                      } hover:bg-gray-100`}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => selectHeaderLanguage('zh-Hant')}
+                      className={`block w-full text-left px-4 py-2 text-sm ${
+                        i18n.language.startsWith('zh-Hant')
+                          ? 'font-semibold text-brand-purple'
+                          : 'text-gray-700'
+                      } hover:bg-gray-100`}
+                    >
+                      繁體中文
+                    </button>
+                    <button
+                      onClick={() => selectHeaderLanguage('ru')}
+                      className={`block w-full text-left px-4 py-2 text-sm ${
+                        i18n.language.startsWith('ru')
+                          ? 'font-semibold text-brand-purple'
+                          : 'text-gray-700'
+                      } hover:bg-gray-100`}
+                    >
+                      Русский
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              /* Hamburger Menu Button for non-login pages */
+              <button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className={`p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset ${
+                  useLightText // This will correctly use white for home/referral
+                    ? 'text-white hover:text-gray-300 focus:ring-white'
+                    : 'text-brand-text-muted hover:text-brand-purple focus:ring-brand-purple'
+                }`}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-drawer-menu"
+                aria-label={t('header.mobileMenu.open')}
+              >
+                <NewMenuIcon
+                  className="h-7 w-7"
+                  aria-hidden="true"
+                />
+              </button>
+            )}
+          </div>
+        </div>
+      </header>
+
+      {/* New Mobile Drawer Menu - Styled as Pop-up */}
+      {isMobileMenuOpen && !isOnLoginPage && (
+        <div
+          id="mobile-drawer-menu"
+          className="fixed inset-0 z-[60] md:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-menu-title" // Should have an invisible title element if used like this
+        >
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50"
+            aria-hidden="true"
+            onClick={() => setIsMobileMenuOpen(false)}
+          ></div>
+
+          {/* Drawer Panel - Styled as Pop-up */}
+          <div
+            className={`
+              fixed top-4 right-4 
+              w-1/2 max-h-[calc(100vh-2rem)] 
+              bg-mobile-menu-bg 
+              rounded-xl shadow-2xl 
+              flex flex-col
+              transform-origin-top-right transition-all duration-300 ease-in-out
+              ${
+                isMobileMenuOpen
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-95 pointer-events-none'
+              }
+            `}
+          >
+            <div className="flex justify-end items-center h-[60px] px-4 flex-shrink-0">
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 text-white"
+                aria-label={
+                  t('header.mobileMenu.closeDrawerAriaLabel') || 'Close menu'
+                }
+              >
                 <svg
                   className="h-7 w-7"
                   xmlns="http://www.w3.org/2000/svg"
@@ -525,138 +622,35 @@ const Header: React.FC = () => {
                     d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
-              ) : (
-                <svg
-                  className="h-7 w-7"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                </svg>
-              )}
-            </button>
-          )}
-        </div>
-      </div>
-
-      {!isOnLoginPage && isMobileMenuOpen && (
-        <div
-          id="mobile-menu"
-          className="md:hidden absolute top-[50px] left-0 w-full bg-white shadow-xl py-4 z-40"
-        >
-          <nav className="px-2 pt-2 pb-3 space-y-1">
-            {mainNavLinks.map((link) => (
-              <NavLink
-                key={`mobile-${link.labelKey}`}
-                to={link.to}
-                end={link.end}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `block px-3 py-3 rounded-md text-xl font-medium transition-colors duration-150 ${
-                    isActive
-                      ? 'bg-purple-100 text-brand-purple'
-                      : 'text-brand-text-primary hover:bg-gray-100 hover:text-brand-purple'
-                  }`
-                }
-              >
-                {t(link.labelKey)}
-              </NavLink>
-            ))}
-            <div className="px-3 pt-3">
-              <button
-                ref={qrButtonRef} // Attach ref here for mobile QR popover trigger
-                onClick={() => setIsQrPopoverOpen(!isQrPopoverOpen)} // This toggles the mobile modal
-                className={`w-full flex items-center justify-center px-3 py-3 rounded-md text-xl font-medium transition-colors duration-150 ${
-                  isQrPopoverOpen
-                    ? 'bg-purple-100 text-brand-purple'
-                    : 'text-brand-text-primary hover:bg-gray-100 hover:text-brand-purple'
-                }`}
-                aria-haspopup="dialog"
-                aria-expanded={isQrPopoverOpen && window.innerWidth < 768}
-              >
-                {t('header.scanToDownload')}
               </button>
             </div>
-            <div className="px-3 pt-3">
-              <Link
+            <nav className="px-5 pb-5 flex flex-col overflow-y-auto flex-grow">
+              {' '}
+              {/* Adjusted pt-0, added pb-5 */}
+              {mainNavLinks.map((link) => (
+                <NavLink
+                  key={`mobile-drawer-${link.labelKey}`}
+                  to={link.to}
+                  end={link.end}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-white text-xl py-4 block"
+                  // Add active styling if needed, e.g., font-bold or a different background on hover/focus
+                >
+                  {t(link.labelKey)}
+                </NavLink>
+              ))}
+              <NavLink
                 to="/login"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block w-full text-center px-3 py-3 rounded-md text-xl font-medium bg-brand-purple text-white hover:bg-brand-purple-dark transition-colors duration-150"
+                className="text-white text-xl py-4 block"
               >
                 {t('header.loginAccount')}
-              </Link>
-            </div>
-          </nav>
-        </div>
-      )}
-
-      {/* QR Code Popover for Mobile (Modal-like) - This uses qrPopoverRef */}
-      {isQrPopoverOpen && window.innerWidth < 768 && (
-        <div
-          ref={qrPopoverRef}
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="qr-popover-title-mobile"
-        >
-          <div className="bg-white rounded-xl shadow-2xl p-6 text-center w-full max-w-sm relative">
-            <button
-              onClick={() => setIsQrPopoverOpen(false)}
-              className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 p-1"
-              aria-label={t('header.mobileMenu.closeQR')}
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <h3
-              id="qr-popover-title-mobile"
-              className="text-xl font-semibold text-brand-text-primary mb-3"
-            >
-              {t('header.qrPopover.title')}
-            </h3>
-            <img
-              src="/assets/download-app.png"
-              alt={t('altTexts.qrCodeDownload')}
-              className="w-full h-auto mx-auto mb-3 rounded-lg border object-contain"
-            />
-            <p className="text-xl text-brand-text-muted mb-1">
-              {t('header.qrPopover.scanPrompt')}
-            </p>
-            <p className="text-xs text-gray-400 mb-4 italic">
-              {t('header.qrPopover.recommendBrowser')}
-            </p>
-            <button
-              onClick={() => {
-                console.log('Download APP Now clicked (mobile modal)');
-                setIsQrPopoverOpen(false);
-              }}
-              className="button-gradient w-full py-2.5 text-xl"
-            >
-              {t('header.qrPopover.downloadPrompt')}
-            </button>
+              </NavLink>
+            </nav>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
 

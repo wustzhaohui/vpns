@@ -1,17 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-// New SVG Icons
-const TelegramIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    {...props}
-  >
-    <path d="M9.78,18.65l.28,4.17a.89.89,0,0,0,.88.78.78.78,0,0,0,.3-.06L14,21.54l4.76,3.57a.9.9,0,0,0,.6.2.81.81,0,0,0,.54-.18.86.86,0,0,0,.41-.78l1.76-13.63H5.24ZM11.16,16.51,17.29,9.79,21.6,6.38Z" />
-    <path d="M22,3.15,3.22,9.68A2.39,2.39,0,0,0,3,14L6.1,15.22l9.78-6.19a.44.44,0,0,1,.56.06.41.41,0,0,1,.07.57l-7.39,6.89.06,0L8,22.36A2.38,2.38,0,0,0,10.7,24l.32,0L14,21.73l4.76,3.57a2.33,2.33,0,0,0,3.32-2.1L24,5.1A2.4,2.4,0,0,0,22,3.15Z" />
-  </svg>
-);
+// Removed NewTelegramIconBlueCircle SVG component
 
 const UserIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
@@ -27,6 +17,16 @@ const ReferralPage: React.FC = () => {
   const { t, i18n } = useTranslation();
   const useLargeFont =
     i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const heroTitleFontSize = useLargeFont
     ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.4rem]'
@@ -68,10 +68,12 @@ const ReferralPage: React.FC = () => {
   return (
     <>
       <section
-        className="relative flex flex-col items-center min-h-screen pt-[50px] md:pt-[100px] text-white overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+        className="relative flex flex-col items-center min-h-screen pt-[80px] md:pt-[100px] text-white overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
         style={{ backgroundImage: 'url(/assets/home_bg_pc.png)' }}
       >
-        <div className="main-container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col w-full max-w-container-wide">
+        <div className="main-container mx-auto px-8 sm:px-6 lg:px-8 relative z-10 flex flex-col w-full max-w-container-wide">
+          {' '}
+          {/* Changed px-4 to px-8 here */}
           <div className="grid md:grid-cols-2 gap-12 items-center w-full">
             <div className="text-center md:text-left pt-10 md:pt-0">
               <h1
@@ -86,22 +88,52 @@ const ReferralPage: React.FC = () => {
               >
                 {t('referralPage.hero.description')}
               </p>
-              <h2
-                className={`${heroScanPromptFontSize} font-semibold mb-4 sm:mb-5 md:mb-8`}
-              >
-                {t('referralPage.hero.scanPrompt')}
-              </h2>
-              <div className="flex flex-col items-center md:items-start max-w-md mx-auto md:mx-0">
-                <div className="bg-white p-3 rounded-xl shadow-2xl mb-4 w-[24rem] h-[30rem] sm:w-[28rem] sm:h-[35rem] md:w-[34rem] md:h-[43rem] flex items-center justify-center">
+
+              {/* Desktop: Scan Prompt and QR Code */}
+              {!isMobileView && (
+                <>
+                  <h2
+                    className={`${heroScanPromptFontSize} font-semibold mb-4 sm:mb-5 md:mb-8`}
+                  >
+                    {t('referralPage.hero.scanPrompt')}
+                  </h2>
+                  <div className="flex flex-col items-center md:items-start max-w-md mx-auto md:mx-0">
+                    <div className="bg-white p-3 rounded-xl shadow-2xl mb-4 w-[24rem] h-[30rem] sm:w-[28rem] sm:h-[35rem] md:w-[34rem] md:h-[43rem] flex items-center justify-center">
+                      <img
+                        src="/assets/pro_telegram.67630c52.png"
+                        alt={t('altTexts.telegramQrCode')}
+                        className="w-full h-full object-contain rounded-md"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Mobile: Image and Telegram Button */}
+              {isMobileView && (
+                <div className="flex flex-col items-center mt-8">
                   <img
-                    src="/assets/pro_telegram.67630c52.png"
-                    alt={t('altTexts.telegramQrCode')}
-                    className="w-full h-full object-contain rounded-md"
+                    src="/assets/pro_index.gif"
+                    alt={t('altTexts.referralAnimation')}
+                    className="max-w-xs w-full h-auto mb-8" // Adjusted size and margin
                   />
+                  <a
+                    href="#" // Placeholder link, replace with actual Telegram link
+                    className="flex w-full items-center justify-center px-8 py-4 bg-[#3984E8] text-white text-lg font-semibold rounded-full shadow-lg hover:bg-[#3375D1] transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-brand-purple-dark"
+                    aria-label={t('referralPage.telegramButton')}
+                  >
+                    <img
+                      src="/assets/icon-telegram.png"
+                      alt={t('altTexts.telegramIcon')}
+                      className="w-6 h-6 mr-3"
+                    />
+                    {t('referralPage.telegramButton')}
+                  </a>
                 </div>
-              </div>
+              )}
             </div>
 
+            {/* Desktop: Right side animation */}
             <div className="hidden md:flex flex-col items-center justify-center relative min-h-[500px] md:min-h-[600px]">
               <div className="w-full h-full backdrop-blur-sm flex items-center justify-center text-center p-8 relative">
                 <img

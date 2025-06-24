@@ -14,7 +14,8 @@
     },
     "mobileMenu": {
       "open": "Open main menu",
-      "closeQR": "关闭二维码弹窗"
+      "closeQR": "关闭二维码弹窗",
+      "closeDrawerAriaLabel": "关闭导航菜单"
     },
     "languageSwitcher": {
       "currentLabel": "更改语言，当前语言为 {{language}}",
@@ -57,6 +58,9 @@
     "hero": {
       "title": "永远能连上的VPN",
       "subtitle": "macOS AppStore 港区工具排行榜 Top 3",
+      "googleSafetyAudit": "已获得Google独立安全审核认证",
+      "subtitleIosMobile": "iOS AppStore 港区工具排行榜Top5",
+      "googleInstallationAudit": "已获得Google独立安装审核认证",
       "stats": {
         "connectSpeed": "极速连接",
         "freeTrial": "免费试用",
@@ -64,7 +68,11 @@
       },
       "buttons": {
         "macDownload": "Mac 版下载",
-        "otherPlatforms": "其他平台下载"
+        "otherPlatforms": "其他平台下载",
+        "iosDownload": "iOS 版下载",
+        "androidDownload": "安卓版下载",
+        "otherPlatformsMobileLink": "其他平台下载",
+        "scrollToFreeTrialAriaLabel": "滚动到免费试用区域"
       }
     },
     "popularApps": {
@@ -160,6 +168,7 @@
       "description": "推荐一人安装，最高可赚 5 元，每周还能领取 100 元额外奖励，可提现至支付宝或银行卡。注册推广员无需提供身份证等隐私信息，提供推广教程，简单易上手！",
       "scanPrompt": "扫码立即成为推广员"
     },
+    "telegramButton": "Telegram",
     "infoCards": [
       {
         "title": "推荐一人可赚 5 元",
@@ -251,10 +260,13 @@
     "logo": "快连VPN Logo",
     "footerLogo": "快连VPN 页脚Logo",
     "appStoreIcon": "App Store 图标",
+    "googleIcon": "Google 图标",
     "qrCodeDownload": "APP下载二维码",
     "scanToDownloadQR": "扫码下载APP",
     "telegramQrCode": "Telegram 二维码",
+    "telegramIcon": "Telegram 图标",
     "referralAnimation": "推广奖励动画",
-    "loginIllustration": "登录插图"
+    "loginIllustration": "登录插图",
+    "vpnConnectionAnimation": "VPN 连接动画"
   }
 }

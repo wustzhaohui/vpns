@@ -14,7 +14,8 @@
     },
     "mobileMenu": {
       "open": "Open main menu",
-      "closeQR": "Close QR popover"
+      "closeQR": "Close QR popover",
+      "closeDrawerAriaLabel": "Close navigation menu"
     },
     "languageSwitcher": {
       "currentLabel": "Change language, current language is {{language}}",
@@ -57,14 +58,21 @@
     "hero": {
       "title": "The VPN That Always Connects",
       "subtitle": "macOS AppStore Hong Kong Tools Top 3",
+      "googleSafetyAudit": "Independently Security Audited by Google",
+      "subtitleIosMobile": "iOS AppStore Hong Kong Tools Top 5",
+      "googleInstallationAudit": "Independently Installation Audited by Google",
       "stats": {
         "connectSpeed": "Lightning Fast Connection",
         "freeTrial": "Free Trial",
         "appsSupported": "Apps Supported"
       },
       "buttons": {
-        "macDownload": "Mac Download",
-        "otherPlatforms": "Other Platforms"
+        "macDownload": "Download for Mac",
+        "otherPlatforms": "Other Platforms",
+        "iosDownload": "Download for iOS",
+        "androidDownload": "Download for Android",
+        "otherPlatformsMobileLink": "Other platforms",
+        "scrollToFreeTrialAriaLabel": "Scroll to Free Trial section"
       }
     },
     "popularApps": {
@@ -73,33 +81,33 @@
     "features": [
       {
         "badgeText": "Hot Feature",
-        "title": "One-Click \"Quick Connect\", Silky Smooth",
-        "description": "LetsVPN uses a new kernel and AI smart connect to automatically match you with the fastest global network node. Just tap \"Start Quick Connect\" and enjoy a silky smooth surfing experience within 3 seconds."
+        "title": "One-Tap \"Quick Connect\", Smooth as Silk",
+        "description": "LetsVPN uses a new core and AI smart connection to automatically match you with the fastest global network node. Just tap \"Start Quick Connect\" and enjoy a silk-smooth surfing experience within 3 seconds."
       },
       {
         "badgeText": "Hot Feature",
         "title": "Reach Anywhere, No Limits",
-        "description": "LetsVPN supports global network resources, allowing unrestricted and unrecorded access to any resource, while using advanced technology to erase any traces, truly enabling you to reach anywhere."
+        "description": "LetsVPN supports global network resources, providing unrestricted and unlogged access to any resource, while using advanced technology to erase any traces, truly enabling you to reach anywhere."
       },
       {
         "badgeText": "Hot Feature",
-        "title": "Industry Leader, Secure and Worry-Free",
-        "description": "LetsVPN is a long-term leader in the AppStore tools category, independently security audited by Google, and certified by App Esteem for international network security. While providing network freedom, it does not store any personal information, strictly protecting your privacy."
+        "title": "Industry Leader, Safe and Secure",
+        "description": "LetsVPN is a long-term leader in the AppStore tools category, has passed Google's independent security audit, and is certified by App Esteem for international network security. While providing network freedom, it stores no personal information, strictly protecting your privacy."
       },
       {
         "badgeText": "Hot Feature",
-        "title": "Use As You Go, Never Locked In",
-        "description": "The only renowned VPN globally daring to offer short-term memberships. Prioritizing user rights alongside security and stability, subscribe when you need it, and never worry about service shutdowns or being locked into long contracts."
+        "title": "Use as You Go, Never Locked In",
+        "description": "The only well-known VPN in the world daring to offer short-term memberships. Prioritizing user rights alongside security and stability, subscribe whenever you need, and never worry about service discontinuation or being locked into long contracts."
       },
       {
         "badgeText": "Hot Feature",
         "title": "Unlimited Platforms, Seamless Connection",
-        "description": "LetsVPN supports all mainstream devices on the market. A single account allows shared membership across multiple devices, supporting simultaneous online access for seamless transitions across different usage scenarios."
+        "description": "LetsVPN supports all mainstream devices on the market. One account allows sharing membership across multiple devices, supporting simultaneous online access for seamless transitions between different usage scenarios."
       },
       {
         "badgeText": "Hot Feature",
         "title": "Live Customer Support, Always Connected",
-        "description": "LetsVPN offers 24-hour online service, with 100+ live customer service agents and network engineers on standby to safeguard your internet experience, truly providing on-call, always-connected VIP service."
+        "description": "LetsVPN offers 24/7 online service, with 100+ live customer support operators and network engineers on standby to ensure your internet experience, truly providing on-call, always-connected VIP service."
       }
     ],
     "animatedFeatureSection": {
@@ -114,17 +122,17 @@
         {
           "name": "MangoFlavorFairy",
           "title": "Individual User",
-          "text": "LetsVPN is great! The interface is simple and easy to use. Connection is stable for videos and games. Love using it for Instagram!"
+          "text": "LetsVPN is a great app! The interface is simple and user-friendly. Connection is stable for videos and games. Love using it for Instagram!"
         },
         {
           "name": "Ms. Wang",
           "title": "Designer, Shanghai",
-          "text": "After using LetsVPN, my internet speed significantly improved. No more buffering for videos! Highly recommend!"
+          "text": "After using LetsVPN, my internet speed has significantly improved. No more video buffering! Highly recommended!"
         },
         {
           "name": "Mr. Li",
           "title": "Project Manager, Beijing",
-          "text": "The interface is clean and user-friendly, one-click connection is very convenient. Many global nodes and professional customer service."
+          "text": "The interface is clean and easy to use, and one-click connection is very convenient. Lots of global nodes and professional customer service."
         },
         {
           "name": "Xiao Zhang",
@@ -134,44 +142,45 @@
         {
           "name": "Anonymous User",
           "title": "Gaming Enthusiast",
-          "text": "Playing on international game servers has much lower latency now, thumbs up! Hope for more promotions."
+          "text": "Latency for playing on international servers is much lower, thumbs up! Hope for more promotions."
         },
         {
           "name": "User Six",
           "title": "Tester",
-          "text": "This is the sixth review to test display on desktop."
+          "text": "This is the sixth review to test desktop display."
         }
       ]
     },
     "freeTrial": {
       "title": "Start Your Free Trial Now",
       "buttons": {
-        "pc": "PC Download",
-        "ios": "iOS Download",
-        "android": "Android Download",
-        "mac": "Mac Download"
+        "pc": "Download for PC",
+        "ios": "Download for iOS",
+        "android": "Download for Android",
+        "mac": "Download for Mac"
       },
       "appPreviewAlt": "{{platform}} app preview"
     }
   },
   "referralPage": {
     "hero": {
-      "title": "Earn <1>Cash</1> by Referring",
-      "description": "Refer one person to install and earn up to 5 CNY. Get an additional 100 CNY weekly bonus. Withdraw to Alipay or bank card. No private info like ID needed for registration. Easy-to-follow tutorial!",
+      "title": "Earn <1>Cash</1> for Referrals",
+      "description": "Refer one person to install and earn up to 5 Yuan. Get an additional weekly bonus of 100 Yuan. Withdraw to Alipay or bank card. No personal info like ID needed for registration. Easy guide!",
       "scanPrompt": "Scan to become a promoter now"
     },
+    "telegramButton": "Telegram",
     "infoCards": [
       {
-        "title": "Earn 5 CNY Per Referral",
-        "description": "Each person has a unique referral ID. When a new user enters your ID during their first installation, it counts as a successful referral. The process is extremely simple."
+        "title": "Earn 5 Yuan per Referral",
+        "description": "Everyone has a unique referral ID. When a new user enters your ID during their first installation, it's a successful referral. The process is extremely simple."
       },
       {
-        "title": "Extra 100 CNY Weekly Bonus",
-        "description": "When your weekly referral count reaches 100, you'll earn an additional 100 CNY bonus on top of the basic referral rewards."
+        "title": "Extra 100 Yuan Weekly Bonus",
+        "description": "When your weekly referrals reach 100, you'll earn an extra 100 Yuan bonus on top of basic referral rewards."
       },
       {
-        "title": "Weekly Settlement, Easy Withdrawal",
-        "description": "No need to provide private information like ID cards. All earnings can be withdrawn to Alipay or bank cards."
+        "title": "Weekly Payouts, Simple Withdrawal",
+        "description": "No need to provide personal info like IDs. All earnings can be withdrawn to Alipay or bank cards."
       }
     ],
     "illustrations": {
@@ -185,16 +194,16 @@
     "imagePlaceholder": "Image placeholder: {{title}}",
     "posts": [
       {
-        "title": "LetsVPN Wishes Global Chinese Users a Happy Year of the Snake!",
-        "summary": "As the old year gives way to the new, the LetsVPN team wishes you a prosperous Year of the Snake, with soaring success, abundant wealth, and happiness!",
+        "title": "LetsVPN Wishes Chinese Users Worldwide a Prosperous Year of the Snake!",
+        "summary": "On the eve of the New Year, the LetsVPN team wishes you prosperity in the Year of the Snake, soaring success, abundance, and happiness!",
         "badgeText": "Latest Post"
       },
       {
-        "title": "Antivirus Reports VPN as Virus, Is VPN Really Safe?",
+        "title": "Antivirus Reports VPN as a Virus. Is VPN Really Safe?",
         "summary": ""
       },
       {
-        "title": "Can't Even Share Across Multiple Devices, Is LetsVPN Team Slacking Off?",
+        "title": "Can't Even Share on Multiple Devices, Is the LetsVPN Team Slacking?",
         "summary": ""
       },
       {
@@ -225,25 +234,25 @@
       "registerLink": "Register Account",
       "showPassword": "Show password",
       "hidePassword": "Hide password",
-      "loginAttemptMessage": "Login functionality is not yet implemented. (Simulated)"
+      "loginAttemptMessage": "Login feature not yet implemented. (Simulated)"
     },
     "forgotPassword": {
       "title": "Forgot Password",
-      "description": "You can view your username and password in the account management section of the client. If you don't have the client, please return to the official website homepage to download it.",
-      "goHomeButton": "Return to Homepage",
+      "description": "You can view your username and password in the client's account management. If you don't have the client, please return to the official website homepage to download it.",
+      "goHomeButton": "Go to Homepage",
       "haveAccount": "Already have an account?",
       "goToLogin": "Go to Login"
     },
     "register": {
       "title": "Register LetsVPN Account",
       "description": "Account registration on the website is temporarily unavailable. Please register within the client. If you don't have the client, please return to the official website homepage to download it.",
-      "goHomeButton": "Return to Homepage",
+      "goHomeButton": "Go to Homepage",
       "haveAccount": "Already have an account?",
       "goToLogin": "Go to Login"
     }
   },
   "notFoundPage": {
-    "title": "Oops! Page not found.",
+    "title": "Oops! Page Not Found.",
     "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
     "goHomeButton": "Go to Homepage"
   },
@@ -251,10 +260,13 @@
     "logo": "LetsVPN Logo",
     "footerLogo": "LetsVPN Footer Logo",
     "appStoreIcon": "App Store Icon",
-    "qrCodeDownload": "QR code for APP download",
-    "scanToDownloadQR": "Scan QR Code to Download App",
-    "telegramQrCode": "Telegram QR code",
-    "referralAnimation": "Referral bonus animation",
-    "loginIllustration": "Login illustration"
+    "googleIcon": "Google Icon",
+    "qrCodeDownload": "APP Download QR Code",
+    "scanToDownloadQR": "Scan QR to Download APP",
+    "telegramQrCode": "Telegram QR Code",
+    "telegramIcon": "Telegram Icon",
+    "referralAnimation": "Referral Bonus Animation",
+    "loginIllustration": "Login Illustration",
+    "vpnConnectionAnimation": "VPN Connection Animation"
   }
 }

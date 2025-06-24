@@ -14,7 +14,8 @@
     },
     "mobileMenu": {
       "open": "開啟主選單",
-      "closeQR": "關閉QR Code彈窗"
+      "closeQR": "關閉QR Code彈窗",
+      "closeDrawerAriaLabel": "關閉導航選單"
     },
     "languageSwitcher": {
       "currentLabel": "更改語言，目前語言為 {{language}}",
@@ -57,6 +58,9 @@
     "hero": {
       "title": "永遠能連上的VPN",
       "subtitle": "macOS AppStore 香港地區工具排行榜 Top 3",
+      "googleSafetyAudit": "已獲得Google獨立安全審核認證",
+      "subtitleIosMobile": "iOS AppStore 香港地區工具排行榜Top5",
+      "googleInstallationAudit": "已獲得Google獨立安裝審核認證",
       "stats": {
         "connectSpeed": "極速連接",
         "freeTrial": "免費試用",
@@ -64,7 +68,11 @@
       },
       "buttons": {
         "macDownload": "Mac 版下載",
-        "otherPlatforms": "其他平台下載"
+        "otherPlatforms": "其他平台下載",
+        "iosDownload": "iOS 版下載",
+        "androidDownload": "安卓版下載",
+        "otherPlatformsMobileLink": "其他平台下載",
+        "scrollToFreeTrialAriaLabel": "捲動到免費試用區域"
       }
     },
     "popularApps": {
@@ -160,6 +168,7 @@
       "description": "推薦一人安裝，最高可賺 5 元，每週還能領取 100 元額外獎勵，可提現至支付寶或銀行卡。註冊推廣員無需提供身份證等隱私資訊，提供推廣教程，簡單易上手！",
       "scanPrompt": "掃碼立即成為推廣員"
     },
+    "telegramButton": "Telegram",
     "infoCards": [
       {
         "title": "推薦一人可賺 5 元",
@@ -251,10 +260,13 @@
     "logo": "快連VPN Logo",
     "footerLogo": "快連VPN 頁腳Logo",
     "appStoreIcon": "App Store 圖示",
+    "googleIcon": "Google 圖示",
     "qrCodeDownload": "下載APP QR Code",
     "scanToDownloadQR": "掃碼下載APP",
     "telegramQrCode": "Telegram QR Code",
+    "telegramIcon": "Telegram 圖示",
     "referralAnimation": "推廣獎勵動畫圖示",
-    "loginIllustration": "登入圖示"
+    "loginIllustration": "登入圖示",
+    "vpnConnectionAnimation": "VPN 連線動畫"
   }
 }

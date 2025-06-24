@@ -323,18 +323,18 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="h-[calc(100vh-50px)] md:h-[calc(100vh-100px)] overflow-hidden flex items-center justify-center py-8 px-4 sm:py-12 sm:px-6 lg:px-8 bg-slate-50">
+    <div className="h-[calc(100vh-60px)] md:h-[calc(100vh-100px)] overflow-y-auto flex items-center justify-center py-8 px-4 sm:py-12 sm:px-6 lg:px-8 bg-slate-50">
       <div className="w-full max-w-container-wide mx-auto rounded-xl overflow-hidden">
         <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-0">
-          <div className="flex order-1 md:order-none flex-col items-center justify-center p-4 sm:p-6 md:p-12 mb-6 md:mb-0">
+          <div className="order-1 md:order-none pt-0 pb-6 sm:pb-8 md:py-12 px-4 sm:px-6 md:px-8 flex flex-col justify-center">
+            <div className="w-full">{renderContent()}</div>
+          </div>
+          <div className="flex order-2 md:order-none flex-col items-center justify-center p-4 sm:p-6 md:p-12 mt-6 md:mt-0">
             <img
               className="max-w-full h-auto block object-contain max-h-[200px] sm:max-h-[250px] md:max-h-full"
               src="/assets/login_info.8a76c6cc.png"
               alt={t('altTexts.loginIllustration')}
             />
-          </div>
-          <div className="order-2 md:order-none pt-0 pb-6 sm:pb-8 md:py-12 px-4 sm:px-6 md:px-8 flex flex-col justify-center">
-            <div className="w-full">{renderContent()}</div>
           </div>
         </div>
       </div>

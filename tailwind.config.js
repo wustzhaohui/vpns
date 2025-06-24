@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       maxWidth: {
@@ -27,25 +24,34 @@ export default {
         'input-focus-blue': '#5353F1',
         'input-error-pink': '#E14EB8',
         'input-icon-placeholder': '#B5BBBE', // New color for placeholder and icon
+        'mobile-menu-bg': '#7254FF', // Custom purple for mobile menu background (updated)
       },
       fontFamily: {
-        sans: ['Helvetica', 'Charter', '"PingFang SC"', '"Microsoft YaHei"', 'Arial', 'sans-serif'],
+        sans: [
+          'Helvetica',
+          'Charter',
+          '"PingFang SC"',
+          '"Microsoft YaHei"',
+          'Arial',
+          'sans-serif',
+        ],
       },
       keyframes: {
         appIconFloat: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-6px)' },
         },
-        svgIconPulse: { // Added new keyframes
+        svgIconPulse: {
+          // Added new keyframes
           '0%, 100%': { transform: 'scale(1)', transformOrigin: 'center' },
-          '50%': { transform: 'scale(1.05)', transformOrigin: 'center'  },
-        }
+          '50%': { transform: 'scale(1.05)', transformOrigin: 'center' },
+        },
       },
       animation: {
         appIconFloat: 'appIconFloat 3.5s ease-in-out infinite',
         svgIconPulse: 'svgIconPulse 2.5s ease-in-out infinite', // Added new animation utility
-      }
+      },
     },
   },
   plugins: [],
-}
+};
