@@ -125,7 +125,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <section
-      className="relative flex flex-col items-center min-h-screen pt-[100px] text-white overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      className="relative flex flex-col items-center min-h-screen pt-[50px] md:pt-[100px] text-white overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
       style={{
         backgroundImage: 'url(/assets/home_bg_pc.png)',
       }}

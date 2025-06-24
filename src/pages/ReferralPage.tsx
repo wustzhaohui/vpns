@@ -25,7 +25,8 @@ const UserIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 const ReferralPage: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+  const useLargeFont =
+    i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
 
   const heroTitleFontSize = useLargeFont
     ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.4rem]'
@@ -34,7 +35,7 @@ const ReferralPage: React.FC = () => {
   const heroDescriptionFontSize = useLargeFont
     ? 'text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem]'
     : 'text-[1.4rem] sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.8rem] xl:text-[2.0rem]';
-    
+
   const heroScanPromptFontSize = useLargeFont
     ? 'text-[1.8rem] sm:text-[2.2rem] md:text-[2.6rem] lg:text-[3.2rem]'
     : 'text-[1.6rem] sm:text-[2.0rem] md:text-[2.3rem] lg:text-[2.8rem]';
@@ -47,42 +48,47 @@ const ReferralPage: React.FC = () => {
     {
       titleKey: 'referralPage.infoCards.0.title',
       descriptionKey: 'referralPage.infoCards.0.description',
-      illustrationSrc: "/assets/pro_icon1.png",
-      altKey: 'referralPage.illustrations.referralBonus'
+      illustrationSrc: '/assets/pro_icon1.png',
+      altKey: 'referralPage.illustrations.referralBonus',
     },
     {
       titleKey: 'referralPage.infoCards.1.title',
       descriptionKey: 'referralPage.infoCards.1.description',
-      illustrationSrc: "/assets/pro_icon2.png",
-      altKey: 'referralPage.illustrations.weeklyBonus'
+      illustrationSrc: '/assets/pro_icon2.png',
+      altKey: 'referralPage.illustrations.weeklyBonus',
     },
     {
       titleKey: 'referralPage.infoCards.2.title',
       descriptionKey: 'referralPage.infoCards.2.description',
-      illustrationSrc: "/assets/pro_icon3.png",
-      altKey: 'referralPage.illustrations.settlement'
+      illustrationSrc: '/assets/pro_icon3.png',
+      altKey: 'referralPage.illustrations.settlement',
     },
   ];
 
-
   return (
     <>
-      <section 
-        className="relative flex flex-col items-center min-h-screen pt-[80px] md:pt-[100px] text-white overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      <section
+        className="relative flex flex-col items-center min-h-screen pt-[50px] md:pt-[100px] text-white overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
         style={{ backgroundImage: 'url(/assets/home_bg_pc.png)' }}
       >
         <div className="main-container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col w-full max-w-container-wide">
           <div className="grid md:grid-cols-2 gap-12 items-center w-full">
             <div className="text-center md:text-left pt-10 md:pt-0">
-              <h1 className={`${heroTitleFontSize} font-bold mb-4 sm:mb-5 md:mb-8 leading-tight`}>
+              <h1
+                className={`${heroTitleFontSize} font-bold mb-4 sm:mb-5 md:mb-8 leading-tight`}
+              >
                 <Trans i18nKey="referralPage.hero.title">
                   推广赚<span className="text-yellow-400">现金</span>
                 </Trans>
               </h1>
-              <p className={`${heroDescriptionFontSize} leading-relaxed text-purple-200/90 mb-6 sm:mb-7 md:mb-10 max-w-auto mx-auto md:mx-0`}>
+              <p
+                className={`${heroDescriptionFontSize} leading-relaxed text-purple-200/90 mb-6 sm:mb-7 md:mb-10 max-w-auto mx-auto md:mx-0`}
+              >
                 {t('referralPage.hero.description')}
               </p>
-              <h2 className={`${heroScanPromptFontSize} font-semibold mb-4 sm:mb-5 md:mb-8`}>
+              <h2
+                className={`${heroScanPromptFontSize} font-semibold mb-4 sm:mb-5 md:mb-8`}
+              >
                 {t('referralPage.hero.scanPrompt')}
               </h2>
               <div className="flex flex-col items-center md:items-start max-w-md mx-auto md:mx-0">
@@ -117,7 +123,9 @@ const ReferralPage: React.FC = () => {
                 className="bg-white p-6 md:p-8 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center h-full"
               >
                 <div className="md:w-4/5 text-center md:text-left mb-6 md:mb-0 md:pr-6">
-                  <h3 className={`${infoCardTitleFontSize} font-bold text-brand-text-primary mb-4`}>
+                  <h3
+                    className={`${infoCardTitleFontSize} font-bold text-brand-text-primary mb-4`}
+                  >
                     {t(card.titleKey)}
                   </h3>
                   <p className="text-[1.4rem] sm:text-[1.5rem] md:text-[1.6rem] lg:text-[1.8rem] leading-relaxed text-gray-600">
@@ -125,11 +133,11 @@ const ReferralPage: React.FC = () => {
                   </p>
                 </div>
                 <div className="md:w-2/5  flex items-center justify-center md:h-full">
-                   <img
-                      className="w-20 h-20 sm:w-24 sm:h-24 md:w-auto md:h-[80%] object-contain mx-auto md:mx-0 md:ml-auto md:mr-auto rounded-md"
-                      src={card.illustrationSrc}
-                      alt={t(card.altKey)}
-                    />
+                  <img
+                    className="w-20 h-20 sm:w-24 sm:h-24 md:w-auto md:h-[80%] object-contain mx-auto md:mx-0 md:ml-auto md:mr-auto rounded-md"
+                    src={card.illustrationSrc}
+                    alt={t(card.altKey)}
+                  />
                 </div>
               </div>
             ))}

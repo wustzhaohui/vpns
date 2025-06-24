@@ -167,7 +167,7 @@ const Header: React.FC = () => {
     { to: '/help', labelKey: 'header.helpCenter' },
   ];
 
-  const headerBaseClass = `sticky top-0 z-50 h-[60px] md:h-[100px] transition-all duration-[${animationDuration}ms] ease-in-out`;
+  const headerBaseClass = `sticky top-0 z-50 h-[50px] md:h-[100px] transition-all duration-[${animationDuration}ms] ease-in-out`;
 
   const headerStyle: React.CSSProperties = isOnHeroBackgroundPage
     ? {
@@ -204,7 +204,7 @@ const Header: React.FC = () => {
           className="flex-shrink-0 flex items-center"
         >
           <img
-            className="w-[220px] h-[50px] object-contain"
+            className="w-[132px] h-[30px] md:w-[220px] md:h-[50px] object-contain"
             src={logoSrc}
             alt={t('altTexts.logo')}
           />
@@ -304,18 +304,18 @@ const Header: React.FC = () => {
 
         {isOnLoginPage && (
           <div
-            className="hidden md:flex items-center"
+            className="hidden md:flex items-center relative"
             ref={headerLanguageDropdownRef}
           >
             <button
               onClick={toggleHeaderLanguageDropdown}
-              className="text-brand-text-muted hover:text-brand-purple transition-colors flex items-center text-sm md:text-base"
+              className="text-brand-text-muted hover:text-brand-purple transition-colors flex items-center text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] font-medium"
               aria-haspopup="true"
               aria-expanded={isHeaderLanguageDropdownOpen}
               aria-label={t('header.languageSwitcher.changeLanguage')}
             >
               <svg
-                className="w-5 h-5 mr-1 md:w-6 md:h-6"
+                className="h-[1.8rem] w-[1.8rem] lg:h-[2rem] lg:w-[2rem] xl:h-[2.2rem] xl:w-[2.2rem] mr-2"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -336,7 +336,7 @@ const Header: React.FC = () => {
                 ? '简体中文'
                 : 'English'}
               <svg
-                className={`w-4 h-4 ml-1 transition-transform duration-200 ${
+                className={`w-5 h-5 ml-1.5 transition-transform duration-200 ${
                   isHeaderLanguageDropdownOpen ? 'rotate-180' : ''
                 }`}
                 fill="none"
@@ -353,10 +353,10 @@ const Header: React.FC = () => {
               </svg>
             </button>
             {isHeaderLanguageDropdownOpen && (
-              <div className="absolute right-4 top-16 mt-2 w-48 bg-white rounded-md shadow-xl z-20 py-1">
+              <div className="absolute top-full right-0 mt-2 w-max bg-white rounded-md shadow-xl z-20 py-1">
                 <button
                   onClick={() => selectHeaderLanguage('zh')}
-                  className={`block w-full text-left px-4 py-2 text-sm ${
+                  className={`block w-full text-left px-4 py-2 text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] ${
                     i18n.language.startsWith('zh') &&
                     !i18n.language.startsWith('zh-Hant')
                       ? 'font-semibold text-brand-purple'
@@ -367,7 +367,7 @@ const Header: React.FC = () => {
                 </button>
                 <button
                   onClick={() => selectHeaderLanguage('en')}
-                  className={`block w-full text-left px-4 py-2 text-sm ${
+                  className={`block w-full text-left px-4 py-2 text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] ${
                     i18n.language.startsWith('en')
                       ? 'font-semibold text-brand-purple'
                       : 'text-gray-700'
@@ -377,7 +377,7 @@ const Header: React.FC = () => {
                 </button>
                 <button
                   onClick={() => selectHeaderLanguage('zh-Hant')}
-                  className={`block w-full text-left px-4 py-2 text-sm ${
+                  className={`block w-full text-left px-4 py-2 text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] ${
                     i18n.language.startsWith('zh-Hant')
                       ? 'font-semibold text-brand-purple'
                       : 'text-gray-700'
@@ -387,7 +387,7 @@ const Header: React.FC = () => {
                 </button>
                 <button
                   onClick={() => selectHeaderLanguage('ru')}
-                  className={`block w-full text-left px-4 py-2 text-sm ${
+                  className={`block w-full text-left px-4 py-2 text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] ${
                     i18n.language.startsWith('ru')
                       ? 'font-semibold text-brand-purple'
                       : 'text-gray-700'
@@ -402,16 +402,19 @@ const Header: React.FC = () => {
 
         <div className="md:hidden flex items-center">
           {isOnLoginPage ? (
-            <div ref={headerLanguageDropdownRef}>
+            <div
+              ref={headerLanguageDropdownRef}
+              className="relative"
+            >
               <button
                 onClick={toggleHeaderLanguageDropdown}
-                className="text-brand-text-muted hover:text-brand-purple transition-colors flex items-center text-sm"
+                className="text-brand-text-muted hover:text-brand-purple transition-colors flex items-center text-xl font-medium"
                 aria-haspopup="true"
                 aria-expanded={isHeaderLanguageDropdownOpen}
                 aria-label={t('header.languageSwitcher.changeLanguage')}
               >
                 <svg
-                  className="w-5 h-5 mr-1"
+                  className="h-6 w-6 mr-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -432,7 +435,7 @@ const Header: React.FC = () => {
                   ? '简体中文'
                   : 'English'}
                 <svg
-                  className={`w-4 h-4 ml-1 transition-transform duration-200 ${
+                  className={`w-5 h-5 ml-1 transition-transform duration-200 ${
                     isHeaderLanguageDropdownOpen ? 'rotate-180' : ''
                   }`}
                   fill="none"
@@ -449,10 +452,10 @@ const Header: React.FC = () => {
                 </svg>
               </button>
               {isHeaderLanguageDropdownOpen && (
-                <div className="absolute right-4 top-16 mt-2 w-48 bg-white rounded-md shadow-xl z-20 py-1">
+                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-md shadow-xl z-20 py-1">
                   <button
                     onClick={() => selectHeaderLanguage('zh')}
-                    className={`block w-full text-left px-4 py-2 text-sm ${
+                    className={`block w-full text-left px-4 py-2 text-xl ${
                       i18n.language.startsWith('zh') &&
                       !i18n.language.startsWith('zh-Hant')
                         ? 'font-semibold text-brand-purple'
@@ -463,7 +466,7 @@ const Header: React.FC = () => {
                   </button>
                   <button
                     onClick={() => selectHeaderLanguage('en')}
-                    className={`block w-full text-left px-4 py-2 text-sm ${
+                    className={`block w-full text-left px-4 py-2 text-xl ${
                       i18n.language.startsWith('en')
                         ? 'font-semibold text-brand-purple'
                         : 'text-gray-700'
@@ -473,7 +476,7 @@ const Header: React.FC = () => {
                   </button>
                   <button
                     onClick={() => selectHeaderLanguage('zh-Hant')}
-                    className={`block w-full text-left px-4 py-2 text-sm ${
+                    className={`block w-full text-left px-4 py-2 text-xl ${
                       i18n.language.startsWith('zh-Hant')
                         ? 'font-semibold text-brand-purple'
                         : 'text-gray-700'
@@ -483,7 +486,7 @@ const Header: React.FC = () => {
                   </button>
                   <button
                     onClick={() => selectHeaderLanguage('ru')}
-                    className={`block w-full text-left px-4 py-2 text-sm ${
+                    className={`block w-full text-left px-4 py-2 text-xl ${
                       i18n.language.startsWith('ru')
                         ? 'font-semibold text-brand-purple'
                         : 'text-gray-700'
@@ -547,7 +550,7 @@ const Header: React.FC = () => {
       {!isOnLoginPage && isMobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden absolute top-[60px] left-0 w-full bg-white shadow-xl py-4 z-40"
+          className="md:hidden absolute top-[50px] left-0 w-full bg-white shadow-xl py-4 z-40"
         >
           <nav className="px-2 pt-2 pb-3 space-y-1">
             {mainNavLinks.map((link) => (
