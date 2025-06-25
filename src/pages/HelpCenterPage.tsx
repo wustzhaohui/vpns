@@ -7,7 +7,7 @@ const HelpCenterLogoIcon: React.FC<
   React.ImgHTMLAttributes<HTMLImageElement>
 > = (props) => (
   <img
-    src="/assets/logo.png"
+    src="/assets/logo-help.png" // Updated logo path
     alt="LetsVPN"
     {...props}
   />
@@ -120,22 +120,19 @@ const SearchIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-const DocumentBookmarkIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
+const NewHelpDocumentIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
   props
 ) => (
   <svg
+    viewBox="0 0 1024 1024"
+    version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
     {...props}
   >
     <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
-    />
+      d="M946.511127 0H170.654255C89.181091 0 46.545455 42.635636 46.545455 124.1088v747.743418l1.508072-11.357091A149.317818 149.317818 0 0 0 46.545455 881.645382c0 81.789673 52.093673 133.901964 133.883345 133.901963h754.706618A42.319127 42.319127 0 0 0 977.454545 973.228218V30.943418C977.454545 18.953309 958.519855 0 935.135418 0h11.357091zM314.330764 59.056873h183.761454v384.223418l-93.351563-42.300509-90.409891 42.300509V59.056873z m604.066909 897.4336H169.071709a63.488 63.488 0 1 1 0-126.938764h749.325964v126.938764z m0-185.995637H169.071709c-22.714182 0-44.2368 5.12-63.488 14.261528V115.581673c0-38.521018 20.945455-56.5248 53.694836-56.5248h98.843928V513.303273c0 7.801018 3.835345 14.447709 10.612363 18.338909 6.7584 3.872582 14.429091 3.853964 21.187491-0.055855l103.200582-60.043636a20.591709 20.591709 0 0 1 21.001309-0.167564l108.674327 61.011782c6.7584 3.798109 14.354618 3.723636 21.038546-0.186182 6.702545-3.909818 10.482036-10.519273 10.482036-18.245818V59.038255h364.078546v711.437963z"
+      fill="currentColor"
+    ></path>
   </svg>
 );
 
@@ -145,9 +142,14 @@ interface Category {
   descriptionKey: string;
   authorsKey: string;
   articleCountKey: string;
-  avatarSeeds: string[];
   link: string;
 }
+
+const cardAvatarPaths = [
+  '/assets/avatar-01.png',
+  '/assets/avatar-02.jpg',
+  '/assets/avatar-03.jpg',
+];
 
 const HelpCenterPage: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -170,7 +172,6 @@ const HelpCenterPage: React.FC = () => {
       descriptionKey: 'helpCenterPage.categories.0.description',
       authorsKey: 'helpCenterPage.categories.0.authors',
       articleCountKey: 'helpCenterPage.categories.0.articleCount',
-      avatarSeeds: ['jamie', 'user2', 'user3'],
       link: 'https://helpme.hnnnfb.com/letsvpn-world/en/collections/1628560-help-documents',
     },
     {
@@ -179,7 +180,6 @@ const HelpCenterPage: React.FC = () => {
       descriptionKey: 'helpCenterPage.categories.1.description',
       authorsKey: 'helpCenterPage.categories.1.authors',
       articleCountKey: 'helpCenterPage.categories.1.articleCount',
-      avatarSeeds: ['jamie', 'user4', 'user5', 'user6', 'user7'],
       link: '#',
     },
     {
@@ -188,7 +188,6 @@ const HelpCenterPage: React.FC = () => {
       descriptionKey: 'helpCenterPage.categories.2.description',
       authorsKey: 'helpCenterPage.categories.2.authors',
       articleCountKey: 'helpCenterPage.categories.2.articleCount',
-      avatarSeeds: ['jamie', 'user8'],
       link: '#',
     },
     {
@@ -197,7 +196,6 @@ const HelpCenterPage: React.FC = () => {
       descriptionKey: 'helpCenterPage.categories.3.description',
       authorsKey: 'helpCenterPage.categories.3.authors',
       articleCountKey: 'helpCenterPage.categories.3.articleCount',
-      avatarSeeds: ['letsvpn_logo_seed'],
       link: '#',
     },
   ];
@@ -240,7 +238,7 @@ const HelpCenterPage: React.FC = () => {
         aria-label={t('helpCenterPage.internalHeader.ariaLabel')}
       >
         <div className="mx-auto w-full max-w-[960px] h-full flex flex-col">
-          <div className="px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[60px] md:h-[70px] w-full flex-shrink-0">
+          <div className="px-4 sm:px-6 lg:px-0 flex items-center justify-between h-[60px] md:h-[70px] w-full flex-shrink-0">
             <Link
               to="/"
               className="flex-shrink-0"
@@ -289,25 +287,27 @@ const HelpCenterPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex-grow flex flex-col items-center justify-center text-center px-4">
+          <div className="flex-grow flex flex-col items-start justify-start text-left px-4 pt-8 pb-8 md:pb-12">
             <h1 className={`${heroTitleFontSize} font-bold mb-6 md:mb-8`}>
               {t('helpCenterPage.title')}
             </h1>
-            <div className="relative w-full max-w-[960px] mx-auto">
+            <div className="relative w-full max-w-[960px]">
               <label
                 htmlFor="search-input"
                 className="sr-only"
               >
                 {t('helpCenterPage.searchPlaceholder')}
               </label>
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+                {' '}
+                {/* Changed pl-4 sm:pl-5 to pl-6 (1.5rem) */}
                 <SearchIcon className="w-[22px] h-[21px] text-white/70 peer-focus:text-gray-400 transition-colors duration-200 ease-in-out" />
               </div>
               <input
                 id="search-input"
-                type="text"
+                type="search"
                 autoComplete="off"
-                className="peer w-full rounded-lg border border-white/40 bg-white/20 hover:bg-white/30 focus:bg-white py-3 pl-12 pr-4 text-[1.6rem] sm:text-[1.7rem] text-white focus:text-brand-text-primary placeholder-white/70 focus:placeholder-gray-500 shadow-md outline-none transition-all duration-200 ease-in-out focus:ring-2 focus:ring-white focus:border-transparent"
+                className="peer w-full h-[62.8px] rounded-lg border border-white/40 bg-white/20 hover:bg-white/30 focus:bg-white py-3 pl-[4.7rem] pr-4 text-[1.6rem] sm:text-[1.7rem] text-white focus:text-brand-text-primary placeholder-white/70 focus:placeholder-gray-500 shadow-md outline-none transition-all duration-200 ease-in-out focus:ring-2 focus:ring-white focus:border-transparent" // Changed pl-12 to pl-[4.7rem]
                 placeholder={t('helpCenterPage.searchPlaceholder')}
                 aria-label={t('helpCenterPage.searchPlaceholder')}
               />
@@ -381,9 +381,9 @@ const HelpCenterPage: React.FC = () => {
         </div>
       )}
 
-      <main className="flex-grow bg-white">
-        <section className="bg-white py-8 md:py-10 flex-grow">
-          <div className="main-container mx-auto px-4 sm:px-6 lg:px-8 max-w-[960px]">
+      <main className="flex-grow bg-transparent -mt-[10rem] relative z-10">
+        <section className="bg-transparent py-8 md:py-10 flex-grow">
+          <div className="main-container mx-auto px-4 sm:px-6 lg:px-0 max-w-[960px]">
             {categoriesData.map((category) => (
               <a
                 key={category.id}
@@ -394,10 +394,10 @@ const HelpCenterPage: React.FC = () => {
                     ? 'noopener noreferrer'
                     : undefined
                 }
-                className="flex items-start bg-white p-4 sm:p-5 md:p-5 rounded-lg shadow-md mb-4 md:mb-5 transition-all hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple-light"
+                className="flex items-start bg-white p-8 rounded-lg shadow-md mb-4 md:mb-5 transition-all hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple-light"
               >
-                <div className="flex-shrink-0 bg-blue-500 p-3 sm:p-3.5 rounded-md mr-4 sm:mr-4">
-                  <DocumentBookmarkIcon className="w-6 h-6 sm:w-7 sm:w-7 text-white" />
+                <div className="flex-shrink-0 bg-blue-500 w-[86px] h-[86px] rounded-md mr-8 flex items-center justify-center">
+                  <NewHelpDocumentIcon className="w-11 h-11 text-white" />
                 </div>
                 <div className="flex-grow">
                   <h3
@@ -415,18 +415,14 @@ const HelpCenterPage: React.FC = () => {
                   <div
                     className={`flex items-center ${categoryMetaFontSize} text-gray-500`}
                   >
-                    <div className="flex -space-x-1.5 sm:-space-x-2 mr-2 sm:mr-2.5">
-                      {category.avatarSeeds.map((seed, index) => (
+                    <div className="flex -space-x-2 mr-2 sm:mr-2.5">
+                      {cardAvatarPaths.map((path, idx) => (
                         <img
-                          key={index}
+                          key={idx}
                           className="inline-block h-5 w-5 sm:h-[22px] sm:w-[22px] rounded-full ring-1 ring-white"
-                          src={
-                            seed === 'letsvpn_logo_seed'
-                              ? '/assets/favicon.ico.png'
-                              : `https://i.pravatar.cc/32?u=${seed}`
-                          }
-                          alt={t('helpCenterPage.categories.avatarAlt', {
-                            name: seed.split('_')[0],
+                          src={path}
+                          alt={t('helpCenterPage.categories.0.avatarAlt', {
+                            name: `Team Member ${idx + 1}`,
                           })}
                         />
                       ))}
