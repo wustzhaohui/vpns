@@ -4,8 +4,8 @@
 interface ImportMetaEnv {
   // Vite-provided environment variables
   readonly DEV: boolean;
-  readonly PROD: boolean;
-  readonly SSR: boolean;
+  // readonly PROD: boolean; // Removed to avoid conflict
+  // readonly SSR: boolean; // Removed to avoid conflict
 
   // Add your custom environment variables here. For example:
   // readonly VITE_API_KEY: string;

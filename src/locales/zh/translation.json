@@ -1,4 +1,3 @@
-
 {
   "header": {
     "home": "主页",
@@ -77,42 +76,42 @@
       }
     },
     "popularApps": {
-      "title": "全球热门应用“任您畅玩”"
+      "title": "全球热门应用“任你畅玩”"
     },
     "features": [
       {
-        "badgeText": "火爆卖点",
+        "badgeText": "热门卖点",
         "title": "一键“快连”，纵享丝滑",
-        "description": "快连 VPN 采用全新内核，AI 智能连接，自动为您匹配全球最快的网络节点，只需要轻点“开启快连”，3秒之内，纵享丝绸般顺滑的冲浪体验。"
+        "description": "快连 VPN 采用全新核心，AI 智能连接，自动为您匹配全球最快的网络节点，只需要轻点“开启快连”，3秒之内，纵享丝绸般顺滑的冲浪体验。"
       },
       {
-        "badgeText": "火爆卖点",
+        "badgeText": "热门卖点",
         "title": "天涯海角，无不可达",
         "description": "快连 VPN 支持全球网络资源，无限制无记录的访问任何资源，同时使用最先进的技术帮助您抹除任何痕迹，真正实现天涯海角随处达。"
       },
       {
-        "badgeText": "火爆卖点",
+        "badgeText": "热门卖点",
         "title": "行业领先，安全无忧",
         "description": "快连 VPN 于 AppStore 工具类排行长期领先，并获得 Google 独立安全审核，以及 App Esteem 国际网络安全认证，带来网络自由的同时，不存储任何个人信息，坚守对您隐私的绝对保护。"
       },
       {
-        "badgeText": "火爆卖点",
+        "badgeText": "热门卖点",
         "title": "随用随享，永不套牢",
         "description": "全球唯一一家敢提供短期会员的知名 VPN，安全稳定的同时致力于保障用户权益，随时想用，随时订购，永远不用担心跑路，永远不用担心被套牢。"
       },
       {
-        "badgeText": "火爆卖点",
+        "badgeText": "热门卖点",
         "title": "不限平台，无缝衔接",
         "description": "快连 VPN 支持市面上所有主流的设备，只需一个账号即可在多个设备中共享会员，支持多设备同时在线，保障您不同使用场景下的无缝衔接。"
       },
       {
-        "badgeText": "火爆卖点",
+        "badgeText": "热门卖点",
         "title": "真人客服，永不失联",
         "description": "快连 VPN 提供 24 小时在线服务，100+ 真人客服与网络工程师随时待命，为您上网体验保驾护航，真真正正的提供随叫随到，永不失联的 VIP 服务。"
       }
     ],
-     "animatedFeatureSection": {
-      "badgeIconAlt": "火爆卖点 图标"
+    "animatedFeatureSection": {
+      "badgeIconAlt": "热门卖点 图标"
     },
     "userReviews": {
       "title": "用户评价",
@@ -123,7 +122,7 @@
         {
           "name": "芒果味的小仙女",
           "title": "个人用户",
-          "text": "快连这个软件非常良心，界面操作简便不繁琐一用就会了，链接速度稳定不断线，看视频打游戏都很好用，偶尔上ins找我的男神表白，太爽了。"
+          "text": "快连这个软件非常良心，界面操作简便不繁琐一用就会了，连接速度稳定不断线，看视频打游戏都很好用，偶尔上ins找我的男神表白，太爽了。"
         },
         {
           "name": "王女士",
@@ -185,9 +184,9 @@
       }
     ],
     "illustrations": {
-      "referralBonus": "推荐奖励图示",
-      "weeklyBonus": "每周奖励图示",
-      "settlement": "结算图示"
+      "referralBonus": "推荐奖励 图示",
+      "weeklyBonus": "每周额外奖励 图示",
+      "settlement": "结算提现 图示"
     }
   },
   "blogPage": {
@@ -257,13 +256,58 @@
     "description": "您正在寻找的页面可能已被移除、名称已更改或暂时不可用。",
     "goHomeButton": "返回首页"
   },
+  "helpCenterPage": {
+    "title": "来自 LetsVPN 团队的建议与解答",
+    "searchPlaceholder": "搜索文章...",
+    "searchIconLabel": "搜索",
+    "internalHeader": {
+      "ariaLabel": "帮助中心导航",
+      "goToLetsVPN": "前往 LetsVPN",
+      "account": "账户",
+      "language": "English",
+      "languageAriaLabel": "当前语言: 英语",
+      "openMenuAriaLabel": "打开菜单",
+      "closeMenuAriaLabel": "关闭菜单",
+      "menuTitle": "菜单"
+    },
+    "categories": [
+      {
+        "avatarAlt": "{{name}} 的头像",
+        "title": "Help Documents",
+        "description": "Thank you very much for using LetsVPN, you can find the solutions to common questions here.",
+        "authors": "由 Jamie 和另外 2 人",
+        "articleCount": "25 篇文章"
+      },
+      {
+        "avatarAlt": "{{name}} 的头像",
+        "title": "中文帮助",
+        "description": "非常感谢您使用我们的服务，在这里您可以找到一些常见的问题处理方法",
+        "authors": "由 Jamie 和另外 4 人",
+        "articleCount": "58 篇文章"
+      },
+      {
+        "avatarAlt": "{{name}} 的头像",
+        "title": "Помощь с русским языком",
+        "description": "Огромное спасибо за использование наших сервисов, в этой статье можете найти...",
+        "authors": "由 Jamie 和另外 1 人",
+        "articleCount": "21 篇文章"
+      },
+      {
+        "avatarAlt": "LetsVPN 头像",
+        "title": "境外新鲜事儿",
+        "description": "",
+        "authors": "由 LetsVPN",
+        "articleCount": "643 篇文章"
+      }
+    ]
+  },
   "altTexts": {
-    "logo": "快连VPN Logo",
-    "footerLogo": "快连VPN 页脚Logo",
+    "logo": "LetsVPN Logo",
+    "footerLogo": "LetsVPN 页脚 Logo",
     "appStoreIcon": "App Store 图标",
     "googleIcon": "Google 图标",
-    "qrCodeDownload": "APP下载二维码",
-    "scanToDownloadQR": "扫码下载APP",
+    "qrCodeDownload": "APP 下载二维码",
+    "scanToDownloadQR": "扫码下载 APP",
     "telegramQrCode": "Telegram 二维码",
     "telegramIcon": "Telegram 图标",
     "referralAnimation": "推广奖励动画",

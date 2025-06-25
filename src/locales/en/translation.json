@@ -1,4 +1,3 @@
-
 {
   "header": {
     "home": "Home",
@@ -256,6 +255,51 @@
     "title": "Oops! Page Not Found.",
     "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
     "goHomeButton": "Go to Homepage"
+  },
+  "helpCenterPage": {
+    "title": "Advice and answers from the LetsVPN Team",
+    "searchPlaceholder": "Search for articles...",
+    "searchIconLabel": "Search",
+    "internalHeader": {
+      "ariaLabel": "Help Center Navigation",
+      "goToLetsVPN": "Go To LetsVPN",
+      "account": "Account",
+      "language": "English",
+      "languageAriaLabel": "Current language: English",
+      "openMenuAriaLabel": "Open menu",
+      "closeMenuAriaLabel": "Close menu",
+      "menuTitle": "Menu"
+    },
+    "categories": [
+      {
+        "avatarAlt": "{{name}}'s avatar",
+        "title": "Help Documents",
+        "description": "Thank you very much for using LetsVPN, you can find the solutions to common questions here.",
+        "authors": "By Jamie and 2 others",
+        "articleCount": "25 articles"
+      },
+      {
+        "avatarAlt": "{{name}}'s avatar",
+        "title": "中文帮助",
+        "description": "非常感谢您使用我们的服务，在这里您可以找到一些常见的问题处理方法",
+        "authors": "By Jamie and 4 others",
+        "articleCount": "58 articles"
+      },
+      {
+        "avatarAlt": "{{name}}'s avatar",
+        "title": "Помощь с русским языком",
+        "description": "Огромное спасибо за использование наших сервисов, в этой статье можете найти...",
+        "authors": "By Jamie and 1 other",
+        "articleCount": "21 articles"
+      },
+      {
+        "avatarAlt": "LetsVPN avatar",
+        "title": "境外新鲜事儿",
+        "description": "",
+        "authors": "By LetsVPN",
+        "articleCount": "643 articles"
+      }
+    ]
   },
   "altTexts": {
     "logo": "LetsVPN Logo",

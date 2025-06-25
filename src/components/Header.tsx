@@ -123,6 +123,7 @@ const Header: React.FC = () => {
   const isOnReferralPage = location.pathname === '/referral';
   const isOnLoginPage = location.pathname === '/login';
   const isOnBlogPage = location.pathname === '/blog';
+  // Removed isOnHelpCenterPage as HelpCenterPage now has its own header
 
   useEffect(() => {
     const initialY = window.scrollY;
@@ -214,17 +215,14 @@ const Header: React.FC = () => {
   let headerContainerClasses = `sticky top-0 z-50 h-[60px] md:h-[100px] transition-all duration-[${animationDuration}ms] ease-in-out`;
   let currentHeaderStyle: React.CSSProperties = {};
 
-  // Base shadow state
   if (isAtTop) {
     headerContainerClasses += ' shadow-none';
   } else {
-    headerContainerClasses += ' shadow-lg'; // Default shadow when scrolled
+    headerContainerClasses += ' shadow-lg';
   }
 
-  // Specific background/shadow overrides
   if (isMobileView) {
     if (isOnHomePage || isOnReferralPage) {
-      // Mobile Home & Mobile Referral
       if (isAtTop) {
         currentHeaderStyle.background = 'transparent';
         headerContainerClasses =
@@ -232,7 +230,6 @@ const Header: React.FC = () => {
             .replace(/\bshadow-lg\b|\bshadow-none\b/g, '')
             .trim() + ' shadow-none';
       } else {
-        // Mobile Homepage or Referral Page, Scrolled
         currentHeaderStyle.background =
           'linear-gradient(284deg, #cc5ce8 10%, #3150ed)';
         headerContainerClasses =
@@ -241,36 +238,27 @@ const Header: React.FC = () => {
             .trim() + ' shadow-[0_0.02415rem_0.24155rem_rgba(0,0,0,0.4)]';
       }
     } else if (isOnLoginPage) {
-      // Mobile Login Page
       currentHeaderStyle.background =
         'linear-gradient(315deg, #eb4eb1, #9257f9 50.46%, #3150ed)';
-      // Shadow for Mobile Login is handled by default shadow state
     } else {
-      // Other mobile pages (e.g., Blog)
       currentHeaderStyle.background = 'white';
-      // Shadow for other mobile pages is handled by default shadow state
     }
   } else {
     // Desktop View
     if (isOnReferralPage) {
-      // Desktop Referral Page
       if (isAtTop) {
-        currentHeaderStyle.background = 'transparent'; // Transparent when at top for PC Referral
+        currentHeaderStyle.background = 'transparent';
         headerContainerClasses =
           headerContainerClasses
             .replace(/\bshadow-lg\b|\bshadow-none\b/g, '')
             .trim() + ' shadow-none';
       } else {
-        // Desktop Referral Page, Scrolled
-        currentHeaderStyle.backgroundImage = 'url(/assets/bg-get-money.png)'; // Background image when scrolled
+        currentHeaderStyle.backgroundImage = 'url(/assets/bg-get-money.png)';
         currentHeaderStyle.backgroundPosition = 'top center';
         currentHeaderStyle.backgroundRepeat = 'no-repeat';
         currentHeaderStyle.backgroundSize = 'cover';
-        // Shadow for scrolled Desktop Referral is 'shadow-lg' (from default at top)
       }
     } else if (isOnHomePage) {
-      // Desktop Home Page
-      // For Desktop Home, background is image, and always shadow-none regardless of scroll.
       currentHeaderStyle.backgroundImage = 'url(/assets/home_bg_pc.png)';
       currentHeaderStyle.backgroundPosition = 'top center';
       currentHeaderStyle.backgroundRepeat = 'no-repeat';
@@ -280,9 +268,7 @@ const Header: React.FC = () => {
           .replace(/\bshadow-lg\b|\bshadow-none\b/g, '')
           .trim() + ' shadow-none';
     } else {
-      // Other desktop pages (e.g., Blog, Login)
       currentHeaderStyle.background = 'white';
-      // Shadow for other desktop pages is handled by default shadow state
     }
   }
 
@@ -583,8 +569,7 @@ const Header: React.FC = () => {
                 <NewMenuIcon
                   className="w-[2.3rem] h-[2rem]"
                   aria-hidden="true"
-                />{' '}
-                {/* Adjusted size here */}
+                />
               </button>
             )}
           </div>

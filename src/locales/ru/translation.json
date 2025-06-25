@@ -1,4 +1,3 @@
-
 {
   "header": {
     "home": "Главная",
@@ -256,6 +255,51 @@
     "title": "Ой! Страница не найдена.",
     "description": "Страница, которую вы ищете, могла быть удалена, ее название изменено или она временно недоступна.",
     "goHomeButton": "Перейти на главную"
+  },
+  "helpCenterPage": {
+    "title": "Советы и ответы от команды LetsVPN",
+    "searchPlaceholder": "Поиск статей...",
+    "searchIconLabel": "Поиск",
+    "internalHeader": {
+      "ariaLabel": "Навигация по Центру помощи",
+      "goToLetsVPN": "Перейти на LetsVPN",
+      "account": "Аккаунт",
+      "language": "English",
+      "languageAriaLabel": "Текущий язык: Английский",
+      "openMenuAriaLabel": "Открыть меню",
+      "closeMenuAriaLabel": "Закрыть меню",
+      "menuTitle": "Меню"
+    },
+    "categories": [
+      {
+        "avatarAlt": "Аватар {{name}}",
+        "title": "Help Documents",
+        "description": "Thank you very much for using LetsVPN, you can find the solutions to common questions here.",
+        "authors": "От Jamie и еще 2",
+        "articleCount": "25 статей"
+      },
+      {
+        "avatarAlt": "Аватар {{name}}",
+        "title": "中文帮助",
+        "description": "非常感谢您使用我们的服务，在这里您可以找到一些常见的问题处理方法",
+        "authors": "От Jamie и еще 4",
+        "articleCount": "58 статей"
+      },
+      {
+        "avatarAlt": "Аватар {{name}}",
+        "title": "Помощь с русским языком",
+        "description": "Огромное спасибо за использование наших сервисов, в этой статье можете найти...",
+        "authors": "От Jamie и еще 1",
+        "articleCount": "21 статья"
+      },
+      {
+        "avatarAlt": "Аватар LetsVPN",
+        "title": "境外新鲜事儿",
+        "description": "",
+        "authors": "От LetsVPN",
+        "articleCount": "643 статьи"
+      }
+    ]
   },
   "altTexts": {
     "logo": "Логотип LetsVPN",
