@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const LoginPage: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const useLargeFont =
-    i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -42,31 +41,22 @@ const LoginPage: React.FC = () => {
   };
 
   const titleFontSize = useLargeFont ? 'md:text-[64px]' : 'md:text-[48px]';
-  const descriptionFontSize = useLargeFont
-    ? 'md:text-[2rem]'
-    : 'md:text-[1.8rem]';
-  const inputPlaceholderFontSize = useLargeFont
-    ? 'md:placeholder:text-[30px] md:text-[30px]'
-    : 'md:placeholder:text-[24px] md:text-[24px]';
+  const descriptionFontSize = useLargeFont ? 'md:text-[2rem]' : 'md:text-[1.8rem]';
+  const inputPlaceholderFontSize = useLargeFont ? 'md:placeholder:text-[30px] md:text-[30px]' : 'md:placeholder:text-[24px] md:text-[24px]';
   const buttonTextFontSize = useLargeFont ? 'md:text-[28px]' : 'md:text-[22px]';
-  const linkTextFontSize = useLargeFont
-    ? 'md:text-[22px] lg:text-[24px]'
-    : 'md:text-[18px] lg:text-[20px]';
+  const linkTextFontSize = useLargeFont ? 'md:text-[22px] lg:text-[24px]' : 'md:text-[18px] lg:text-[20px]';
+
 
   const renderContent = () => {
     if (viewMode === 'forgotPassword') {
       return (
         <>
           <div className="mb-6 md:mb-[45px]">
-            <h2
-              className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}
-            >
+            <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}>
               {t('loginPage.forgotPassword.title')}
             </h2>
           </div>
-          <p
-            className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-12 leading-relaxed`}
-          >
+          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-12 leading-relaxed`}>
             {t('loginPage.forgotPassword.description')}
           </p>
           <div className="w-full mb-6 md:mb-[40px]">
@@ -79,12 +69,8 @@ const LoginPage: React.FC = () => {
             </Link>
           </div>
           <div className="text-left">
-            <div
-              className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}
-            >
-              <span className="text-brand-text-primary">
-                {t('loginPage.forgotPassword.haveAccount')}
-              </span>
+            <div className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}>
+              <span className="text-brand-text-primary">{t('loginPage.forgotPassword.haveAccount')}</span>
               <button
                 type="button"
                 onClick={() => setViewMode('login')}
@@ -103,15 +89,11 @@ const LoginPage: React.FC = () => {
       return (
         <>
           <div className="mb-6 md:mb-[45px]">
-            <h2
-              className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}
-            >
+            <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}>
               {t('loginPage.register.title')}
             </h2>
           </div>
-          <p
-            className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-12 leading-relaxed`}
-          >
+          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-12 leading-relaxed`}>
             {t('loginPage.register.description')}
           </p>
           <div className="w-full mb-6 md:mb-[40px]">
@@ -124,12 +106,8 @@ const LoginPage: React.FC = () => {
             </Link>
           </div>
           <div className="text-left">
-            <div
-              className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}
-            >
-              <span className="text-brand-text-primary">
-                {t('loginPage.register.haveAccount')}
-              </span>
+            <div className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}>
+              <span className="text-brand-text-primary">{t('loginPage.register.haveAccount')}</span>
               <button
                 type="button"
                 onClick={() => setViewMode('login')}
@@ -147,9 +125,7 @@ const LoginPage: React.FC = () => {
     return (
       <>
         <div className="mb-6 md:mb-[45px]">
-          <h2
-            className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary md:whitespace-nowrap`}
-          >
+          <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary md:whitespace-nowrap`}>
             {t('loginPage.login.title')}
           </h2>
         </div>
@@ -244,11 +220,7 @@ const LoginPage: React.FC = () => {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="text-input-icon-placeholder hover:text-brand-text-primary focus:outline-none p-2"
-              aria-label={t(
-                showPassword
-                  ? 'loginPage.login.hidePassword'
-                  : 'loginPage.login.showPassword'
-              )}
+              aria-label={t(showPassword ? 'loginPage.login.hidePassword' : 'loginPage.login.showPassword')}
             >
               {showPassword ? (
                 <svg

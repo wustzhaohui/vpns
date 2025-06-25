@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -14,24 +16,10 @@ const PersonIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 const NewMenuIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg
-    viewBox="0 0 1024 1024"
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path
-      d="M128 192l768 0 0 128-768 0 0-128Z"
-      fill="currentColor"
-    ></path>
-    <path
-      d="M128 448l768 0 0 128-768 0 0-128Z"
-      fill="currentColor"
-    ></path>
-    <path
-      d="M128 704l768 0 0 128-768 0 0-128Z"
-      fill="currentColor"
-    ></path>
+  <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M128 192l768 0 0 128-768 0 0-128Z" fill="currentColor"></path>
+    <path d="M128 448l768 0 0 128-768 0 0-128Z" fill="currentColor"></path>
+    <path d="M128 704l768 0 0 128-768 0 0-128Z" fill="currentColor"></path>
   </svg>
 );
 
@@ -75,13 +63,11 @@ const Header: React.FC = () => {
   }, []);
 
   // Determine if hero header styles (light text, background image) should be applied
-  const applyHeroHeaderStyles =
-    isOnHeroBackgroundPage || (isMobileView && isOnLoginPage);
+  const applyHeroHeaderStyles = isOnHeroBackgroundPage || (isMobileView && isOnLoginPage);
 
   const useLightText = applyHeroHeaderStyles;
-  const logoSrc = applyHeroHeaderStyles
-    ? '/assets/logo.png'
-    : '/assets/footer-logo.png';
+  const logoSrc = applyHeroHeaderStyles ? '/assets/logo.png' : '/assets/footer-logo.png';
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -124,8 +110,7 @@ const Header: React.FC = () => {
       const scrollingDown = currentY > lastYRef.current;
       setIsAtTop(currentY <= 10);
 
-      if (isOnBlogPage || (isOnLoginPage && !isMobileView)) {
-        // Standard behavior for blog, or desktop login
+      if (isOnBlogPage || (isOnLoginPage && !isMobileView) ) { // Standard behavior for blog, or desktop login
         setHeaderIsNudgingUp(false);
         isBehaviorActiveRef.current = false;
         if (pauseTimerRef.current) {
@@ -135,16 +120,17 @@ const Header: React.FC = () => {
         lastYRef.current = currentY;
         return;
       }
-
+      
       // For pages with hero background (home, referral, mobile login), different scroll behavior
       if (applyHeroHeaderStyles && isMobileView && isOnLoginPage) {
-        // Mobile login page with hero styles should not nudge up/down
+         // Mobile login page with hero styles should not nudge up/down
         setHeaderIsNudgingUp(false);
         isBehaviorActiveRef.current = false;
         if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
         lastYRef.current = currentY;
         return;
       }
+
 
       if (currentY <= 10) {
         if (pauseTimerRef.current) {
@@ -173,13 +159,7 @@ const Header: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
       if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
     };
-  }, [
-    isOnLoginPage,
-    isOnBlogPage,
-    animationDuration,
-    applyHeroHeaderStyles,
-    isMobileView,
-  ]);
+  }, [isOnLoginPage, isOnBlogPage, animationDuration, applyHeroHeaderStyles, isMobileView]);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -198,10 +178,12 @@ const Header: React.FC = () => {
     };
   }, [isMobileMenuOpen]);
 
+
   const mainNavLinks = [
     { to: '/', labelKey: 'header.home', end: true },
     { to: '/referral', labelKey: 'header.referral' },
     { to: '/blog', labelKey: 'header.blog' },
+    // Removed: { to: '/travel-planner', labelKey: 'header.travelPlanner' },
     { to: '/help', labelKey: 'header.helpCenter' },
   ];
 
@@ -219,8 +201,7 @@ const Header: React.FC = () => {
   let headerDynamicClasses = '';
   if (applyHeroHeaderStyles) {
     headerDynamicClasses = 'shadow-none';
-  } else {
-    // For pages like Blog, or Desktop Login
+  } else { // For pages like Blog, or Desktop Login
     headerDynamicClasses = 'bg-white';
     if (isAtTop) {
       headerDynamicClasses += ' shadow-none';
@@ -228,6 +209,7 @@ const Header: React.FC = () => {
       headerDynamicClasses += ' shadow-lg';
     }
   }
+
 
   return (
     <>
@@ -252,7 +234,7 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           {!isOnLoginPage && (
-            <nav className="hidden md:flex items-center space-x-24 justify-end">
+            <nav className="hidden md:flex items-center space-x-12 lg:space-x-16 xl:space-x-20 justify-end"> {/* Adjusted spacing for new item */}
               {mainNavLinks.map((link) => (
                 <NavLink
                   key={link.labelKey}
@@ -280,9 +262,9 @@ const Header: React.FC = () => {
                 onMouseLeave={() => setIsQrPopoverOpen(false)}
               >
                 <button
-                  ref={qrButtonRef}
+                  ref={qrButtonRef} 
                   className={`text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem] font-medium transition-colors duration-150 cursor-default ${
-                    isQrPopoverOpen && window.innerWidth >= 768
+                    isQrPopoverOpen && window.innerWidth >=768 
                       ? useLightText
                         ? 'text-white'
                         : 'text-brand-purple'
@@ -356,87 +338,18 @@ const Header: React.FC = () => {
                 aria-expanded={isHeaderLanguageDropdownOpen}
                 aria-label={t('header.languageSwitcher.changeLanguage')}
               >
-                <svg
-                  className="w-5 h-5 mr-1 md:w-6 md:h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                  ></path>
+                <svg className="w-5 h-5 mr-1 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
                 </svg>
-                {i18n.language.startsWith('zh-Hant')
-                  ? '繁體中文'
-                  : i18n.language.startsWith('ru')
-                  ? 'Русский'
-                  : i18n.language.startsWith('zh')
-                  ? '简体中文'
-                  : 'English'}
-                <svg
-                  className={`w-4 h-4 ml-1 transition-transform duration-200 ${
-                    isHeaderLanguageDropdownOpen ? 'rotate-180' : ''
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
-                </svg>
+                {i18n.language.startsWith('zh-Hant') ? '繁體中文' : i18n.language.startsWith('ru') ? 'Русский' : i18n.language.startsWith('zh') ? '简体中文' : 'English'}
+                <svg className={`w-4 h-4 ml-1 transition-transform duration-200 ${isHeaderLanguageDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
               {isHeaderLanguageDropdownOpen && (
                 <div className="absolute right-4 top-16 mt-2 w-48 bg-white rounded-md shadow-xl z-20 py-1">
-                  <button
-                    onClick={() => selectHeaderLanguage('zh')}
-                    className={`block w-full text-left px-4 py-2 text-sm ${
-                      i18n.language.startsWith('zh') &&
-                      !i18n.language.startsWith('zh-Hant')
-                        ? 'font-semibold text-brand-purple'
-                        : 'text-gray-700'
-                    } hover:bg-gray-100`}
-                  >
-                    简体中文
-                  </button>
-                  <button
-                    onClick={() => selectHeaderLanguage('en')}
-                    className={`block w-full text-left px-4 py-2 text-sm ${
-                      i18n.language.startsWith('en')
-                        ? 'font-semibold text-brand-purple'
-                        : 'text-gray-700'
-                    } hover:bg-gray-100`}
-                  >
-                    English
-                  </button>
-                  <button
-                    onClick={() => selectHeaderLanguage('zh-Hant')}
-                    className={`block w-full text-left px-4 py-2 text-sm ${
-                      i18n.language.startsWith('zh-Hant')
-                        ? 'font-semibold text-brand-purple'
-                        : 'text-gray-700'
-                    } hover:bg-gray-100`}
-                  >
-                    繁體中文
-                  </button>
-                  <button
-                    onClick={() => selectHeaderLanguage('ru')}
-                    className={`block w-full text-left px-4 py-2 text-sm ${
-                      i18n.language.startsWith('ru')
-                        ? 'font-semibold text-brand-purple'
-                        : 'text-gray-700'
-                    } hover:bg-gray-100`}
-                  >
-                    Русский
-                  </button>
+                  <button onClick={() => selectHeaderLanguage('zh')} className={`block w-full text-left px-4 py-2 text-sm ${i18n.language.startsWith('zh') && !i18n.language.startsWith('zh-Hant') ? 'font-semibold text-brand-purple' : 'text-gray-700'} hover:bg-gray-100`}>简体中文</button>
+                  <button onClick={() => selectHeaderLanguage('en')} className={`block w-full text-left px-4 py-2 text-sm ${i18n.language.startsWith('en') ? 'font-semibold text-brand-purple' : 'text-gray-700'} hover:bg-gray-100`}>English</button>
+                  <button onClick={() => selectHeaderLanguage('zh-Hant')} className={`block w-full text-left px-4 py-2 text-sm ${i18n.language.startsWith('zh-Hant') ? 'font-semibold text-brand-purple' : 'text-gray-700'} hover:bg-gray-100`}>繁體中文</button>
+                  <button onClick={() => selectHeaderLanguage('ru')} className={`block w-full text-left px-4 py-2 text-sm ${i18n.language.startsWith('ru') ? 'font-semibold text-brand-purple' : 'text-gray-700'} hover:bg-gray-100`}>Русский</button>
                 </div>
               )}
             </div>
@@ -445,107 +358,32 @@ const Header: React.FC = () => {
           {/* Mobile: Hamburger Menu OR Language Switcher on Login Page */}
           <div className="md:hidden flex items-center">
             {isOnLoginPage ? (
-              <div ref={headerLanguageDropdownRef}>
-                {' '}
-                {/* Mobile language switcher on login page */}
+              <div ref={headerLanguageDropdownRef}> {/* Mobile language switcher on login page */}
                 <button
                   onClick={toggleHeaderLanguageDropdown}
                   className={`flex items-center text-sm transition-colors
-                    ${
-                      applyHeroHeaderStyles // useLightText will be true if mobile login
-                        ? 'text-white hover:text-gray-300'
-                        : 'text-brand-text-muted hover:text-brand-purple'
+                    ${applyHeroHeaderStyles // useLightText will be true if mobile login
+                      ? 'text-white hover:text-gray-300'
+                      : 'text-brand-text-muted hover:text-brand-purple'
                     }`}
                   aria-haspopup="true"
                   aria-expanded={isHeaderLanguageDropdownOpen}
                   aria-label={t('header.languageSwitcher.changeLanguage')}
                 >
-                  <svg
-                    className="w-5 h-5 mr-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                    ></path>
-                  </svg>
-                  {i18n.language.startsWith('zh-Hant')
-                    ? '繁體中文'
-                    : i18n.language.startsWith('ru')
-                    ? 'Русский'
-                    : i18n.language.startsWith('zh')
-                    ? '简体中文'
-                    : 'English'}
-                  <svg
-                    className={`w-4 h-4 ml-1 transition-transform duration-200 ${
-                      isHeaderLanguageDropdownOpen ? 'rotate-180' : ''
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    ></path>
-                  </svg>
+                  <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                  {i18n.language.startsWith('zh-Hant') ? '繁體中文' : i18n.language.startsWith('ru') ? 'Русский' : i18n.language.startsWith('zh') ? '简体中文' : 'English'}
+                  <svg className={`w-4 h-4 ml-1 transition-transform duration-200 ${isHeaderLanguageDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 {isHeaderLanguageDropdownOpen && (
                   <div className="absolute right-4 top-16 mt-2 w-48 bg-white rounded-md shadow-xl z-20 py-1">
-                    <button
-                      onClick={() => selectHeaderLanguage('zh')}
-                      className={`block w-full text-left px-4 py-2 text-sm ${
-                        i18n.language.startsWith('zh') &&
-                        !i18n.language.startsWith('zh-Hant')
-                          ? 'font-semibold text-brand-purple'
-                          : 'text-gray-700'
-                      } hover:bg-gray-100`}
-                    >
-                      简体中文
-                    </button>
-                    <button
-                      onClick={() => selectHeaderLanguage('en')}
-                      className={`block w-full text-left px-4 py-2 text-sm ${
-                        i18n.language.startsWith('en')
-                          ? 'font-semibold text-brand-purple'
-                          : 'text-gray-700'
-                      } hover:bg-gray-100`}
-                    >
-                      English
-                    </button>
-                    <button
-                      onClick={() => selectHeaderLanguage('zh-Hant')}
-                      className={`block w-full text-left px-4 py-2 text-sm ${
-                        i18n.language.startsWith('zh-Hant')
-                          ? 'font-semibold text-brand-purple'
-                          : 'text-gray-700'
-                      } hover:bg-gray-100`}
-                    >
-                      繁體中文
-                    </button>
-                    <button
-                      onClick={() => selectHeaderLanguage('ru')}
-                      className={`block w-full text-left px-4 py-2 text-sm ${
-                        i18n.language.startsWith('ru')
-                          ? 'font-semibold text-brand-purple'
-                          : 'text-gray-700'
-                      } hover:bg-gray-100`}
-                    >
-                      Русский
-                    </button>
+                    <button onClick={() => selectHeaderLanguage('zh')} className={`block w-full text-left px-4 py-2 text-sm ${i18n.language.startsWith('zh') && !i18n.language.startsWith('zh-Hant') ? 'font-semibold text-brand-purple' : 'text-gray-700'} hover:bg-gray-100`}>简体中文</button>
+                    <button onClick={() => selectHeaderLanguage('en')} className={`block w-full text-left px-4 py-2 text-sm ${i18n.language.startsWith('en') ? 'font-semibold text-brand-purple' : 'text-gray-700'} hover:bg-gray-100`}>English</button>
+                    <button onClick={() => selectHeaderLanguage('zh-Hant')} className={`block w-full text-left px-4 py-2 text-sm ${i18n.language.startsWith('zh-Hant') ? 'font-semibold text-brand-purple' : 'text-gray-700'} hover:bg-gray-100`}>繁體中文</button>
+                    <button onClick={() => selectHeaderLanguage('ru')} className={`block w-full text-left px-4 py-2 text-sm ${i18n.language.startsWith('ru') ? 'font-semibold text-brand-purple' : 'text-gray-700'} hover:bg-gray-100`}>Русский</button>
                   </div>
                 )}
               </div>
-            ) : (
-              /* Hamburger Menu Button for non-login pages */
+            ) : ( /* Hamburger Menu Button for non-login pages */
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
                 className={`p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset ${
@@ -557,10 +395,7 @@ const Header: React.FC = () => {
                 aria-controls="mobile-drawer-menu"
                 aria-label={t('header.mobileMenu.open')}
               >
-                <NewMenuIcon
-                  className="h-7 w-7"
-                  aria-hidden="true"
-                />
+                <NewMenuIcon className="h-7 w-7" aria-hidden="true" />
               </button>
             )}
           </div>
@@ -571,15 +406,15 @@ const Header: React.FC = () => {
       {isMobileMenuOpen && !isOnLoginPage && (
         <div
           id="mobile-drawer-menu"
-          className="fixed inset-0 z-[60] md:hidden"
+          className="fixed inset-0 z-[60] md:hidden" 
           role="dialog"
           aria-modal="true"
           aria-labelledby="mobile-menu-title" // Should have an invisible title element if used like this
         >
           {/* Backdrop */}
-          <div
-            className="fixed inset-0 bg-black/50"
-            aria-hidden="true"
+          <div 
+            className="fixed inset-0 bg-black/50" 
+            aria-hidden="true" 
             onClick={() => setIsMobileMenuOpen(false)}
           ></div>
 
@@ -592,41 +427,21 @@ const Header: React.FC = () => {
               rounded-xl shadow-2xl 
               flex flex-col
               transform-origin-top-right transition-all duration-300 ease-in-out
-              ${
-                isMobileMenuOpen
-                  ? 'opacity-100 scale-100'
-                  : 'opacity-0 scale-95 pointer-events-none'
-              }
+              ${isMobileMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
             `}
           >
             <div className="flex justify-end items-center h-[60px] px-4 flex-shrink-0">
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="p-2 text-white"
-                aria-label={
-                  t('header.mobileMenu.closeDrawerAriaLabel') || 'Close menu'
-                }
+                aria-label={t('header.mobileMenu.closeDrawerAriaLabel') || 'Close menu'} 
               >
-                <svg
-                  className="h-7 w-7"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg className="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
-            <nav className="px-5 pb-5 flex flex-col overflow-y-auto flex-grow">
-              {' '}
-              {/* Adjusted pt-0, added pb-5 */}
+            <nav className="px-5 pb-5 flex flex-col overflow-y-auto flex-grow"> {/* Adjusted pt-0, added pb-5 */}
               {mainNavLinks.map((link) => (
                 <NavLink
                   key={`mobile-drawer-${link.labelKey}`}

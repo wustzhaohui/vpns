@@ -1,10 +1,9 @@
+
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import HeroSection from '@/components/home/HeroSection';
 import PopularAppsSection from '@/components/home/PopularAppsSection';
-import AnimatedFeatureSection, {
-  FeatureSectionProps,
-} from '@/components/home/AnimatedFeatureSection';
+import AnimatedFeatureSection, { FeatureSectionProps } from '@/components/home/AnimatedFeatureSection';
 import UserReviewsSection from '@/components/home/UserReviewsSection';
 import FreeTrialSection from '@/components/home/FreeTrialSection';
 
@@ -13,16 +12,14 @@ const HomePage: React.FC = () => {
 
   // Feature sections data will now use translation keys
   // The actual translation will happen in AnimatedFeatureSection or here before passing
-  const featureSectionsData: Omit<FeatureSectionProps, 'imagePosition'>[] =
-    Array(6)
-      .fill(null)
-      .map((_, index) => ({
-        badgeText: t(`homePage.features.${index}.badgeText`),
-        title: t(`homePage.features.${index}.title`),
-        description: t(`homePage.features.${index}.description`),
-        imageUrl: `/assets/home_introduce_0${index + 1}.png`,
-        imageAlt: t(`homePage.features.${index}.title`), // Using title as alt text, can be more specific
-      }));
+  const featureSectionsData: Omit<FeatureSectionProps, 'imagePosition'>[] = Array(6).fill(null).map((_, index) => ({
+    badgeText: t(`homePage.features.${index}.badgeText`),
+    title: t(`homePage.features.${index}.title`),
+    description: t(`homePage.features.${index}.description`),
+    imageUrl: `/assets/home_introduce_0${index + 1}.png`,
+    imageAlt: t(`homePage.features.${index}.title`), // Using title as alt text, can be more specific
+  }));
+
 
   return (
     <div className="text-brand-text-primary overflow-x-hidden bg-[#F8FAFF]">

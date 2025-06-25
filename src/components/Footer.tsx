@@ -191,11 +191,13 @@ const Footer: React.FC = () => {
         >
           {isMobileView ? (
             // Mobile Footer Layout
-            <div className="flex flex-col space-y-6">
-              <div className="grid grid-cols-3 gap-x-4">
+            <div className="flex flex-col space-y-6 px-4">
+              <div className="grid grid-cols-3 gap-x-4 px-6">
+                {' '}
+                {/* Added px-6 for additional 1.5rem padding */}
                 {/* Software Downloads */}
-                <div className="text-center">
-                  <h3 className="text-base font-semibold text-brand-text-primary mb-2.5">
+                <div className="text-left">
+                  <h3 className="text-[1.6rem] font-semibold text-brand-text-primary mb-2.5">
                     {t('footer.softwareDownloads.title')}
                   </h3>
                   <ul className="space-y-2">
@@ -203,7 +205,7 @@ const Footer: React.FC = () => {
                       <li key={`mobile-${link.nameKey}`}>
                         <Link
                           to={link.href}
-                          className="text-xs text-gray-600 hover:text-brand-purple transition-colors duration-200"
+                          className="text-[1.2rem] text-gray-600 hover:text-brand-purple transition-colors duration-200"
                         >
                           {t(link.nameKey)}
                         </Link>
@@ -211,10 +213,9 @@ const Footer: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-
                 {/* Related Resources */}
-                <div className="text-center">
-                  <h3 className="text-base font-semibold text-brand-text-primary mb-2.5">
+                <div className="text-left">
+                  <h3 className="text-[1.6rem] font-semibold text-brand-text-primary mb-2.5">
                     {t('footer.relatedResources.title')}
                   </h3>
                   <ul className="space-y-2">
@@ -222,7 +223,7 @@ const Footer: React.FC = () => {
                       <li key={`mobile-${link.nameKey}`}>
                         <Link
                           to={link.href}
-                          className="text-xs text-gray-600 hover:text-brand-purple transition-colors duration-200"
+                          className="text-[1.2rem] text-gray-600 hover:text-brand-purple transition-colors duration-200"
                         >
                           {t(link.nameKey)}
                         </Link>
@@ -230,10 +231,9 @@ const Footer: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-
                 {/* User Agreements */}
-                <div className="text-center">
-                  <h3 className="text-base font-semibold text-brand-text-primary mb-2.5">
+                <div className="text-left">
+                  <h3 className="text-[1.6rem] font-semibold text-brand-text-primary mb-2.5">
                     {t('footer.userAgreements.title')}
                   </h3>
                   <ul className="space-y-2">
@@ -241,7 +241,7 @@ const Footer: React.FC = () => {
                       <li key={`mobile-${link.nameKey}`}>
                         <Link
                           to={link.href}
-                          className="text-xs text-gray-600 hover:text-brand-purple transition-colors duration-200"
+                          className="text-[1.2rem] text-gray-600 hover:text-brand-purple transition-colors duration-200"
                         >
                           {t(link.nameKey)}
                         </Link>
@@ -273,7 +273,7 @@ const Footer: React.FC = () => {
                   ref={languageDropdownRef}
                 >
                   <button
-                    className="text-sm text-gray-700 hover:text-brand-purple transition-colors duration-200 flex items-center"
+                    className="text-[1.2rem] text-gray-700 hover:text-brand-purple transition-colors duration-200 flex items-center"
                     onClick={toggleLanguageDropdown}
                     aria-haspopup="true"
                     aria-expanded={isLanguageDropdownOpen}
@@ -294,7 +294,7 @@ const Footer: React.FC = () => {
                     >
                       <button
                         onClick={() => selectLanguage('zh')}
-                        className={`block w-full text-left px-4 py-2 text-sm ${
+                        className={`block w-full text-left px-4 py-2 text-[1.2rem] ${
                           i18n.language.startsWith('zh') &&
                           !i18n.language.startsWith('zh-Hant')
                             ? 'font-semibold text-brand-purple'
@@ -306,7 +306,7 @@ const Footer: React.FC = () => {
                       </button>
                       <button
                         onClick={() => selectLanguage('en')}
-                        className={`block w-full text-left px-4 py-2 text-sm ${
+                        className={`block w-full text-left px-4 py-2 text-[1.2rem] ${
                           i18n.language.startsWith('en')
                             ? 'font-semibold text-brand-purple'
                             : 'text-gray-700'
@@ -317,7 +317,7 @@ const Footer: React.FC = () => {
                       </button>
                       <button
                         onClick={() => selectLanguage('zh-Hant')}
-                        className={`block w-full text-left px-4 py-2 text-sm ${
+                        className={`block w-full text-left px-4 py-2 text-[1.2rem] ${
                           i18n.language.startsWith('zh-Hant')
                             ? 'font-semibold text-brand-purple'
                             : 'text-gray-700'
@@ -328,7 +328,7 @@ const Footer: React.FC = () => {
                       </button>
                       <button
                         onClick={() => selectLanguage('ru')}
-                        className={`block w-full text-left px-4 py-2 text-sm ${
+                        className={`block w-full text-left px-4 py-2 text-[1.2rem] ${
                           i18n.language.startsWith('ru')
                             ? 'font-semibold text-brand-purple'
                             : 'text-gray-700'

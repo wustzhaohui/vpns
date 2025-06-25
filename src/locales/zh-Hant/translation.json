@@ -1,3 +1,4 @@
+
 {
   "header": {
     "home": "首頁",
@@ -110,7 +111,7 @@
         "description": "快連 VPN 提供 24 小時在線服務，100+ 真人客服與網路工程師隨時待命，為您上網體驗保駕護航，真真正正的提供隨叫隨到，永不失聯的 VIP 服務。"
       }
     ],
-    "animatedFeatureSection": {
+     "animatedFeatureSection": {
       "badgeIconAlt": "熱門賣點 圖示"
     },
     "userReviews": {
