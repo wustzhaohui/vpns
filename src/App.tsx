@@ -14,10 +14,10 @@ function App() {
       <LanguageEffect />
       <Routes>
         {/* Help Center page without shared Layout */}
-        {/* <Route
+        <Route
           path="/help"
           element={<HelpCenterPage />}
-        /> */}
+        />
 
         {/* Other routes use the shared Layout */}
         <Route
@@ -43,10 +43,6 @@ function App() {
                 />
                 <Route
                   path="*"
-                  element={<NotFoundPage />}
-                />
-                <Route
-                  path="/help"
                   element={<NotFoundPage />}
                 />
               </Routes>
