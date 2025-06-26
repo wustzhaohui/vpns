@@ -1,4 +1,3 @@
-
 {
   "header": {
     "home": "首頁",
@@ -111,7 +110,7 @@
         "description": "快連 VPN 提供 24 小時在線服務，100+ 真人客服與網路工程師隨時待命，為您上網體驗保駕護航，真真正正的提供隨叫隨到，永不失聯的 VIP 服務。"
       }
     ],
-     "animatedFeatureSection": {
+    "animatedFeatureSection": {
       "badgeIconAlt": "熱門賣點 圖示"
     },
     "userReviews": {
@@ -191,13 +190,13 @@
     }
   },
   "blogPage": {
-    "featuredPostBadge": "最新發布",
+    "featuredPostBadge": "最新\n發佈",
     "imagePlaceholder": "圖像佔位符: {{title}}",
     "posts": [
       {
         "title": "快連 VPN 祝全球華人使用者蛇年大吉！",
         "summary": "值此辭舊迎新之際，快連 VPN 團隊祝您蛇年大吉，蒸蒸日上，財源滾滾，幸福安康！續乘龍氣迎風上，又如靈蛇自在遊。",
-        "badgeText": "最新發布"
+        "badgeText": "最新\n發佈"
       },
       {
         "title": "防毒軟體報 VPN 病毒，VPN 真的安全嗎？",

@@ -1,4 +1,3 @@
-
 {
   "header": {
     "home": "Home",
@@ -191,13 +190,13 @@
     }
   },
   "blogPage": {
-    "featuredPostBadge": "Latest Post",
+    "featuredPostBadge": "Latest\nPost",
     "imagePlaceholder": "Image placeholder: {{title}}",
     "posts": [
       {
         "title": "LetsVPN Wishes Chinese Users Worldwide a Prosperous Year of the Snake!",
         "summary": "On the eve of the New Year, the LetsVPN team wishes you prosperity in the Year of the Snake, soaring success, abundance, and happiness!",
-        "badgeText": "Latest Post"
+        "badgeText": "Latest\nPost"
       },
       {
         "title": "Antivirus Reports VPN as a Virus. Is VPN Really Safe?",

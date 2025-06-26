@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       maxWidth: {
@@ -17,8 +14,9 @@ export default {
         'brand-pink': '#FF69B4', // HotPink
         'brand-gradient-from': '#8A2BE2',
         'brand-gradient-to': '#4169E1',
-        'brand-text-primary': '#333333', // New primary text color
+        'brand-text-primary': '#000000', // Changed from #333333 to #000000
         'brand-text-muted': '#999999', // New muted/secondary text color
+        'brand-text-date': '#575757', // Added color for blog dates
         // New header gradient colors (Matching the provided image)
         'header-gradient-start': '#2533E8', // rgb(37, 51, 232)
         'header-gradient-middle': '#8936EB', // rgb(137, 54, 235)
@@ -31,23 +29,31 @@ export default {
         'brand-text-mobile-footer-links': '#747E8B', // Added for mobile footer links rgb(116, 126, 139)
       },
       fontFamily: {
-        sans: ['Helvetica', 'Charter', '"PingFang SC"', '"Microsoft YaHei"', 'Arial', 'sans-serif'],
+        sans: [
+          'Helvetica',
+          'Charter',
+          '"PingFang SC"',
+          '"Microsoft YaHei"',
+          'Arial',
+          'sans-serif',
+        ],
       },
       keyframes: {
         appIconFloat: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-6px)' },
         },
-        svgIconPulse: { // Added new keyframes
+        svgIconPulse: {
+          // Added new keyframes
           '0%, 100%': { transform: 'scale(1)', transformOrigin: 'center' },
-          '50%': { transform: 'scale(1.05)', transformOrigin: 'center'  },
-        }
+          '50%': { transform: 'scale(1.05)', transformOrigin: 'center' },
+        },
       },
       animation: {
         appIconFloat: 'appIconFloat 3.5s ease-in-out infinite',
         svgIconPulse: 'svgIconPulse 2.5s ease-in-out infinite', // Added new animation utility
-      }
+      },
     },
   },
   plugins: [],
-}
+};

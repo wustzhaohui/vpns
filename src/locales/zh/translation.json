@@ -1,4 +1,3 @@
-
 {
   "header": {
     "home": "主页",
@@ -191,13 +190,13 @@
     }
   },
   "blogPage": {
-    "featuredPostBadge": "最新发布",
+    "featuredPostBadge": "最新\n发布",
     "imagePlaceholder": "图片占位符: {{title}}",
     "posts": [
       {
         "title": "快连 VPN 祝全球华人用户蛇年大吉！",
         "summary": "值此辞旧迎新之际，快连 VPN 团队祝您蛇年大吉，蒸蒸日上，财源滚滚，幸福安康！续乘龙气迎风上，又如灵蛇自在游。",
-        "badgeText": "最新发布"
+        "badgeText": "最新\n发布"
       },
       {
         "title": "杀毒软件报 VPN 病毒，VPN 真的安全吗？",
