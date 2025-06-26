@@ -1,9 +1,7 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { TFunction } from 'i18next'; // Import TFunction
 import { i18n as I18nInstanceType } from 'i18next'; // Import i18n instance type
-
 
 // Icons for the internal header
 const HelpCenterLogoIcon: React.FC<
@@ -122,7 +120,6 @@ const SearchIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-
 interface HelpCenterHeaderProps {
   t: TFunction;
   i18n: I18nInstanceType;
@@ -137,6 +134,9 @@ const HelpCenterHeader: React.FC<HelpCenterHeaderProps> = ({
   internalHeaderNavFontSize,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHelpLanguageDropdownOpen, setIsHelpLanguageDropdownOpen] =
+    useState(false);
+  const helpLanguageDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
@@ -144,6 +144,56 @@ const HelpCenterHeader: React.FC<HelpCenterHeaderProps> = ({
       document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        helpLanguageDropdownRef.current &&
+        !helpLanguageDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsHelpLanguageDropdownOpen(false);
+      }
+    };
+    if (isHelpLanguageDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isHelpLanguageDropdownOpen]);
+
+  const toggleHelpLanguageDropdown = () =>
+    setIsHelpLanguageDropdownOpen((prev) => !prev);
+
+  const selectHelpLanguage = (language: 'zh' | 'en' | 'zh-Hant' | 'ru') => {
+    i18n.changeLanguage(language);
+    setIsHelpLanguageDropdownOpen(false);
+    setIsMobileMenuOpen(false);
+  };
+
+  const getCurrentDisplayLanguage = () => {
+    const lang = i18n.language;
+    if (lang.startsWith('zh-Hant'))
+      return t('header.language.traditionalChinese');
+    if (lang.startsWith('ru')) return t('header.language.russian');
+    if (lang.startsWith('zh')) return t('header.language.chinese');
+    return t('header.language.english');
+  };
+
+  const currentLanguageKey = (() => {
+    const lang = i18n.language;
+    if (lang.startsWith('zh-Hant')) return 'zh-Hant';
+    if (lang.startsWith('ru')) return 'ru';
+    if (lang.startsWith('zh')) return 'zh';
+    return 'en';
+  })();
+
+  const languages = [
+    { code: 'zh', nameKey: 'header.language.chinese' },
+    { code: 'en', nameKey: 'header.language.english' },
+    { code: 'zh-Hant', nameKey: 'header.language.traditionalChinese' },
+    { code: 'ru', nameKey: 'header.language.russian' },
+  ] as const;
 
   const headerStyle: React.CSSProperties = {
     height: '405px',
@@ -190,14 +240,41 @@ const HelpCenterHeader: React.FC<HelpCenterHeaderProps> = ({
                 {t('helpCenterPage.internalHeader.account')}
               </Link>
               <div
-                className={`flex items-center ${internalHeaderNavFontSize} text-gray-200 cursor-default`}
-                aria-label={t(
-                  'helpCenterPage.internalHeader.languageAriaLabel'
-                )}
+                className="relative"
+                ref={helpLanguageDropdownRef}
               >
-                <HelpCenterGlobeIcon className="w-[22px] h-[22px] mr-1.5" />
-                <span>{t('helpCenterPage.internalHeader.language')}</span>
-                <HelpCenterChevronDownIcon className="w-[18px] h-[18px] ml-1" />
+                <button
+                  onClick={toggleHelpLanguageDropdown}
+                  className={`flex items-center ${internalHeaderNavFontSize} text-white hover:text-gray-200 transition-colors`}
+                  aria-haspopup="true"
+                  aria-expanded={isHelpLanguageDropdownOpen}
+                  aria-label={t('header.languageSwitcher.changeLanguage')}
+                >
+                  <HelpCenterGlobeIcon className="w-[22px] h-[22px] mr-1.5" />
+                  <span>{getCurrentDisplayLanguage()}</span>
+                  <HelpCenterChevronDownIcon
+                    className={`w-[18px] h-[18px] ml-1 transition-transform duration-200 ${
+                      isHelpLanguageDropdownOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {isHelpLanguageDropdownOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-48 bg-slate-800/90 backdrop-blur-sm rounded-md shadow-xl z-20 py-1 border border-slate-700">
+                    {languages.map((lang) => (
+                      <button
+                        key={`desktop-help-lang-${lang.code}`}
+                        onClick={() => selectHelpLanguage(lang.code)}
+                        className={`block w-full text-left px-4 py-2 text-sm ${
+                          currentLanguageKey === lang.code
+                            ? 'font-semibold text-white'
+                            : 'text-gray-300'
+                        } hover:bg-slate-700 hover:text-white`}
+                      >
+                        {t(lang.nameKey)}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </nav>
             <div className="md:hidden">
@@ -220,7 +297,10 @@ const HelpCenterHeader: React.FC<HelpCenterHeaderProps> = ({
               {t('helpCenterPage.title')}
             </h1>
             <div className="relative w-full max-w-[960px]">
-              <label htmlFor="search-input" className="sr-only">
+              <label
+                htmlFor="search-input"
+                className="sr-only"
+              >
                 {t('helpCenterPage.searchPlaceholder')}
               </label>
               <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
@@ -253,15 +333,20 @@ const HelpCenterHeader: React.FC<HelpCenterHeaderProps> = ({
           ></div>
           <div
             className={`
-              fixed top-0 left-0 right-0 h-[176px]
+              fixed top-0 left-0 right-0
               bg-white
               shadow-2xl 
               flex flex-col
               transform-origin-top transition-all duration-300 ease-in-out
-              ${isMobileMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
+              ${
+                isMobileMenuOpen
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-95 pointer-events-none'
+              }
             `}
+            style={{ minHeight: '176px' }} // Ensure enough height for languages
           >
-             <div className="flex justify-end items-center p-3 flex-shrink-0">
+            <div className="flex justify-end items-center p-3 flex-shrink-0">
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="p-2 text-brand-text-primary"
@@ -272,7 +357,7 @@ const HelpCenterHeader: React.FC<HelpCenterHeaderProps> = ({
                 <HelpCenterCloseIcon className="w-6 h-6" />
               </button>
             </div>
-            <nav className="flex flex-col px-4 py-2 space-y-0.5">
+            <nav className="flex flex-col px-4 py-2 space-y-0.5 flex-grow overflow-y-auto">
               <a
                 href="https://letsvpn.world/"
                 target="_blank"
@@ -289,14 +374,27 @@ const HelpCenterHeader: React.FC<HelpCenterHeaderProps> = ({
               >
                 {t('helpCenterPage.internalHeader.account')}
               </Link>
-              <div
-                className="flex items-center py-2 text-[1.6rem] font-bold text-brand-text-muted px-2 cursor-default"
-                aria-label={t(
-                  'helpCenterPage.internalHeader.languageAriaLabel'
-                )}
-              >
-                <HelpCenterGlobeIcon className="w-5 h-5 mr-2" />
-                <span>{t('helpCenterPage.internalHeader.language')}</span>
+
+              <div className="border-t border-gray-200 mt-2 pt-2">
+                <span className="block py-2 px-2 text-[1.4rem] text-gray-500">
+                  {t('footer.changeLanguage.title')}
+                </span>
+                {languages.map((lang) => (
+                  <button
+                    key={`mobile-help-lang-${lang.code}`}
+                    onClick={() => selectHelpLanguage(lang.code)}
+                    className={`block w-full text-left py-2 text-[1.6rem] font-bold ${
+                      currentLanguageKey === lang.code
+                        ? 'text-brand-purple'
+                        : 'text-brand-text-primary hover:bg-gray-100'
+                    } rounded px-2 transition-colors`}
+                  >
+                    {currentLanguageKey === lang.code && (
+                      <span className="mr-2">✓</span>
+                    )}
+                    {t(lang.nameKey)}
+                  </button>
+                ))}
               </div>
             </nav>
           </div>

@@ -31,7 +31,7 @@ const TwitterIconSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 const HelpCenterFooter: React.FC = () => {
   return (
-    <footer className="bg-white py-8 text-center">
+    <footer className="bg-white pt-[48px] pb-[48px] mt-[96px] text-center">
       <div className="main-container mx-auto px-4 sm:px-6 lg:px-0 max-w-[960px]">
         <div className="mb-6">
           <img
