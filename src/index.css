@@ -24,12 +24,15 @@ html {
 
 body {
   margin: 0;
-  font-family: Helvetica, Charter, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  font-family: Helvetica, Charter, 'PingFang SC', 'Microsoft YaHei', Arial,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f0f2f5; /* Light gray background for contrast */
   font-size: 1.8rem; /* Default body font size: 18px */
-  color: theme('colors.brand-text-primary'); /* Default text color set to #333333 */
+  color: theme(
+    'colors.brand-text-primary'
+  ); /* Default text color set to #333333 */
 }
 
 /* Custom scrollbar for better aesthetics */
@@ -52,6 +55,13 @@ body {
   background: #a5a5a5;
 }
 
+.contrast-80,
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
+    var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 @layer components {
   .button-gradient {
     /* prettier-ignore */
@@ -62,7 +72,7 @@ body {
     /* prettier-ignore */
     @apply flex items-center justify-center bg-white text-brand-purple px-8 py-3 text-[1.8rem] rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300;
   }
-  
+
   .card {
     @apply bg-white p-6 rounded-xl shadow-lg;
   }

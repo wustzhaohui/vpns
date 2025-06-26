@@ -3,7 +3,7 @@
 
 interface ImportMetaEnv {
   // Vite-provided environment variables
-  readonly DEV: boolean;
+  readonly DEV: boolean; 
   // readonly PROD: boolean; // Removed to avoid conflict
   // readonly SSR: boolean; // Removed to avoid conflict
 

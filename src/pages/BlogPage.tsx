@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -11,13 +12,7 @@ interface BlogPostData {
 }
 
 const rawBlogPosts: BlogPostData[] = [
-  {
-    id: '1',
-    date: '2025-01-23',
-    imageUrl: '/assets/blog7.png',
-    likes: 26,
-    isFeatured: true,
-  },
+  { id: '1', date: '2025-01-23', imageUrl: '/assets/blog7.png', likes: 26, isFeatured: true },
   { id: '2', date: '2024-12-06', imageUrl: '/assets/blog1.png', likes: 59 },
   { id: '3', date: '2024-08-30', imageUrl: '/assets/blog2.png', likes: 1500 },
   { id: '4', date: '2024-08-01', imageUrl: '/assets/blog3.png', likes: 1100 },
@@ -32,12 +27,9 @@ interface TranslatedBlogPost extends BlogPostData {
   badgeText?: string;
 }
 
-const FeaturedBlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({
-  post,
-}) => {
+const FeaturedBlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({ post }) => {
   const { t, i18n } = useTranslation();
-  const useLargeFont =
-    i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
 
   const titleFontSize = useLargeFont
     ? 'text-[1.9rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'
@@ -64,9 +56,7 @@ const FeaturedBlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({
         )}
       </div>
       <div className="md:w-[50%] lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center order-2 md:order-none">
-        <h2
-          className={`${titleFontSize} font-normal sm:font-bold text-brand-text-primary mb-3 sm:mb-4 md:mb-6 lg:mb-8 leading-tight hover:text-brand-purple transition-colors`}
-        >
+        <h2 className={`${titleFontSize} font-normal sm:font-bold text-brand-text-primary mb-3 sm:mb-4 md:mb-6 lg:mb-8 leading-tight hover:text-brand-purple transition-colors`}>
           <Link to={`/blog/${post.id}`}>{post.title}</Link>
         </h2>
         {post.summary && (
@@ -75,7 +65,9 @@ const FeaturedBlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({
           </p>
         )}
         <div className="flex justify-between items-center text-[1.2rem] sm:text-sm md:text-base lg:text-lg text-gray-600 mt-auto">
-          <span className="font-semibold">{post.date}</span>
+          <span className="font-semibold">
+            {post.date}
+          </span>
           <div className="flex items-center">
             <svg
               className="h-[1.2rem] w-[1.2rem] sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 mr-1 sm:mr-1.5 text-gray-400"
@@ -110,7 +102,9 @@ const BlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({ post }) => {
           className="object-cover w-1/2 h-full rounded-l-xl flex-shrink-0 md:flex-shrink-none md:w-full md:rounded-l-none md:rounded-t-xl md:h-56 lg:h-60 xl:h-[230px]"
         />
       ) : (
-        <div className="flex items-center justify-center text-center p-3 bg-slate-100 text-gray-500 text-sm sm:text-base flex-shrink-0 md:flex-shrink-none w-1/2 h-full rounded-l-xl md:w-full md:rounded-l-none md:rounded-t-xl md:h-56 lg:h-60 xl:h-[230px] object-cover">
+        <div 
+          className="flex items-center justify-center text-center p-3 bg-slate-100 text-gray-500 text-sm sm:text-base flex-shrink-0 md:flex-shrink-none w-1/2 h-full rounded-l-xl md:w-full md:rounded-l-none md:rounded-t-xl md:h-56 lg:h-60 xl:h-[230px] object-cover"
+        >
           {t('blogPage.imagePlaceholder', { title: post.title })}
         </div>
       )}
@@ -119,7 +113,9 @@ const BlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({ post }) => {
           <Link to={`/blog/${post.id}`}>{post.title}</Link>
         </h2>
         <div className="flex justify-between items-center text-[1.2rem] sm:text-sm md:text-base text-gray-500 mt-auto pt-2 sm:pt-3 border-t border-gray-200">
-          <span className="font-semibold">{post.date}</span>
+          <span className="font-semibold">
+            {post.date}
+          </span>
           <div className="flex items-center">
             <svg
               className="h-[1.2rem] w-[1.2rem] sm:h-4 sm:w-4 md:h-5 md:w-5 mr-1 sm:mr-1.5 text-gray-400"
@@ -146,15 +142,12 @@ const BlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({ post }) => {
 const BlogPage: React.FC = () => {
   const { t } = useTranslation();
 
-  const translatedBlogPosts: TranslatedBlogPost[] = rawBlogPosts.map(
-    (post, index) => ({
-      ...post,
-      title: t(`blogPage.posts.${index}.title`),
-      summary:
-        t(`blogPage.posts.${index}.summary`, { defaultValue: '' }) || undefined, // Handle optional summary
-      badgeText: post.isFeatured ? t('blogPage.featuredPostBadge') : undefined,
-    })
-  );
+  const translatedBlogPosts: TranslatedBlogPost[] = rawBlogPosts.map((post, index) => ({
+    ...post,
+    title: t(`blogPage.posts.${index}.title`),
+    summary: t(`blogPage.posts.${index}.summary`, { defaultValue: '' }) || undefined, // Handle optional summary
+    badgeText: post.isFeatured ? t('blogPage.featuredPostBadge') : undefined,
+  }));
 
   const featuredPost = translatedBlogPosts.find((post) => post.isFeatured);
   const otherPosts = translatedBlogPosts.filter((post) => !post.isFeatured);
