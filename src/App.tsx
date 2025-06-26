@@ -14,7 +14,10 @@ function App() {
       <LanguageEffect />
       <Routes>
         {/* Help Center page without shared Layout */}
-        <Route path="/help" element={<HelpCenterPage />} />
+        {/* <Route
+          path="/help"
+          element={<HelpCenterPage />}
+        /> */}
 
         {/* Other routes use the shared Layout */}
         <Route
@@ -22,11 +25,30 @@ function App() {
           element={
             <Layout>
               <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/referral" element={<ReferralPage />} />
-                <Route path="/blog" element={<BlogPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="*" element={<NotFoundPage />} />
+                <Route
+                  path="/"
+                  element={<HomePage />}
+                />
+                <Route
+                  path="/referral"
+                  element={<ReferralPage />}
+                />
+                <Route
+                  path="/blog"
+                  element={<BlogPage />}
+                />
+                <Route
+                  path="/login"
+                  element={<LoginPage />}
+                />
+                <Route
+                  path="*"
+                  element={<NotFoundPage />}
+                />
+                <Route
+                  path="/help"
+                  element={<NotFoundPage />}
+                />
               </Routes>
             </Layout>
           }
