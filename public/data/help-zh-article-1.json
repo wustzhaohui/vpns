@@ -1,0 +1,11 @@
+{
+  "title": "如何通过 快连VPN 下载国际资源",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over a week ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" }
+  ],
+  "content": "<p>首先，需要说明的是，国际资源下载速度的快慢，并不仅仅取决于您的VPN，还和您自身的网络带宽、网络环境、以及您所下载资源的服务器质量有关。</p><p>快连VPN 能做到的，是为您消除运营商（例如移动、联通、电信）对国际网络的限制，并为您智能选择最优的国际网络出口，尽最大可能提升您的国际网速。</p><img src=\"/assets/blog1.png\" alt=\"Example image in article\" /><p>但如果您自身的网络带宽就很小（例如只有 10M），或者您下载的资源服务器质量很差（例如部分BT下载），那快连 VPN 也无法为您带来质的改变，这是由您的网络硬件条件及客观环境所决定的。</p><p><b>以下是一些提升下载速度的常见建议：</b></p><ul><li>尝试切换不同的下载源。</li><li>在非高峰时段进行下载。</li><li>如果可能，升级您的家庭网络带宽。</li><li>在快连VPN中断开并重新连接，以获取新的最优节点。</li></ul>"
+}

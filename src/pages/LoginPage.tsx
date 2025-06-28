@@ -40,29 +40,29 @@ const LoginPage: React.FC = () => {
     }
   };
 
-  const titleFontSize = useLargeFont ? 'md:text-[64px]' : 'md:text-[48px]';
-  const descriptionFontSize = useLargeFont ? 'md:text-[2rem]' : 'md:text-[1.8rem]';
-  const inputPlaceholderFontSize = useLargeFont ? 'md:placeholder:text-[30px] md:text-[30px]' : 'md:placeholder:text-[24px] md:text-[24px]';
-  const buttonTextFontSize = useLargeFont ? 'md:text-[28px]' : 'md:text-[22px]';
-  const linkTextFontSize = useLargeFont ? 'md:text-[22px] lg:text-[24px]' : 'md:text-[18px] lg:text-[20px]';
+  const titleFontSize = useLargeFont ? 'md:text-[42px]' : 'md:text-[36px]';
+  const descriptionFontSize = useLargeFont ? 'md:text-[1.8rem]' : 'md:text-[1.6rem]';
+  const inputPlaceholderFontSize = useLargeFont ? 'md:placeholder:text-[20px] md:text-[20px]' : 'md:placeholder:text-[18px] md:text-[18px]';
+  const buttonTextFontSize = useLargeFont ? 'md:text-[20px]' : 'md:text-[18px]';
+  const linkTextFontSize = useLargeFont ? 'md:text-[18px]' : 'md:text-[16px]';
 
 
   const renderContent = () => {
     if (viewMode === 'forgotPassword') {
       return (
         <>
-          <div className="mb-6 md:mb-[45px]">
+          <div className="mb-6 md:mb-8">
             <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}>
               {t('loginPage.forgotPassword.title')}
             </h2>
           </div>
-          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-12 leading-relaxed`}>
+          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-10 leading-relaxed`}>
             {t('loginPage.forgotPassword.description')}
           </p>
-          <div className="w-full mb-6 md:mb-[40px]">
+          <div className="w-full mb-6 md:mb-8">
             <Link
               to="/"
-              className={`group relative w-full h-14 md:h-[7.5rem] rounded-full text-lg ${buttonTextFontSize} flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-[#2533E8] via-[#8936EB] to-[#DC30A6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95`}
+              className={`group relative w-full h-14 md:h-[6rem] rounded-full text-lg ${buttonTextFontSize} flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-[#2533E8] via-[#8936EB] to-[#DC30A6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95`}
               aria-label={t('loginPage.forgotPassword.goHomeButton')}
             >
               {t('loginPage.forgotPassword.goHomeButton')}
@@ -88,18 +88,18 @@ const LoginPage: React.FC = () => {
     if (viewMode === 'register') {
       return (
         <>
-          <div className="mb-6 md:mb-[45px]">
+          <div className="mb-6 md:mb-8">
             <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}>
               {t('loginPage.register.title')}
             </h2>
           </div>
-          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-12 leading-relaxed`}>
+          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-10 leading-relaxed`}>
             {t('loginPage.register.description')}
           </p>
-          <div className="w-full mb-6 md:mb-[40px]">
+          <div className="w-full mb-6 md:mb-8">
             <Link
               to="/"
-              className={`group relative w-full h-14 md:h-[7.5rem] rounded-full text-lg ${buttonTextFontSize} flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-[#2533E8] via-[#8936EB] to-[#DC30A6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95`}
+              className={`group relative w-full h-14 md:h-[6rem] rounded-full text-lg ${buttonTextFontSize} flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-[#2533E8] via-[#8936EB] to-[#DC30A6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95`}
               aria-label={t('loginPage.register.goHomeButton')}
             >
               {t('loginPage.register.goHomeButton')}
@@ -124,7 +124,7 @@ const LoginPage: React.FC = () => {
 
     return (
       <>
-        <div className="mb-6 md:mb-[45px]">
+        <div className="mb-6 md:mb-8">
           <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary md:whitespace-nowrap`}>
             {t('loginPage.login.title')}
           </h2>
@@ -132,8 +132,8 @@ const LoginPage: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <div
             className={`
-              relative flex items-center bg-slate-100 rounded-full md:rounded-[4rem]
-              h-14 md:h-[8.5rem] px-4 w-full mb-6 md:mb-[45px]
+              relative flex items-center bg-slate-100 rounded-full
+              h-14 md:h-[6rem] px-4 w-full mb-6 md:mb-8
               focus-within:border-transparent
               ${
                 usernameError
@@ -145,7 +145,7 @@ const LoginPage: React.FC = () => {
             <span className="text-input-icon-placeholder mr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 md:h-[30px] md:w-[30px]"
+                className="h-5 w-5 md:h-6 md:w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -164,7 +164,7 @@ const LoginPage: React.FC = () => {
               type="text"
               autoComplete="username"
               required
-              className={`appearance-none rounded-none relative block w-full bg-transparent border-none text-base ${inputPlaceholderFontSize} leading-normal md:leading-[40px] text-brand-text-primary placeholder:text-input-icon-placeholder placeholder:text-base focus:outline-none focus:ring-0 focus:border-transparent h-full`}
+              className={`appearance-none rounded-none relative block w-full bg-transparent border-none text-base ${inputPlaceholderFontSize} leading-normal text-brand-text-primary placeholder:text-input-icon-placeholder placeholder:text-base focus:outline-none focus:ring-0 focus:border-transparent h-full`}
               placeholder={t('loginPage.login.usernamePlaceholder')}
               value={username}
               onChange={(e) => {
@@ -176,8 +176,8 @@ const LoginPage: React.FC = () => {
 
           <div
             className={`
-              relative flex items-center bg-slate-100 rounded-full md:rounded-[4rem]
-              h-14 md:h-[8.5rem] px-4 w-full mb-6 md:mb-[45px]
+              relative flex items-center bg-slate-100 rounded-full
+              h-14 md:h-[6rem] px-4 w-full mb-6 md:mb-8
               focus-within:border-transparent
               ${
                 passwordError
@@ -189,7 +189,7 @@ const LoginPage: React.FC = () => {
             <span className="text-input-icon-placeholder mr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 md:h-[30px] md:w-[30px]"
+                className="h-5 w-5 md:h-6 md:w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -208,7 +208,7 @@ const LoginPage: React.FC = () => {
               type={showPassword ? 'text' : 'password'}
               autoComplete="current-password"
               required
-              className={`appearance-none rounded-none relative block w-full bg-transparent border-none text-base ${inputPlaceholderFontSize} leading-normal md:leading-[40px] text-brand-text-primary placeholder:text-input-icon-placeholder placeholder:text-base focus:outline-none focus:ring-0 focus:border-transparent h-full`}
+              className={`appearance-none rounded-none relative block w-full bg-transparent border-none text-base ${inputPlaceholderFontSize} leading-normal text-brand-text-primary placeholder:text-input-icon-placeholder placeholder:text-base focus:outline-none focus:ring-0 focus:border-transparent h-full`}
               placeholder={t('loginPage.login.passwordPlaceholder')}
               value={password}
               onChange={(e) => {
@@ -225,7 +225,7 @@ const LoginPage: React.FC = () => {
               {showPassword ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 md:h-[30px] md:w-[30px]"
+                  className="h-5 w-5 md:h-6 md:w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -240,7 +240,7 @@ const LoginPage: React.FC = () => {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 md:h-[30px] md:w-[30px]"
+                  className="h-5 w-5 md:h-6 md:w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -261,17 +261,17 @@ const LoginPage: React.FC = () => {
             </button>
           </div>
 
-          <div className="w-full mb-4 md:mb-[30px]">
+          <div className="w-full mb-4 md:mb-6">
             <button
               type="submit"
-              className={`group relative w-full h-14 md:h-[7.5rem] rounded-full text-lg ${buttonTextFontSize} flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-brand-gradient-from to-brand-gradient-to focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95`}
+              className={`group relative w-full h-14 md:h-[6rem] rounded-full text-lg ${buttonTextFontSize} flex items-center justify-center text-white font-semibold transition-all duration-300 bg-gradient-to-r from-brand-gradient-from to-brand-gradient-to focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple-dark hover:opacity-95`}
               aria-label={t('loginPage.login.loginButton')}
             >
               {t('loginPage.login.loginButton')}
             </button>
           </div>
 
-          <div className="flex flex-row items-center justify-between mt-6 md:mt-[40px]">
+          <div className="flex flex-row items-center justify-between mt-6 md:mt-8">
             <button
               type="button"
               onClick={() => setViewMode('forgotPassword')}
@@ -295,11 +295,11 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="h-[calc(100vh-60px)] md:h-[calc(100vh-100px)] overflow-y-auto flex items-start justify-start pt-[3rem] pb-8 px-4 sm:py-12 sm:px-6 md:items-center md:justify-center md:py-8 lg:py-8 lg:px-8 bg-slate-50">
+    <div className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] overflow-y-auto flex items-start justify-start pt-[3rem] pb-8 px-4 sm:py-12 sm:px-6 md:items-center md:justify-center md:py-8 lg:py-8 lg:px-8 bg-slate-50">
       <div className="w-full max-w-container-wide mx-auto rounded-xl overflow-hidden">
         <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-0">
           <div className="order-1 md:order-none pt-0 pb-6 sm:pb-8 md:py-12 px-4 sm:px-6 md:px-8 flex flex-col justify-center">
-            <div className="w-full">{renderContent()}</div>
+            <div className="w-full max-w-lg mx-auto">{renderContent()}</div>
           </div>
           <div className="flex order-2 md:order-none flex-col items-center justify-center p-4 sm:p-6 md:p-12 mt-6 md:mt-0">
             <img

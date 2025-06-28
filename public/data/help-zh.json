@@ -1,0 +1,57 @@
+{
+  "pageTitle": "中文帮助",
+  "description": "非常感谢您使用我们的服务，在这里您可以找到一些常见的问题处理方法",
+  "authors": {
+    "names": "By Jamie and 4 others",
+    "avatars": ["/assets/avatar-01.png", "/assets/avatar-02.jpg", "/assets/avatar-03.jpg"]
+  },
+  "articleCount": "58 articles",
+  "categories": [
+    {
+      "id": "intro",
+      "title": "",
+      "articles": [
+        { "id": "1", "title": "如何通过 快连VPN 下载国际资源", "link": "/help/article/1" },
+        { "id": "2", "title": "如何下载得到快连 VPN", "link": "#" },
+        { "id": "3", "title": "HarmonyOS NEXT 纯血鸿蒙 如何下载快连 VPN", "link": "#" },
+        { "id": "4", "title": "MacOS 版本安装教程", "link": "#" }
+      ]
+    },
+    {
+      "id": "hot-apps",
+      "title": "热门应用教程",
+      "articles": [
+        { "id": "ha1", "title": "热门专题ChatGPT-保姆级注册教程", "link": "#" },
+        { "id": "ha2", "title": "ChatGPT 相关错误提示及解决办法", "link": "#" },
+        { "id": "ha3", "title": "如何更好的使用 Telegram", "link": "#" },
+        { "id": "ha4", "title": "如何更好的使用 X（Twitter）客户端", "link": "#" },
+        { "id": "ha5", "title": "如何通过快连 VPN 访问 Netflix", "link": "#" },
+        { "id": "ha6", "title": "如何通过快连 VPN 访问 Disney+", "link": "#" },
+        { "id": "ha7", "title": "如何访问 Bilibili 港澳台地区", "link": "#" },
+        { "id": "ha8", "title": "快连 VPN 帮您隐藏微博访问地址", "link": "#" },
+        { "id": "ha9", "title": "快连 VPN 带你畅刷海外抖音-Tiktok", "link": "#" },
+        { "id": "ha10", "title": "如何通过快连 VPN 更好的访问国际资源", "link": "#" },
+        { "id": "ha11", "title": "Netflix 隐藏代码教学", "link": "#" },
+        { "id": "ha12", "title": "推特账户注册教程", "link": "#" }
+      ]
+    },
+    {
+      "id": "apple-help",
+      "title": "苹果使用帮助",
+      "articles": [
+        { "id": "ah1", "title": "苹果版本快连 VPN 不好用怎么办？", "link": "#" },
+        { "id": "ah2", "title": "苹果版本快连 VPN 更新遇到问题怎么办？", "link": "#" },
+        { "id": "ah3", "title": "快连 VPN 被第三方应用程序禁用", "link": "#" }
+      ]
+    },
+    {
+      "id": "payment-issues",
+      "title": "支付购买问题",
+      "articles": [
+        { "id": "pi1", "title": "青铜会员&铂金会员区别", "link": "#" },
+        { "id": "pi2", "title": "如何恢复 ID 变化导致丢失的购买时间", "link": "#" },
+        { "id": "pi3", "title": "如何查找快连 VPN 支付详情信息", "link": "#" }
+      ]
+    }
+  ]
+}

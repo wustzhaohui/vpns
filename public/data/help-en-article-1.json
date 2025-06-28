@@ -1,0 +1,11 @@
+{
+  "title": "How to Download International Resources via LetsVPN",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over a week ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "Help Documents", "link": "/help/en" }
+  ],
+  "content": "<p>First, it's important to note that the speed of downloading international resources depends not only on your VPN but also on your own network bandwidth, network environment, and the quality of the server from which you are downloading the resource.</p><p>What LetsVPN can do is eliminate the restrictions imposed by your carrier (such as China Mobile, Unicom, Telecom) on international networks and intelligently select the optimal international network exit for you, maximizing your international network speed as much as possible.</p><img src=\"/assets/blog1.png\" alt=\"Example image in article\" /><p>However, if your own network bandwidth is very small (e.g., only 10M), or if the server quality of the resource you are downloading is poor (e.g., some BT downloads), then LetsVPN cannot bring about a qualitative change. This is determined by your network hardware conditions and the objective environment.</p><p><b>Here are some common suggestions to improve download speed:</b></p><ul><li>Try switching to different download sources.</li><li>Download during off-peak hours.</li><li>If possible, upgrade your home network bandwidth.</li><li>Disconnect and reconnect in LetsVPN to get a new optimal node.</li></ul>"
+}

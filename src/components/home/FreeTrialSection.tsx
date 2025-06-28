@@ -38,53 +38,45 @@ const NewAndroidIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
+
 const FreeTrialSection: React.FC = () => {
   const { t } = useTranslation();
 
   const titleFontSize = 'text-[2.8rem] md:text-[4rem] lg:text-[4.5rem]';
   const buttonTextFontSize = 'text-[1.5rem] md:text-[1.7rem]';
 
+
   const trialItems = [
     {
       platformKey: 'homePage.freeTrial.buttons.pc',
-      icon: (
-        <NewWindowsIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />
-      ),
+      icon: <NewWindowsIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />, 
       gradient: 'from-blue-500 to-fuchsia-500',
-      imgSrc: '/assets/test-01.png',
+      imgSrc: '/assets/test-01.png'
     },
     {
       platformKey: 'homePage.freeTrial.buttons.ios',
-      icon: (
-        <AppleIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />
-      ),
+      icon: <AppleIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />,
       gradient: 'from-blue-500 to-pink-500',
-      imgSrc: '/assets/test-02.png',
+      imgSrc: '/assets/test-02.png'
     },
     {
       platformKey: 'homePage.freeTrial.buttons.android',
-      icon: (
-        <NewAndroidIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />
-      ),
+      icon: <NewAndroidIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />,
       gradient: 'from-blue-500 to-indigo-500',
-      imgSrc: '/assets/test-03.png',
+      imgSrc: '/assets/test-03.png'
     },
     {
       platformKey: 'homePage.freeTrial.buttons.mac',
-      icon: (
-        <AppleIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />
-      ),
+      icon: <AppleIcon className="w-[2.5rem] h-[2.5rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3rem] md:h-[3rem] mr-2 sm:mr-3" />,
       gradient: 'from-blue-500 to-pink-500',
-      imgSrc: '/assets/test-04.png',
+      imgSrc: '/assets/test-04.png'
     },
   ];
 
   return (
     <section className="py-20 lg:py-28 bg-white text-center">
       <div className="main-container mx-auto px-4 sm:px-6 lg:px-8 max-w-container-wide">
-        <h2
-          className={`${titleFontSize} font-bold text-brand-text-primary mb-12 md:mb-16`}
-        >
+        <h2 className={`${titleFontSize} font-bold text-brand-text-primary mb-12 md:mb-16`}>
           {t('homePage.freeTrial.title')}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
@@ -95,13 +87,9 @@ const FreeTrialSection: React.FC = () => {
             >
               <img
                 src={item.imgSrc}
-                alt={t('homePage.freeTrial.appPreviewAlt', {
-                  platform: t(item.platformKey),
-                })}
+                alt={t('homePage.freeTrial.appPreviewAlt', { platform: t(item.platformKey) })}
                 className="w-full object-contain rounded-lg mb-8 sm:mb-12 md:mb-16"
-                aria-label={t('homePage.freeTrial.appPreviewAlt', {
-                  platform: t(item.platformKey),
-                })}
+                aria-label={t('homePage.freeTrial.appPreviewAlt', { platform: t(item.platformKey) })}
               />
               <button
                 className={`w-full max-w-[28rem] flex items-center justify-center text-white px-6 h-[5.5rem] sm:h-[6rem] md:h-[6.5rem] ${buttonTextFontSize} rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-gradient-to-r ${item.gradient}`}

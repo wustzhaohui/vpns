@@ -1,0 +1,57 @@
+{
+  "pageTitle": "Help Documents",
+  "description": "Thank you very much for using our services, here you can find solutions to some common problems.",
+  "authors": {
+    "names": "By Jamie and 4 others",
+    "avatars": ["/assets/avatar-01.png", "/assets/avatar-02.jpg", "/assets/avatar-03.jpg"]
+  },
+  "articleCount": "58 articles",
+  "categories": [
+    {
+      "id": "intro",
+      "title": "",
+      "articles": [
+        { "id": "1", "title": "How to download international resources via LetsVPN", "link": "/help/en/article/1" },
+        { "id": "2", "title": "How to download LetsVPN", "link": "#" },
+        { "id": "3", "title": "How to download LetsVPN on HarmonyOS NEXT", "link": "#" },
+        { "id": "4", "title": "macOS version installation tutorial", "link": "#" }
+      ]
+    },
+    {
+      "id": "hot-apps",
+      "title": "Popular Application Tutorials",
+      "articles": [
+        { "id": "ha1", "title": "Hot Topic: ChatGPT Step-by-Step Registration Tutorial", "link": "#" },
+        { "id": "ha2", "title": "ChatGPT Related Error Messages and Solutions", "link": "#" },
+        { "id": "ha3", "title": "How to better use Telegram", "link": "#" },
+        { "id": "ha4", "title": "How to better use X (Twitter) client", "link": "#" },
+        { "id": "ha5", "title": "How to access Netflix via LetsVPN", "link": "#" },
+        { "id": "ha6", "title": "How to access Disney+ via LetsVPN", "link": "#" },
+        { "id": "ha7", "title": "How to access Bilibili in Hong Kong, Macau, and Taiwan regions", "link": "#" },
+        { "id": "ha8", "title": "LetsVPN helps you hide your Weibo access location", "link": "#" },
+        { "id": "ha9", "title": "LetsVPN takes you to browse overseas TikTok", "link": "#" },
+        { "id": "ha10", "title": "How to better access international resources through LetsVPN", "link": "#" },
+        { "id": "ha11", "title": "Netflix hidden codes tutorial", "link": "#" },
+        { "id": "ha12", "title": "Twitter account registration tutorial", "link": "#" }
+      ]
+    },
+    {
+      "id": "apple-help",
+      "title": "Apple Usage Help",
+      "articles": [
+        { "id": "ah1", "title": "What to do if the Apple version of LetsVPN is not working well?", "link": "#" },
+        { "id": "ah2", "title": "What to do if you encounter problems when updating the Apple version of LetsVPN?", "link": "#" },
+        { "id": "ah3", "title": "LetsVPN is disabled by a third-party application", "link": "#" }
+      ]
+    },
+    {
+      "id": "payment-issues",
+      "title": "Payment and Purchase Issues",
+      "articles": [
+        { "id": "pi1", "title": "Difference between Bronze and Platinum members", "link": "#" },
+        { "id": "pi2", "title": "How to recover purchase time lost due to ID change", "link": "#" },
+        { "id": "pi3", "title": "How to check LetsVPN payment details", "link": "#" }
+      ]
+    }
+  ]
+}

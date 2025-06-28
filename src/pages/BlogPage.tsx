@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -35,13 +37,8 @@ interface TranslatedBlogPost extends BlogPostData {
 const FeaturedBlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({
   post,
 }) => {
-  const { t, i18n } = useTranslation();
-  const useLargeFont =
-    i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
-
-  const titleFontSize = useLargeFont
-    ? 'text-[1.9rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'
-    : 'text-[1.9rem] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl';
+  const { t } = useTranslation();
+  const titleFontSize = 'text-[1.9rem] sm:text-2xl md:text-3xl lg:text-3xl';
 
   return (
     <article className="bg-white rounded-xl border border-gray-300 overflow-hidden flex flex-col md:flex-row mb-6 sm:mb-8 md:mb-10 lg:mb-12">
@@ -68,20 +65,20 @@ const FeaturedBlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({
       </div>
       <div className="md:w-[50%] lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center order-2 md:order-none">
         <h2
-          className={`${titleFontSize} font-normal sm:font-bold text-brand-text-primary mb-3 sm:mb-4 md:mb-6 lg:mb-8 leading-tight hover:text-brand-purple transition-colors`}
+          className={`${titleFontSize} font-bold text-brand-text-primary mb-3 sm:mb-4 md:mb-6 lg:mb-8 leading-tight hover:text-brand-purple transition-colors`}
         >
           <Link to={`/blog/${post.id}`}>{post.title}</Link>
         </h2>
         {post.summary && (
-          <p className="text-[1.2rem] sm:text-base md:text-[2rem] lg:text-[2rem] xl:text-[2rem] text-gray-700 mb-4 sm:mb-5 md:mb-6 leading-[2rem] md:leading-[3rem]">
+          <p className="text-[1.2rem] sm:text-base md:text-[1.8rem] lg:text-[1.8rem] text-gray-700 mb-4 sm:mb-5 md:mb-6 leading-normal md:leading-[2.8rem]">
             {post.summary}
           </p>
         )}
-        <div className="flex justify-between items-center text-[1.2rem] sm:text-sm md:text-[1.8rem] text-gray-600 mt-auto">
+        <div className="flex justify-between items-center text-[1.2rem] sm:text-sm md:text-[1.6rem] text-gray-600 mt-auto">
           <span>{post.date}</span>
           <div className="flex items-center">
             <svg
-              className="h-[1.2rem] w-[1.2rem] sm:h-[1.4rem] sm:w-[1.4rem] md:h-[1.8rem] md:w-[1.8rem] mr-1 sm:mr-1.5 text-gray-400"
+              className="h-[1.2rem] w-[1.2rem] sm:h-[1.4rem] sm:w-[1.4rem] md:h-[1.6rem] md:w-[1.6rem] mr-1 sm:mr-1.5 text-gray-400"
               viewBox="0 0 1024 1024"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -118,14 +115,14 @@ const BlogPostCard: React.FC<{ post: TranslatedBlogPost }> = ({ post }) => {
         </div>
       )}
       <div className="p-3 sm:p-4 md:p-5 flex flex-col flex-grow w-1/2 md:w-full">
-        <h2 className="text-[1.9rem] font-normal sm:text-lg md:text-xl md:font-bold lg:text-2xl text-brand-text-primary mb-2 sm:mb-3 leading-snug hover:text-brand-purple transition-colors line-clamp-3 md:line-clamp-none">
+        <h2 className="text-[1.6rem] font-normal sm:text-lg md:text-xl lg:text-xl text-brand-text-primary mb-2 sm:mb-3 leading-snug hover:text-brand-purple transition-colors line-clamp-3 md:line-clamp-none">
           <Link to={`/blog/${post.id}`}>{post.title}</Link>
         </h2>
-        <div className="flex justify-between items-center text-[1.2rem] sm:text-sm md:text-[1.8rem] text-gray-500 mt-auto pt-2 sm:pt-3 md:border-t md:border-gray-200">
+        <div className="flex justify-between items-center text-[1.2rem] sm:text-sm md:text-[1.6rem] text-gray-500 mt-auto pt-2 sm:pt-3 md:border-t md:border-gray-200">
           <span>{post.date}</span>
           <div className="flex items-center">
             <svg
-              className="h-[1.2rem] w-[1.2rem] sm:h-[1.4rem] sm:w-[1.4rem] md:h-[1.8rem] md:w-[1.8rem] mr-1 sm:mr-1.5 text-gray-400"
+              className="h-[1.2rem] w-[1.2rem] sm:h-[1.4rem] sm:w-[1.4rem] md:h-[1.6rem] md:w-[1.6rem] mr-1 sm:mr-1.5 text-gray-400"
               viewBox="0 0 1024 1024"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"

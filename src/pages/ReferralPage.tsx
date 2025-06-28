@@ -1,5 +1,6 @@
 
 
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -16,8 +17,7 @@ const UserIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 const ReferralPage: React.FC = () => {
-  const { t, i18n } = useTranslation();
-  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+  const { t } = useTranslation();
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -30,21 +30,10 @@ const ReferralPage: React.FC = () => {
   }, []);
 
 
-  const heroTitleFontSize = useLargeFont
-    ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.4rem]'
-    : 'text-[2.6rem] sm:text-[3.2rem] md:text-[4.0rem] lg:text-[4.8rem] xl:text-[5.4rem]';
-
-  const heroDescriptionFontSize = useLargeFont
-    ? 'text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem] lg:text-[2rem] xl:text-[2.2rem]'
-    : 'text-[1.4rem] sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.8rem] xl:text-[2.0rem]';
-    
-  const heroScanPromptFontSize = useLargeFont
-    ? 'text-[1.8rem] sm:text-[2.2rem] md:text-[2.6rem] lg:text-[3.2rem]'
-    : 'text-[1.6rem] sm:text-[2.0rem] md:text-[2.3rem] lg:text-[2.8rem]';
-
-  const infoCardTitleFontSize = useLargeFont
-    ? 'text-[1.8rem] sm:text-[2rem] md:text-[2.4rem] lg:text-[2.8rem]'
-    : 'text-[1.7rem] sm:text-[1.9rem] md:text-[2.2rem] lg:text-[2.5rem]';
+  const heroTitleFontSize = 'text-[2.8rem] md:text-[4rem] lg:text-[4.5rem]';
+  const heroDescriptionFontSize = 'text-[1.4rem] md:text-[1.6rem] lg:text-[1.8rem]';
+  const heroScanPromptFontSize = 'text-[1.6rem] md:text-[2rem] lg:text-[2.2rem]';
+  const infoCardTitleFontSize = 'text-[1.8rem] md:text-[2rem] lg:text-[2.2rem]';
 
   const infoCardsData = [
     {
@@ -101,7 +90,7 @@ const ReferralPage: React.FC = () => {
                     {t('referralPage.hero.scanPrompt')}
                   </h2>
                   <div className="flex flex-col items-center md:items-start max-w-md mx-auto md:mx-0">
-                    <div className="bg-white p-3 rounded-xl shadow-2xl mb-4 w-[24rem] h-[30rem] sm:w-[28rem] sm:h-[35rem] md:w-[34rem] md:h-[43rem] flex items-center justify-center">
+                    <div className="bg-white p-3 rounded-xl shadow-2xl mb-4 w-[24rem] h-[30rem] sm:w-[28rem] sm:h-[35rem] flex items-center justify-center">
                       <img
                         src="/assets/pro_telegram.67630c52.png"
                         alt={t('altTexts.telegramQrCode')}
@@ -156,7 +145,7 @@ const ReferralPage: React.FC = () => {
               const cardBaseClass = "bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg flex flex-row items-center h-full";
 
               const textTitleClass = `${infoCardTitleFontSize} font-bold text-brand-text-primary mb-2 md:mb-4`;
-              const textParaClass = "text-[1.4rem] sm:text-[1.5rem] md:text-[1.6rem] lg:text-[1.8rem] leading-relaxed text-gray-600";
+              const textParaClass = "text-[1.4rem] sm:text-[1.5rem] md:text-[1.6rem] leading-relaxed text-gray-600";
           
               let textContainerFinalClass: string;
               let imageContainerFinalClass: string;

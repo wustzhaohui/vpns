@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       screens: {
-        pc: '1367px',
+        'pc': '1367px',
       },
       maxWidth: {
         'container-wide': '150rem', // Approx 1500px
@@ -32,31 +35,23 @@ export default {
         'brand-text-mobile-footer-links': '#747E8B', // Added for mobile footer links rgb(116, 126, 139)
       },
       fontFamily: {
-        sans: [
-          'Helvetica',
-          'Charter',
-          '"PingFang SC"',
-          '"Microsoft YaHei"',
-          'Arial',
-          'sans-serif',
-        ],
+        sans: ['Helvetica', 'Charter', '"PingFang SC"', '"Microsoft YaHei"', 'Arial', 'sans-serif'],
       },
       keyframes: {
         appIconFloat: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-6px)' },
         },
-        svgIconPulse: {
-          // Added new keyframes
+        svgIconPulse: { // Added new keyframes
           '0%, 100%': { transform: 'scale(1)', transformOrigin: 'center' },
-          '50%': { transform: 'scale(1.05)', transformOrigin: 'center' },
-        },
+          '50%': { transform: 'scale(1.05)', transformOrigin: 'center'  },
+        }
       },
       animation: {
         appIconFloat: 'appIconFloat 3.5s ease-in-out infinite',
         svgIconPulse: 'svgIconPulse 2.5s ease-in-out infinite', // Added new animation utility
-      },
+      }
     },
   },
   plugins: [],
-};
+}

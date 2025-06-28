@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 import HelpCenterHeader from '@/components/helpcenter/HelpCenterHeader';
 import HelpCenterFooter from '@/components/helpcenter/HelpCenterFooter';
 
@@ -37,43 +38,30 @@ const cardAvatarPaths = [
 
 const HelpCenterPage: React.FC = () => {
   const { t, i18n } = useTranslation();
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get<{ categories: Category[] }>('/data/help.json');
+        setCategories(response.data.categories);
+        setError(null);
+      } catch (err) {
+        setError('Failed to load help center categories.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+  
   const useLargeFont =
     i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
-
-  const categoriesData: Category[] = [
-    {
-      id: '0',
-      titleKey: 'helpCenterPage.categories.0.title',
-      descriptionKey: 'helpCenterPage.categories.0.description',
-      authorsKey: 'helpCenterPage.categories.0.authors',
-      articleCountKey: 'helpCenterPage.categories.0.articleCount',
-      link: 'https://helpme.hnnnfb.com/letsvpn-world/en/collections/1628560-help-documents',
-    },
-    {
-      id: '1',
-      titleKey: 'helpCenterPage.categories.1.title',
-      descriptionKey: 'helpCenterPage.categories.1.description',
-      authorsKey: 'helpCenterPage.categories.1.authors',
-      articleCountKey: 'helpCenterPage.categories.1.articleCount',
-      link: '#',
-    },
-    {
-      id: '2',
-      titleKey: 'helpCenterPage.categories.2.title',
-      descriptionKey: 'helpCenterPage.categories.2.description',
-      authorsKey: 'helpCenterPage.categories.2.authors',
-      articleCountKey: 'helpCenterPage.categories.2.articleCount',
-      link: '#',
-    },
-    {
-      id: '3',
-      titleKey: 'helpCenterPage.categories.3.title',
-      descriptionKey: 'helpCenterPage.categories.3.description',
-      authorsKey: 'helpCenterPage.categories.3.authors',
-      articleCountKey: 'helpCenterPage.categories.3.articleCount',
-      link: '#',
-    },
-  ];
 
   const heroTitleFontSize = useLargeFont
     ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[3.8rem]'
@@ -104,7 +92,9 @@ const HelpCenterPage: React.FC = () => {
       <main className="flex-grow bg-transparent -mt-[10rem] relative z-10">
         <section className="bg-transparent pt-0 pb-8 md:pb-10 flex-grow">
           <div className="main-container mx-auto px-4 sm:px-6 lg:px-0 max-w-[960px]">
-            {categoriesData.map((category) => (
+            {loading && <p className="text-center text-gray-500">Loading...</p>}
+            {error && <p className="text-center text-red-500">{error}</p>}
+            {!loading && !error && categories.map((category) => (
               <a
                 key={category.id}
                 href={category.link}

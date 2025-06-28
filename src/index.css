@@ -114,3 +114,29 @@ body {
     /* This pseudo-element creates an upward-pointing triangle */
   }
 }
+
+@layer components {
+  /* Styles for Help Article Page Content */
+  .article-content p {
+    @apply mb-4 text-base md:text-lg leading-relaxed text-gray-700;
+  }
+  .article-content h2 {
+      @apply text-2xl font-bold mt-8 mb-4 text-brand-text-primary;
+  }
+  .article-content h3 {
+      @apply text-xl font-bold mt-6 mb-3 text-brand-text-primary;
+  }
+  .article-content b,
+  .article-content strong {
+      @apply font-semibold text-brand-text-primary;
+  }
+  .article-content img {
+      @apply my-6 rounded-lg shadow-md max-w-full h-auto mx-auto;
+  }
+  .article-content ul {
+      @apply list-disc list-inside mb-4 pl-4 space-y-2 text-gray-700;
+  }
+  .article-content li {
+      @apply text-base md:text-lg;
+  }
+}

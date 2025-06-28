@@ -28,24 +28,14 @@ const AnimatedFeatureSection: React.FC<FeatureSectionProps> = ({
 
   const textContent = (
     <div>
-      <span
-        className={`inline-flex items-center bg-purple-100 text-brand-purple px-3 py-1 rounded-full ${badgeTextFontSize} font-semibold mb-8 md:mb-10 lg:mb-12`}
-      >
-        <img
-          src="/assets/book.png"
-          alt={t('homePage.animatedFeatureSection.badgeIconAlt')}
-          className="w-auto h-[24px] sm:h-[28px] md:h-[32px] mr-2"
-        />
+      <span className={`inline-flex items-center bg-purple-100 text-brand-purple px-3 py-1 rounded-full ${badgeTextFontSize} font-semibold mb-8 md:mb-10 lg:mb-12`}>
+        <img src="/assets/book.png" alt={t('homePage.animatedFeatureSection.badgeIconAlt')} className="w-auto h-[24px] sm:h-[28px] md:h-[32px] mr-2" />
         {badgeText}
       </span>
-      <h2
-        className={`${titleFontSize} font-bold text-brand-text-primary mb-6 md:mb-8`}
-      >
+      <h2 className={`${titleFontSize} font-bold text-brand-text-primary mb-6 md:mb-8`}>
         {title}
       </h2>
-      <p
-        className={`${descriptionFontSize} ${descriptionLeading} leading-relaxed text-brand-text-muted`}
-      >
+      <p className={`${descriptionFontSize} ${descriptionLeading} leading-relaxed text-brand-text-muted`}>
         {description}
       </p>
     </div>

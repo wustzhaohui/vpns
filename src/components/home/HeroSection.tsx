@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import CentralAnimationContent from './CentralAnimationContent';
@@ -55,11 +56,7 @@ const ChevronCircleRightIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
 );
 
 const OtherPlatformsIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg
-    viewBox="0 0 30 30"
-    fill="currentColor"
-    {...props}
-  >
+  <svg viewBox="0 0 30 30" fill="currentColor" {...props}>
     <path d="M22.5,5H7.5C4.74,5,2.5,7.24,2.5,10v10c0,2.76,2.24,5,5,5h7.5v-2.5H7.5c-1.38,0-2.5-1.12-2.5-2.5V10 c0-1.38,1.12-2.5,2.5-2.5h15c1.38,0,2.5,1.12,2.5,2.5v5h2.5v-5C27.5,7.24,25.26,5,22.5,5z" />
     <path d="M27.5,12.5h-7.5c-1.38,0-2.5,1.12-2.5,2.5v7.5c0,1.38,1.12,2.5,2.5,2.5h7.5c1.38,0,2.5-1.12,2.5-2.5v-7.5 C30,13.62,28.88,12.5,27.5,12.5z" />
   </svg>
@@ -74,12 +71,9 @@ const StatCircle: React.FC<{ value: string; labelKey: string }> = ({
   const numberPart = match ? match[1] : '';
   const unitPart = match ? match[2] : value;
 
-  const valueNumberFontSize =
-    'text-[1.6rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[3rem]';
-  const valueUnitFontSize =
-    'text-[1.0rem] sm:text-[1.2rem] md:text-[1.6rem] lg:text-[1.9rem]';
-  const labelFontSize =
-    'text-[0.9rem] sm:text-[1.0rem] md:text-[1.4rem] lg:text-[1.6rem]';
+  const valueNumberFontSize = 'text-[1.6rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[3rem]';
+  const valueUnitFontSize = 'text-[1.0rem] sm:text-[1.2rem] md:text-[1.6rem] lg:text-[1.9rem]';
+  const labelFontSize = 'text-[0.9rem] sm:text-[1.0rem] md:text-[1.4rem] lg:text-[1.6rem]';
 
   return (
     <div className="w-[8rem] h-[8rem] sm:w-[10rem] sm:h-[10rem] md:w-[12rem] md:h-[12rem] lg:w-[14rem] lg:h-[14rem] border-[3px] border-white rounded-full flex flex-col items-center justify-center text-white text-center p-1 sm:p-2 backdrop-blur-sm">
@@ -106,12 +100,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
   const { t } = useTranslation();
 
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
-  const [detectedOS, setDetectedOS] = useState<'ios' | 'android' | 'unknown'>(
-    'unknown'
-  );
-  const [detectedDesktopOS, setDetectedDesktopOS] = useState<
-    'mac' | 'windows' | 'other'
-  >('other');
+  const [detectedOS, setDetectedOS] = useState<'ios' | 'android' | 'unknown'>('unknown');
+  const [detectedDesktopOS, setDetectedDesktopOS] = useState<'mac' | 'windows' | 'other'>('other');
 
   useEffect(() => {
     const handleResize = () => {
@@ -137,11 +127,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
     // OS detection for desktop
     const platform = navigator.platform.toLowerCase();
     if (platform.includes('mac')) {
-      setDetectedDesktopOS('mac');
+        setDetectedDesktopOS('mac');
     } else if (platform.includes('win')) {
-      setDetectedDesktopOS('windows');
+        setDetectedDesktopOS('windows');
     } else {
-      setDetectedDesktopOS('other'); // Linux, etc.
+        setDetectedDesktopOS('other'); // Linux, etc.
     }
 
     return () => window.removeEventListener('resize', handleResize);
@@ -163,10 +153,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
 
   const mobileButtonBaseClass = `w-full max-w-[28rem] h-[5.5rem] bg-white text-[#4853E3] rounded-full ${buttonTextFontSize} leading-none font-semibold flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors duration-200`;
   const mobileIconClass = 'w-[2.2rem] h-[2.2rem] mr-2 fill-current';
-
+  
   const primaryButtonClasses = `w-full max-w-[28rem] h-[6rem] sm:w-auto md:h-[6.5rem] lg:w-[28rem] lg:h-[8rem] bg-white text-[#4853E3] rounded-full ${buttonTextFontSize} leading-none font-semibold flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors duration-200`;
-  const primaryButtonIconClasses =
-    'w-[2.8rem] h-[2.8rem] md:w-[3rem] md:h-[3rem] lg:w-[4rem] lg:h-[4rem] mr-2 sm:mr-3';
+  const primaryButtonIconClasses = "w-[2.8rem] h-[2.8rem] md:w-[3rem] md:h-[3rem] lg:w-[4rem] lg:h-[4rem] mr-2 sm:mr-3";
   const secondaryButtonClasses = `w-full max-w-[28rem] h-[6rem] sm:w-auto md:h-[6.5rem] lg:w-[28rem] lg:h-[8rem] bg-white text-[#4853E3] rounded-full ${buttonTextFontSize} leading-none font-semibold flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors duration-200`;
 
   const subtitleIconBaseClass =
@@ -281,26 +270,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
               ) : (
                 // Desktop view
                 <>
-                  {detectedDesktopOS === 'windows' ? (
-                    <>
-                      <img
-                        src="/assets/icon-app-esteem.jpeg"
-                        alt={t('homePage.hero.appEsteemAudit')}
-                        className={`${subtitleIconBaseClass} inline-block`}
-                      />
-                      <span>{t('homePage.hero.appEsteemAudit')}</span>
-                    </>
-                  ) : (
-                    // Fallback for Mac and other desktops
-                    <>
-                      <img
-                        src="/assets/icon_appStore.82074fd6.png"
-                        alt={t('altTexts.appStoreIcon')}
-                        className={`${subtitleIconBaseClass} inline-block`}
-                      />
-                      <span>{t('homePage.hero.subtitle')}</span>
-                    </>
-                  )}
+                {detectedDesktopOS === 'windows' ? (
+                  <>
+                    <img
+                      src="/assets/icon-app-esteem.jpeg"
+                      alt={t('homePage.hero.appEsteemAudit')}
+                      className={`${subtitleIconBaseClass} inline-block`}
+                    />
+                    <span>{t('homePage.hero.appEsteemAudit')}</span>
+                  </>
+                ) : (
+                  // Fallback for Mac and other desktops
+                  <>
+                    <img
+                      src="/assets/icon_appStore.82074fd6.png"
+                      alt={t('altTexts.appStoreIcon')}
+                      className={`${subtitleIconBaseClass} inline-block`}
+                    />
+                    <span>{t('homePage.hero.subtitle')}</span>
+                  </>
+                )}
                 </>
               )}
             </div>
@@ -387,24 +376,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
                     <>
                       <div className="flex flex-col items-center sm:flex-row gap-y-4 sm:gap-x-[2rem] justify-center pc:justify-start">
                         <button className={primaryButtonClasses}>
-                          <AppleIcon
-                            className={`${primaryButtonIconClasses} fill-current`}
-                          />
+                          <AppleIcon className={`${primaryButtonIconClasses} fill-current`} />
                           {t('homePage.hero.buttons.macDownload')}
                         </button>
                         <button className={primaryButtonClasses}>
-                          <NewWindowsIcon
-                            className={primaryButtonIconClasses}
-                          />
+                          <NewWindowsIcon className={primaryButtonIconClasses} />
                           {t('homePage.hero.buttons.pcDownload')}
                         </button>
                       </div>
                       <button
                         onClick={handleScrollToFreeTrial}
                         className="text-white/80 hover:text-white font-semibold transition-colors duration-200 text-base sm:text-lg mt-6 font-bold flex items-center self-center"
-                        aria-label={t(
-                          'homePage.hero.buttons.scrollToFreeTrialAriaLabel'
-                        )}
+                        aria-label={t('homePage.hero.buttons.scrollToFreeTrialAriaLabel')}
                       >
                         {t('homePage.hero.buttons.otherPlatforms')}
                         <ChevronCircleRightIcon className="w-5 h-5 ml-1.5" />
@@ -415,30 +398,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
                     <div className="flex flex-col items-center sm:flex-row gap-y-4 sm:gap-x-[2rem] justify-center pc:justify-start">
                       {detectedDesktopOS === 'windows' && (
                         <button className={primaryButtonClasses}>
-                          <NewWindowsIcon
-                            className={primaryButtonIconClasses}
-                          />
+                          <NewWindowsIcon className={primaryButtonIconClasses} />
                           {t('homePage.hero.buttons.pcDownload')}
                         </button>
                       )}
                       {detectedDesktopOS === 'mac' && (
                         <button className={primaryButtonClasses}>
-                          <AppleIcon
-                            className={`${primaryButtonIconClasses} fill-current`}
-                          />
+                          <AppleIcon className={`${primaryButtonIconClasses} fill-current`} />
                           {t('homePage.hero.buttons.macDownload')}
                         </button>
                       )}
                       <button
                         onClick={handleScrollToFreeTrial}
                         className={secondaryButtonClasses}
-                        aria-label={t(
-                          'homePage.hero.buttons.scrollToFreeTrialAriaLabel'
-                        )}
+                        aria-label={t('homePage.hero.buttons.scrollToFreeTrialAriaLabel')}
                       >
-                        <OtherPlatformsIcon
-                          className={primaryButtonIconClasses}
-                        />
+                        <OtherPlatformsIcon className={primaryButtonIconClasses} />
                         {t('homePage.hero.buttons.otherPlatforms')}
                       </button>
                     </div>

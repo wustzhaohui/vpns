@@ -5,6 +5,11 @@ import ReferralPage from './pages/ReferralPage';
 import BlogPage from './pages/BlogPage';
 import LoginPage from './pages/LoginPage';
 import HelpCenterPage from './pages/HelpCenterPage';
+import HelpCenterZhPage from './pages/HelpCenterZhPage';
+import HelpCenterRuPage from './pages/HelpCenterRuPage'; // Added
+import HelpCenterEnPage from './pages/HelpCenterEnPage'; // Added
+import HelpArticlePage from './pages/HelpArticlePage';
+import HelpArticleEnPage from './pages/HelpArticleEnPage'; // Added
 import NotFoundPage from './pages/NotFoundPage';
 import LanguageEffect from './components/LanguageEffect';
 
@@ -13,11 +18,14 @@ function App() {
     <Router>
       <LanguageEffect />
       <Routes>
-        {/* Help Center page without shared Layout */}
-        <Route
-          path="/help"
-          element={<HelpCenterPage />}
-        />
+        {/* Help Center pages without shared Layout */}
+        <Route path="/help" element={<HelpCenterPage />} />
+        <Route path="/help/zh" element={<HelpCenterZhPage />} />
+        <Route path="/help/ru" element={<HelpCenterRuPage />} />
+        <Route path="/help/en" element={<HelpCenterEnPage />} />
+        <Route path="/help/article/:articleId" element={<HelpArticlePage />} />
+        <Route path="/help/en/article/:articleId" element={<HelpArticleEnPage />} />
+
 
         {/* Other routes use the shared Layout */}
         <Route
@@ -25,26 +33,11 @@ function App() {
           element={
             <Layout>
               <Routes>
-                <Route
-                  path="/"
-                  element={<HomePage />}
-                />
-                <Route
-                  path="/referral"
-                  element={<ReferralPage />}
-                />
-                <Route
-                  path="/blog"
-                  element={<BlogPage />}
-                />
-                <Route
-                  path="/login"
-                  element={<LoginPage />}
-                />
-                <Route
-                  path="*"
-                  element={<NotFoundPage />}
-                />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/referral" element={<ReferralPage />} />
+                <Route path="/blog" element={<BlogPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </Layout>
           }

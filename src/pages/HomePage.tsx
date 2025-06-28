@@ -1,10 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import HeroSection from '@/components/home/HeroSection';
 import PopularAppsSection from '@/components/home/PopularAppsSection';
-import AnimatedFeatureSection, {
-  FeatureSectionProps,
-} from '@/components/home/AnimatedFeatureSection';
+import AnimatedFeatureSection, { FeatureSectionProps } from '@/components/home/AnimatedFeatureSection';
 import UserReviewsSection from '@/components/home/UserReviewsSection';
 import FreeTrialSection from '@/components/home/FreeTrialSection';
 
@@ -36,30 +35,27 @@ const HomePage: React.FC = () => {
 
   // Feature sections data will now use translation keys
   // The actual translation will happen in AnimatedFeatureSection or here before passing
-  const featureSectionsData: Omit<FeatureSectionProps, 'imagePosition'>[] =
-    Array(6)
-      .fill(null)
-      .map((_, index) => ({
-        badgeText: t(`homePage.features.${index}.badgeText`),
-        title: t(`homePage.features.${index}.title`),
-        description: t(`homePage.features.${index}.description`),
-        imageUrl: `/assets/home_introduce_0${index + 1}.png`,
-        imageAlt: t(`homePage.features.${index}.title`), // Using title as alt text, can be more specific
-      }));
+  const featureSectionsData: Omit<FeatureSectionProps, 'imagePosition'>[] = Array(6).fill(null).map((_, index) => ({
+    badgeText: t(`homePage.features.${index}.badgeText`),
+    title: t(`homePage.features.${index}.title`),
+    description: t(`homePage.features.${index}.description`),
+    imageUrl: `/assets/home_introduce_0${index + 1}.png`,
+    imageAlt: t(`homePage.features.${index}.title`), // Using title as alt text, can be more specific
+  }));
+
 
   return (
     <div className="text-brand-text-primary overflow-x-hidden bg-[#F8FAFF]">
       {isMobileView && isAtTop && (
         <div
           style={{
-            position: 'absolute',
+            position: 'fixed',
             top: 0,
             left: 0,
             right: 0,
             height: '100vh', // Changed: Cover full viewport height
-            background:
-              'linear-gradient(315deg, #eb4eb1, #9257f9 50.46%, #3150ed)', // HeroSection mobile gradient
-            zIndex: 1, // Changed: Sit behind HeroSection content (z-10) and Header (z-50)
+            background: 'linear-gradient(315deg, #eb4eb1, #9257f9 50.46%, #3150ed)', // HeroSection mobile gradient
+            zIndex: 1,      // Changed: Sit behind HeroSection content (z-10) and Header (z-50)
           }}
           aria-hidden="true"
         />
@@ -67,14 +63,14 @@ const HomePage: React.FC = () => {
       {isMobileView && (
         <div
           style={{
-            position: 'fixed', // Using fixed to position relative to viewport for "first screen"
+            position: 'absolute', // Changed from 'fixed' to 'absolute'
             width: '3.62319rem',
             height: '3.62319rem',
             top: '58%',
             right: '8%',
             opacity: 0.05,
-            borderRadius: '50%',
             background: '#fff',
+            borderRadius: '50%', // Added border-radius
             zIndex: 2, // Above the main background gradient (zIndex: 1)
           }}
           aria-hidden="true"
