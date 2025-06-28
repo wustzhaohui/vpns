@@ -17,12 +17,8 @@ const peripheralIconsData = [
 ];
 
 const PopularAppsSection: React.FC = () => {
-  const { t, i18n } = useTranslation();
-  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
-
-  const titleFontSize = useLargeFont
-    ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[4.2rem] lg:text-[5rem] xl:text-[6.4rem]'
-    : 'text-[2.6rem] sm:text-[3.2rem] md:text-[3.8rem] lg:text-[4.5rem] xl:text-[5.0rem]';
+  const { t } = useTranslation();
+  const titleFontSize = 'text-[2.8rem] md:text-[4rem] lg:text-[4.5rem]';
 
   return (
     <section className="py-16 lg:py-24 bg-[#F8FAFF]">

@@ -3,8 +3,11 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        pc: '1367px',
+      },
       maxWidth: {
-        'container-wide': '171rem', // Approx 1710px
+        'container-wide': '150rem', // Approx 1500px
       },
       colors: {
         'brand-purple': '#8A2BE2', // Medium Purple
@@ -14,7 +17,7 @@ export default {
         'brand-pink': '#FF69B4', // HotPink
         'brand-gradient-from': '#8A2BE2',
         'brand-gradient-to': '#4169E1',
-        'brand-text-primary': '#000000', // Changed from #333333 to #000000
+        'brand-text-primary': '#222222', // Changed from #000000 to a softer dark gray
         'brand-text-muted': '#999999', // New muted/secondary text color
         'brand-text-date': '#575757', // Added color for blog dates
         // New header gradient colors (Matching the provided image)

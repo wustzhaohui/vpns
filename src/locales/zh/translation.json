@@ -59,6 +59,7 @@
       "title": "永远能连上的VPN",
       "subtitle": "macOS AppStore 港区工具排行榜 Top 3",
       "googleSafetyAudit": "已获得Google独立安全审核认证",
+      "appEsteemAudit": "已获得 AppEsteem 国际网络安全认证",
       "subtitleIosMobile": "iOS AppStore 港区工具排行榜Top5",
       "googleInstallationAudit": "已获得Google独立安装审核认证",
       "stats": {
@@ -68,6 +69,7 @@
       },
       "buttons": {
         "macDownload": "Mac 版下载",
+        "pcDownload": "PC 版下载",
         "otherPlatforms": "其他平台下载",
         "iosDownload": "iOS 版下载",
         "androidDownload": "安卓版下载",

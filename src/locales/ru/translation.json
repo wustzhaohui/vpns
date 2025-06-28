@@ -59,6 +59,7 @@
       "title": "VPN, который всегда подключается",
       "subtitle": "macOS AppStore Гонконг Инструменты Топ 3",
       "googleSafetyAudit": "Прошла независимую проверку безопасности Google",
+      "appEsteemAudit": "Сертифицировано AppEsteem в области международной сетевой безопасности",
       "subtitleIosMobile": "iOS AppStore Гонконг Инструменты Топ 5",
       "googleInstallationAudit": "Прошла независимую проверку установки Google",
       "stats": {
@@ -68,6 +69,7 @@
       },
       "buttons": {
         "macDownload": "Загрузить для Mac",
+        "pcDownload": "Загрузить для ПК",
         "otherPlatforms": "Другие платформы",
         "iosDownload": "Загрузить для iOS",
         "androidDownload": "Загрузить для Android",

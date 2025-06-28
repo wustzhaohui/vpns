@@ -18,6 +18,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @media (min-width: 1366px) {
+    .max-w-container-wide {
+      max-width: 150rem; /* Approx 1710px */
+    }
+  }
+  /* On 1080p screens (1920px) or wider, expand the container width to 171rem. */
+  @media (min-width: 1920px) {
+    .max-w-container-wide {
+      max-width: 171rem; /* Approx 1710px */
+    }
+  }
+}
+
 html {
   font-size: 62.5%; /* Makes 1rem = 10px, for easier rem calculations */
 }
@@ -29,10 +43,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f0f2f5; /* Light gray background for contrast */
-  font-size: 1.8rem; /* Default body font size: 18px */
+  font-size: 1.6rem; /* Default body font size: 16px (was 1.8rem) */
   color: theme(
     'colors.brand-text-primary'
-  ); /* Default text color set to #333333 */
+  ); /* Default text color set to primary brand color */
 }
 
 /* Custom scrollbar for better aesthetics */

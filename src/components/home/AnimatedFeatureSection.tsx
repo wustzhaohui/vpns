@@ -19,35 +19,33 @@ const AnimatedFeatureSection: React.FC<FeatureSectionProps> = ({
   imageAlt,
   imagePosition,
 }) => {
-  const { t, i18n } = useTranslation();
-  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+  const { t } = useTranslation();
 
-  const badgeTextFontSize = useLargeFont
-    ? 'text-[1.4rem] sm:text-[1.6rem] md:text-[1.9rem] lg:text-[2.2rem] xl:text-[2.5rem]'
-    : 'text-[1.3rem] sm:text-[1.5rem] md:text-[1.7rem] lg:text-[2.0rem] xl:text-[2.2rem]';
-
-  const titleFontSize = useLargeFont
-    ? 'text-[2.6rem] sm:text-[3.2rem] md:text-[3.8rem] lg:text-[4.8rem] xl:text-[6.4rem]'
-    : 'text-[2.4rem] sm:text-[2.8rem] md:text-[3.4rem] lg:text-[4.2rem] xl:text-[5.0rem]';
-  
-  const descriptionFontSize = useLargeFont
-    ? 'text-[1.4rem] sm:text-[1.6rem] md:text-[2.2rem] lg:text-[3rem] xl:text-[4.1rem]'
-    : 'text-[1.4rem] sm:text-[1.6rem] md:text-[2.0rem] lg:text-[2.6rem] xl:text-[3.4rem]';
-  
-  const descriptionLeading = useLargeFont
-    ? 'lg:leading-[4rem] xl:leading-[5rem]'
-    : 'lg:leading-[3.5rem] xl:leading-[4.5rem]';
+  const badgeTextFontSize = 'text-[1.4rem] md:text-[1.6rem]';
+  const titleFontSize = 'text-[2.8rem] md:text-[4rem] lg:text-[4.5rem]';
+  const descriptionFontSize = 'text-[1.4rem] md:text-[1.8rem] lg:text-[2rem]';
+  const descriptionLeading = 'lg:leading-[3.2rem]';
 
   const textContent = (
     <div>
-      <span className={`inline-flex items-center bg-purple-100 text-brand-purple px-3 py-1 rounded-full ${badgeTextFontSize} font-semibold mb-[3.5rem] sm:mb-[4.5rem] md:mb-[5.5rem] lg:mb-[6.5rem]`}>
-        <img src="/assets/book.png" alt={t('homePage.animatedFeatureSection.badgeIconAlt')} className="w-auto h-[24px] sm:h-[28px] md:h-[32px] lg:h-[36px] xl:h-[40px] mr-2" />
+      <span
+        className={`inline-flex items-center bg-purple-100 text-brand-purple px-3 py-1 rounded-full ${badgeTextFontSize} font-semibold mb-8 md:mb-10 lg:mb-12`}
+      >
+        <img
+          src="/assets/book.png"
+          alt={t('homePage.animatedFeatureSection.badgeIconAlt')}
+          className="w-auto h-[24px] sm:h-[28px] md:h-[32px] mr-2"
+        />
         {badgeText}
       </span>
-      <h2 className={`${titleFontSize} font-bold text-brand-text-primary mb-[2rem] sm:mb-[2.5rem] md:mb-[3rem] lg:mb-[3.6rem]`}>
+      <h2
+        className={`${titleFontSize} font-bold text-brand-text-primary mb-6 md:mb-8`}
+      >
         {title}
       </h2>
-      <p className={`${descriptionFontSize} ${descriptionLeading} leading-normal sm:leading-snug md:leading-relaxed text-brand-text-muted`}>
+      <p
+        className={`${descriptionFontSize} ${descriptionLeading} leading-relaxed text-brand-text-muted`}
+      >
         {description}
       </p>
     </div>

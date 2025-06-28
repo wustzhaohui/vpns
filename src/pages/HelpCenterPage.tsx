@@ -78,7 +78,12 @@ const HelpCenterPage: React.FC = () => {
   const heroTitleFontSize = useLargeFont
     ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[3.8rem]'
     : 'text-[2.5rem] sm:text-[3rem] md:text-[3.2rem]';
-
+  const categoryTitleFontSize = useLargeFont
+    ? 'text-[1.8rem] sm:text-[2rem]'
+    : 'text-[1.7rem] sm:text-[1.8rem]';
+  const categoryDescriptionFontSize = useLargeFont
+    ? 'text-[1.5rem] sm:text-[1.6rem]'
+    : 'text-[1.4rem] sm:text-[1.5rem]';
   const categoryMetaFontSize = useLargeFont
     ? 'text-[1.3rem] sm:text-[1.4rem]'
     : 'text-[1.2rem] sm:text-[1.3rem]';
@@ -115,11 +120,15 @@ const HelpCenterPage: React.FC = () => {
                   <NewHelpDocumentIcon className="w-6 h-6 md:w-11 md:h-11 text-white" />
                 </div>
                 <div className="flex-grow text-left md:text-left">
-                  <h3 className="text-[1.6rem] font-bold text-brand-text-primary mb-1 sm:mb-1.5">
+                  <h3
+                    className={`${categoryTitleFontSize} text-brand-text-primary mb-1 sm:mb-1.5 font-medium`}
+                  >
                     {t(category.titleKey)}
                   </h3>
                   {t(category.descriptionKey) && (
-                    <p className="text-[1.6rem] text-gray-600 mb-2 sm:mb-2 leading-relaxed line-clamp-2">
+                    <p
+                      className={`${categoryDescriptionFontSize} text-gray-600 mb-2 sm:mb-2 leading-relaxed line-clamp-2`}
+                    >
                       {t(category.descriptionKey)}
                     </p>
                   )}
@@ -130,7 +139,7 @@ const HelpCenterPage: React.FC = () => {
                       {cardAvatarPaths.map((path, idx) => (
                         <img
                           key={idx}
-                          className="inline-block h-[24px] w-[24px] rounded-full ring-1 ring-white"
+                          className="inline-block h-5 w-5 sm:h-[22px] sm:w-[22px] rounded-full ring-1 ring-white"
                           src={path}
                           alt={t('helpCenterPage.categories.0.avatarAlt', {
                             name: `Team Member ${idx + 1}`,

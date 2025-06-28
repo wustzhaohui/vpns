@@ -45,16 +45,14 @@ const HelpCenterFooter: React.FC = () => {
           <a
             href="#"
             aria-label="Facebook"
-            className="contrast-80 hover:text-gray-500 transition-colors"
-            style={{ color: '#ededed' }}
+            className="text-gray-400 hover:text-gray-600 transition-colors"
           >
             <FacebookIconSvg />
           </a>
           <a
             href="#"
             aria-label="Twitter"
-            className="contrast-80 hover:text-gray-500 transition-colors"
-            style={{ color: '#ededed' }}
+            className="text-gray-400 hover:text-gray-600 transition-colors"
           >
             <TwitterIconSvg />
           </a>

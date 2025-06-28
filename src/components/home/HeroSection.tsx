@@ -27,36 +27,16 @@ const NewAndroidIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-const PlatformIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+const NewWindowsIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    className="icon"
+    viewBox="0 0 1024 1024"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
     {...props}
+    fill="currentColor"
   >
-    <rect
-      x="2"
-      y="3"
-      width="20"
-      height="14"
-      rx="2"
-      ry="2"
-    ></rect>
-    <line
-      x1="8"
-      y1="21"
-      x2="16"
-      y2="21"
-    ></line>
-    <line
-      x1="12"
-      y1="17"
-      x2="12"
-      y2="21"
-    ></line>
+    <path d="M523.8 191.4v288.9h382V128.1zM523.8 833.6l382 62.2v-352h-382zM120.1 480.2H443V201.9l-322.9 53.5zM120.1 770.6L443 823.2V543.8H120.1z"></path>
   </svg>
 );
 
@@ -74,48 +54,35 @@ const ChevronCircleRightIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
   </svg>
 );
 
+const OtherPlatformsIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    viewBox="0 0 30 30"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M22.5,5H7.5C4.74,5,2.5,7.24,2.5,10v10c0,2.76,2.24,5,5,5h7.5v-2.5H7.5c-1.38,0-2.5-1.12-2.5-2.5V10 c0-1.38,1.12-2.5,2.5-2.5h15c1.38,0,2.5,1.12,2.5,2.5v5h2.5v-5C27.5,7.24,25.26,5,22.5,5z" />
+    <path d="M27.5,12.5h-7.5c-1.38,0-2.5,1.12-2.5,2.5v7.5c0,1.38,1.12,2.5,2.5,2.5h7.5c1.38,0,2.5-1.12,2.5-2.5v-7.5 C30,13.62,28.88,12.5,27.5,12.5z" />
+  </svg>
+);
+
 const StatCircle: React.FC<{ value: string; labelKey: string }> = ({
   value,
   labelKey,
 }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const match = value.match(/^(\d+)(.*)$/);
   const numberPart = match ? match[1] : '';
   const unitPart = match ? match[2] : value;
 
-  const isRussian = i18n.language.startsWith('ru');
-  const isChinese =
-    i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
-
-  let valueNumberFontSize;
-  let valueUnitFontSize;
-  let labelFontSize;
-
-  if (isRussian) {
-    valueNumberFontSize =
-      'text-[1.6rem] sm:text-[1.9rem] md:text-[2.3rem] lg:text-[2.8rem] xl:text-[3.3rem]';
-    valueUnitFontSize =
-      'text-[1.0rem] sm:text-[1.2rem] md:text-[1.4rem] lg:text-[1.7rem] xl:text-[2.0rem]';
-    labelFontSize =
-      'text-[0.9rem] sm:text-[1.0rem] md:text-[1.1rem] lg:text-[1.25rem] xl:text-[1.5rem]';
-  } else if (isChinese) {
-    valueNumberFontSize =
-      'text-[1.8rem] sm:text-[2.2rem] md:text-[2.8rem] lg:text-[3.5rem] xl:text-[4.2rem]';
-    valueUnitFontSize =
-      'text-[1.2rem] sm:text-[1.5rem] md:text-[1.9rem] lg:text-[2.3rem] xl:text-[2.8rem]';
-    labelFontSize =
-      'text-[1.1rem] sm:text-[1.3rem] md:text-[1.6rem] lg:text-[2rem] xl:text-[2.5rem]';
-  } else {
-    valueNumberFontSize =
-      'text-[1.8rem] sm:text-[2.2rem] md:text-[2.8rem] lg:text-[3.5rem] xl:text-[4.2rem]';
-    valueUnitFontSize =
-      'text-[1.2rem] sm:text-[1.5rem] md:text-[1.9rem] lg:text-[2.3rem] xl:text-[2.8rem]';
-    labelFontSize =
-      'text-[1.0rem] sm:text-[1.1rem] md:text-[1.3rem] lg:text-[1.6rem] xl:text-[2.0rem]';
-  }
+  const valueNumberFontSize =
+    'text-[1.6rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[3rem]';
+  const valueUnitFontSize =
+    'text-[1.0rem] sm:text-[1.2rem] md:text-[1.6rem] lg:text-[1.9rem]';
+  const labelFontSize =
+    'text-[0.9rem] sm:text-[1.0rem] md:text-[1.4rem] lg:text-[1.6rem]';
 
   return (
-    <div className="w-[8rem] h-[8rem] sm:w-[10rem] sm:h-[10rem] md:w-[13rem] md:h-[13rem] lg:w-[16rem] lg:h-[16rem] border-[3px] border-white rounded-full flex flex-col items-center justify-center text-white text-center p-1 sm:p-2 backdrop-blur-sm">
+    <div className="w-[8rem] h-[8rem] sm:w-[10rem] sm:h-[10rem] md:w-[12rem] md:h-[12rem] lg:w-[14rem] lg:h-[14rem] border-[3px] border-white rounded-full flex flex-col items-center justify-center text-white text-center p-1 sm:p-2 backdrop-blur-sm">
       <div className="flex items-baseline">
         {numberPart && (
           <span className={`${valueNumberFontSize} font-bold`}>
@@ -136,16 +103,15 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
-  const { t, i18n } = useTranslation();
-  const useLargeFont =
-    i18n.language.startsWith('zh') ||
-    i18n.language.startsWith('zh-Hant') ||
-    i18n.language.startsWith('ru');
+  const { t } = useTranslation();
 
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
   const [detectedOS, setDetectedOS] = useState<'ios' | 'android' | 'unknown'>(
     'unknown'
   );
+  const [detectedDesktopOS, setDetectedDesktopOS] = useState<
+    'mac' | 'windows' | 'other'
+  >('other');
 
   useEffect(() => {
     const handleResize = () => {
@@ -154,7 +120,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
     window.addEventListener('resize', handleResize);
     handleResize(); // Initial check
 
-    // Basic OS detection using User-Agent
+    // Basic OS detection for mobile using User-Agent
     const userAgent =
       navigator.userAgent || navigator.vendor || (window as any).opera;
     if (/android/i.test(userAgent)) {
@@ -168,20 +134,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
       setDetectedOS('ios'); // Default to iOS if unknown or for other OS like desktop
     }
 
+    // OS detection for desktop
+    const platform = navigator.platform.toLowerCase();
+    if (platform.includes('mac')) {
+      setDetectedDesktopOS('mac');
+    } else if (platform.includes('win')) {
+      setDetectedDesktopOS('windows');
+    } else {
+      setDetectedDesktopOS('other'); // Linux, etc.
+    }
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const titleFontSize = useLargeFont
-    ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[4.2rem] lg:text-[5rem] xl:text-[6.4rem]'
-    : 'text-[2.6rem] sm:text-[3.2rem] md:text-[3.8rem] lg:text-[4.5rem] xl:text-[5.0rem]';
-
-  const subtitleFontSize = useLargeFont
-    ? 'text-[1.2rem] sm:text-[1.4rem] md:text-[1.7rem] lg:text-[2rem] xl:text-[2.5rem]'
-    : 'text-[1.2rem] sm:text-[1.4rem] md:text-[1.6rem] lg:text-[1.8rem] xl:text-[2.2rem]';
-
-  const buttonTextFontSize = useLargeFont
-    ? 'text-[1.4rem] sm:text-[1.6rem] md:text-[2rem] lg:text-[2.4rem] xl:text-[3.2rem]'
-    : 'text-[1.3rem] sm:text-[1.5rem] md:text-[1.8rem] lg:text-[2.0rem] xl:text-[2.6rem]';
+  const titleFontSize = 'text-[2.8rem] md:text-[4rem] lg:text-[4.5rem]';
+  const subtitleFontSize = 'text-[1.4rem] md:text-[1.8rem] lg:text-[2rem]';
+  const buttonTextFontSize = 'text-[1.4rem] md:text-[1.8rem] lg:text-[2rem]';
 
   const handleScrollToFreeTrial = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -195,6 +163,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
 
   const mobileButtonBaseClass = `w-full max-w-[28rem] h-[5.5rem] bg-white text-[#4853E3] rounded-full ${buttonTextFontSize} leading-none font-semibold flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors duration-200`;
   const mobileIconClass = 'w-[2.2rem] h-[2.2rem] mr-2 fill-current';
+
+  const primaryButtonClasses = `w-full max-w-[28rem] h-[6rem] sm:w-auto md:h-[6.5rem] lg:w-[28rem] lg:h-[8rem] bg-white text-[#4853E3] rounded-full ${buttonTextFontSize} leading-none font-semibold flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors duration-200`;
+  const primaryButtonIconClasses =
+    'w-[2.8rem] h-[2.8rem] md:w-[3rem] md:h-[3rem] lg:w-[4rem] lg:h-[4rem] mr-2 sm:mr-3';
+  const secondaryButtonClasses = `w-full max-w-[28rem] h-[6rem] sm:w-auto md:h-[6.5rem] lg:w-[28rem] lg:h-[8rem] bg-white text-[#4853E3] rounded-full ${buttonTextFontSize} leading-none font-semibold flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors duration-200`;
 
   const subtitleIconBaseClass =
     'w-[1.8rem] h-[1.8rem] sm:w-[2.1rem] sm:h-[2.1rem] md:w-[3.4rem] md:h-[3.4rem] mr-1.5 sm:mr-2 md:mr-2 flex-shrink-0';
@@ -252,11 +225,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
   if (isMobileView) {
     if (isAtTop) {
       sectionStyle.background = 'transparent'; // Let HomePage's div provide background
-      sectionStyle.zIndex = 3;
+      sectionStyle.zIndex = 3; // Ensure HeroSection is above HomePage fixed background
     } else {
       sectionStyle.background =
         'linear-gradient(315deg, #eb4eb1, #9257f9 50.46%, #3150ed)';
-      zIndex: 3;
+      sectionStyle.zIndex = 3; // Ensure HeroSection is above HomePage fixed background
     }
   } else {
     sectionStyle.backgroundImage = 'url(/assets/home_bg_pc.png)';
@@ -271,7 +244,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
       <div className="main-container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex w-full max-w-container-wide">
         <div className="grid md:grid-cols-2 gap-8 items-center w-full">
           {/* Text Content Area (Left on Desktop, Full-width on Mobile) */}
-          <div className="text-center md:text-left md:col-start-1 md:row-start-1">
+          <div className="flex flex-col items-center text-center pc:items-start pc:text-left">
             <h1
               id="hero-heading"
               className={`font-bold mb-[2.5rem] md:mb-[4.5rem] leading-tight ${titleFontSize}`}
@@ -280,7 +253,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
             </h1>
 
             <div
-              className={`${subtitleFontSize} font-bold leading-normal mb-[2.5rem] md:mb-[4.5rem] text-white/90 flex items-center justify-center md:justify-start`}
+              className={`${subtitleFontSize} font-bold leading-normal mb-[2.5rem] md:mb-[4.5rem] text-white/90 flex items-center justify-center pc:justify-start`}
             >
               {isMobileView ? (
                 detectedOS === 'ios' || detectedOS === 'unknown' ? ( // iOS or unknown mobile OS
@@ -308,19 +281,32 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
               ) : (
                 // Desktop view
                 <>
-                  <img
-                    src="/assets/icon_appStore.82074fd6.png"
-                    alt={t('altTexts.appStoreIcon')}
-                    className={`${subtitleIconBaseClass} inline-block`}
-                  />
-                  <span>{t('homePage.hero.subtitle')}</span>{' '}
-                  {/* Original desktop subtitle */}
+                  {detectedDesktopOS === 'windows' ? (
+                    <>
+                      <img
+                        src="/assets/icon-app-esteem.jpeg"
+                        alt={t('homePage.hero.appEsteemAudit')}
+                        className={`${subtitleIconBaseClass} inline-block`}
+                      />
+                      <span>{t('homePage.hero.appEsteemAudit')}</span>
+                    </>
+                  ) : (
+                    // Fallback for Mac and other desktops
+                    <>
+                      <img
+                        src="/assets/icon_appStore.82074fd6.png"
+                        alt={t('altTexts.appStoreIcon')}
+                        className={`${subtitleIconBaseClass} inline-block`}
+                      />
+                      <span>{t('homePage.hero.subtitle')}</span>
+                    </>
+                  )}
                 </>
               )}
             </div>
 
             {/* Desktop Stats Circles */}
-            <div className="hidden md:flex mb-[2.5rem] md:mb-[4.5rem] mx-auto md:mx-0 gap-[1rem] sm:gap-[1.5rem] md:gap-[3rem] justify-center md:justify-start">
+            <div className="hidden md:flex mb-[2.5rem] md:mb-[4.5rem] gap-[1rem] sm:gap-[1.5rem] md:gap-[3rem] justify-center pc:justify-start">
               <StatCircle
                 value="3s"
                 labelKey="homePage.hero.stats.connectSpeed"
@@ -357,7 +343,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
               </div>
             )}
 
-            <div className="flex flex-col items-center md:items-start">
+            <div className="flex flex-col items-center">
               {isMobileView ? (
                 <>
                   {detectedOS === 'ios' && (
@@ -395,19 +381,68 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
                 </>
               ) : (
                 // Desktop Buttons
-                <div className="flex flex-col items-center sm:flex-row gap-y-4 sm:gap-x-[2rem] justify-center md:justify-start">
-                  <button
-                    className={`w-full max-w-[28rem] h-[5.5rem] sm:w-auto sm:h-[6.5rem] md:h-[7.5rem] lg:w-[31.5rem] lg:h-[9.5rem] bg-white text-[#4853E3] rounded-full ${buttonTextFontSize} leading-none font-semibold flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors duration-200`}
-                  >
-                    <AppleIcon className="w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3.5rem] md:h-[3.5rem] lg:w-[4.5rem] lg:h-[4.5rem] mr-2 sm:mr-3 fill-current" />
-                    {t('homePage.hero.buttons.macDownload')}
-                  </button>
-                  <button
-                    className={`w-full max-w-[28rem] h-[5.5rem] sm:w-auto sm:h-[6.5rem] md:h-[7.5rem] lg:w-[31.5rem] lg:h-[9.5rem] bg-white text-[#4853E3] rounded-full ${buttonTextFontSize} leading-none font-semibold flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors duration-200`}
-                  >
-                    <PlatformIcon className="w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] md:w-[3.5rem] md:h-[3.5rem] lg:w-[4.5rem] lg:h-[4.5rem] mr-2 sm:mr-3 stroke-current" />
-                    {t('homePage.hero.buttons.otherPlatforms')}
-                  </button>
+                <div className="flex flex-col items-center">
+                  {detectedDesktopOS === 'other' ? (
+                    // Fallback for Linux/Unknown: Show both buttons, and link below.
+                    <>
+                      <div className="flex flex-col items-center sm:flex-row gap-y-4 sm:gap-x-[2rem] justify-center pc:justify-start">
+                        <button className={primaryButtonClasses}>
+                          <AppleIcon
+                            className={`${primaryButtonIconClasses} fill-current`}
+                          />
+                          {t('homePage.hero.buttons.macDownload')}
+                        </button>
+                        <button className={primaryButtonClasses}>
+                          <NewWindowsIcon
+                            className={primaryButtonIconClasses}
+                          />
+                          {t('homePage.hero.buttons.pcDownload')}
+                        </button>
+                      </div>
+                      <button
+                        onClick={handleScrollToFreeTrial}
+                        className="text-white/80 hover:text-white font-semibold transition-colors duration-200 text-base sm:text-lg mt-6 font-bold flex items-center self-center"
+                        aria-label={t(
+                          'homePage.hero.buttons.scrollToFreeTrialAriaLabel'
+                        )}
+                      >
+                        {t('homePage.hero.buttons.otherPlatforms')}
+                        <ChevronCircleRightIcon className="w-5 h-5 ml-1.5" />
+                      </button>
+                    </>
+                  ) : (
+                    // Detected OS (Win/Mac): Show one primary + one secondary button side-by-side.
+                    <div className="flex flex-col items-center sm:flex-row gap-y-4 sm:gap-x-[2rem] justify-center pc:justify-start">
+                      {detectedDesktopOS === 'windows' && (
+                        <button className={primaryButtonClasses}>
+                          <NewWindowsIcon
+                            className={primaryButtonIconClasses}
+                          />
+                          {t('homePage.hero.buttons.pcDownload')}
+                        </button>
+                      )}
+                      {detectedDesktopOS === 'mac' && (
+                        <button className={primaryButtonClasses}>
+                          <AppleIcon
+                            className={`${primaryButtonIconClasses} fill-current`}
+                          />
+                          {t('homePage.hero.buttons.macDownload')}
+                        </button>
+                      )}
+                      <button
+                        onClick={handleScrollToFreeTrial}
+                        className={secondaryButtonClasses}
+                        aria-label={t(
+                          'homePage.hero.buttons.scrollToFreeTrialAriaLabel'
+                        )}
+                      >
+                        <OtherPlatformsIcon
+                          className={primaryButtonIconClasses}
+                        />
+                        {t('homePage.hero.buttons.otherPlatforms')}
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

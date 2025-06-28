@@ -59,6 +59,7 @@
       "title": "The VPN That Always Connects",
       "subtitle": "macOS AppStore Hong Kong Tools Top 3",
       "googleSafetyAudit": "Independently Security Audited by Google",
+      "appEsteemAudit": "Certified by AppEsteem for International Network Security",
       "subtitleIosMobile": "iOS AppStore Hong Kong Tools Top 5",
       "googleInstallationAudit": "Independently Installation Audited by Google",
       "stats": {
@@ -68,6 +69,7 @@
       },
       "buttons": {
         "macDownload": "Download for Mac",
+        "pcDownload": "Download for PC",
         "otherPlatforms": "Other Platforms",
         "iosDownload": "Download for iOS",
         "androidDownload": "Download for Android",
