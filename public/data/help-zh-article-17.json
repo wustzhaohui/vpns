@@ -1,0 +1,12 @@
+{
+  "title": "苹果版本快连 VPN 不好用怎么办？",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over a year ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "苹果使用帮助", "link": "/help/zh" }
+  ],
+  "content": "<p>请查阅本篇文章通过一些简单设置来让快连 VPN 更加好用。</p><p>通过一些简单设置来提升快连 VPN 的使用体验，具体如下：</p><h2>1. iOS 连接经常断开问题</h2><p><b>缘由：</b> iOS 设备本身会存在 15M NE内存限制，连接 VPN 使用时，当上限超过 15M 后就会出现 VPN 断开连接情况。</p><p><b>解决办法：</b></p><ol><li>建议升级 iOS 系统到 iOS 15，这样内存限制会由 15M → 50M</li><li>清理后台不使用的程序，若手机中有照片自动同步 or 软件商店的自动更新这些设置也关闭一下</li></ol><p>PS：iOS 15M NE内存问题是 Apple 自身限制，可以在谷歌浏览器搜索 iOS 15M NE内存限制了解更多。</p><h2>2. 效果不好/图片刷不出来/消息无法显示</h2><p><b>缘由：</b> 当前世界各地的 5G 网络/信号都会存在不稳定的情况，这种情况直接导致设备在短时间内多次切换网络，从而出现无法加载所需观看内容的情况，使用感极差。</p><p><b>解决办法：</b></p><ol><li>关闭 Iphone or Ipad 的 5G 功能（使用 Wi-Fi 时无需此项设置）</li><li>操作步骤：系统设置→蜂窝网络→蜂窝数据选项→语音与数据→4G</li></ol><h2>3. iOS 连接时界面卡 0</h2><p><b>解决办法：</b></p><p>系统设置 → VPN 将后面的按钮关闭 or 重新打开即可</p><p>若在使用中依旧会有问题，请立即联系软件内服务人员 or 邮箱 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a>，之后会有专业的技术人员帮您解决问题。</p><hr class='my-8 border-gray-200' /><h3>Related Articles</h3><ul><li><a href='#' class='text-blue-600 hover:underline'>关闭一加手机电池优化让快连 VPN 稳定运行</a></li><li><a href='#' class='text-blue-600 hover:underline'>苹果版本快连 VPN 更新遇到问题怎么办？</a></li><li><a href='/help/article/7' class='text-blue-600 hover:underline'>如何更好的使用 Telegram</a></li><li><a href='#' class='text-blue-600 hover:underline'>忘记快连 VPN 帐户密码怎么办？</a></li><li><a href='#' class='text-blue-600 hover:underline'>Windows 版本快连双击闪退解决教程</a></li></ul><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}

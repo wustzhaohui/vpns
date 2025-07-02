@@ -1,0 +1,12 @@
+{
+  "title": "如何通过快连 VPN 访问 Disney+",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over 4 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "热门应用教程", "link": "/help/zh" }
+  ],
+  "content": "<p>通过快连 VPN 连接后无法访问 Disney+，您可以按照这篇文章操作解决问题。</p><p>通过连接快连 VPN（官网：<a href='https://b4zk7yqa.onelink.me/Lm5M/khng1wzk' target='_blank' rel='noopener noreferrer' class='text-blue-600 hover:underline'>https://b4zk7yqa.onelink.me/Lm5M/khng1wzk</a>）您可以访问 Disney+，但 Disney+ 对于代理限制比较严格可能会遇到以下情况，您可以根据对应方法解决问题。</p><h2>提示本影片无法在您的地区观赏 (Disney+ is unavailable in your region. )</h2><img src='/assets/use-disney-1.png' alt='Disney+ unavailable in your region error' /><p>若 Disney+ 显示此影片无法在您所在的国家地区观看，请您根据以下方法解决问题。</p><ol><li>开启快连 VPN；</li><li>点击菜单栏找到变更国家和地区；</li><li>在变更国家和地区最上方切换到安全模式；</li><li>选择“美国”、“台湾”、“日本”、“香港”其中一个线路；</li><li>断开并重新连接快连 VPN 即可</li></ol><img src='/assets/use-disney-2.png' alt='Change location and mode settings in LetsVPN' /><p>PS. 若您还不是铂金会员则无法启用安全模式（全局代理）的功能。您可以购买任一铂金套餐，这样所剩余的青铜会员也会一同帮您升级哦。想了解更多关于铂金与青铜的差异，您可以参考《青铜和铂金的区别》。</p><p>若您经过上面的操作，依然发现还是无法解决问题。请您发送邮箱 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a>，将有专人为您排忧解难。</p><hr class='my-8 border-gray-200' /><h3>Related Articles</h3><ul><li><a href='#' class='text-blue-600 hover:underline'>快连 VPN 帮您隐藏微博访问地址</a></li><li><a href='/help/article/7' class='text-blue-600 hover:underline'>如何更好的使用 Telegram</a></li><li><a href='#' class='text-blue-600 hover:underline'>如何访问 Bilibili 港澳台地区</a></li><li><a href='/help/article/9' class='text-blue-600 hover:underline'>如何通过快连 VPN 访问 Netflix</a></li><li><a href='#' class='text-blue-600 hover:underline'>快连VPN功能介绍-青铜与铂金会员差异</a></li></ul><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}

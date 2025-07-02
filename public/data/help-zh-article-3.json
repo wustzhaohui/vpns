@@ -1,0 +1,11 @@
+{
+  "title": "HarmonyOS NEXT 纯血鸿蒙 如何下载快连 VPN",
+  "author": "Eden",
+  "authorAvatar": "/assets/avatar-03.jpg",
+  "updated": "Updated over 2 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" }
+  ],
+  "content": "<p>手把手教你该如何在纯血鸿蒙上安装和使用快连VPN。</p><p>随着 HarmonyOS NEXT 纯血鸿蒙系统推出，目前在鸿蒙系统 5.0.0.113 SP2 版本及以上的系统中已经可以使用快连VPN，具体操作步骤如下：</p><div style=\"background-color: #f7f8fa; border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 0.75rem; margin: 1.5rem 0;\"><p><b>在纯血鸿蒙系统上安装快连 VPN:</b></p><ul style=\"list-style-type: none; padding-left: 0;\"><li style=\"margin-left: 1rem;\">• 下载「卓易通」→ 打开「搜应用」→ 输入快连官网下载并安装；</li></ul><p style=\"margin-top: 1rem;\">PS：卓易通 App 是华为官网应用市场中，提供三方应用资源安装的工具软件</p></div><h2>具体步骤：</h2><h3>第一步：下载「卓易通」并安装</h3><ol style=\"list-style-type: decimal; padding-left: 2rem; margin-bottom: 1.5rem;\"><li style=\"margin-bottom: 0.5rem;\">请确保您的 HarmonyOS Next 系统已升级到 5.0.0.113 SP2 或更高版本。</li><li style=\"margin-bottom: 0.5rem;\">打开系统自带的“华为应用市场”。</li><li style=\"margin-bottom: 0.5rem;\">在应用市场顶部的搜索框中，输入“卓易通”并进行搜索。</li><li style=\"margin-bottom: 0.5rem;\">在搜索结果中找到“卓易通”App，并点击“安装”。</li></ol><p>[图片占位符：展示在华为应用市场搜索、查找并安装“卓易通”的系列截图]</p><h3>第二步：通过「卓易通」安装快连VPN</h3><ol style=\"list-style-type: decimal; padding-left: 2rem; margin-bottom: 1.5rem;\"><li style=\"margin-bottom: 0.5rem;\">安装完成后，在您的设备桌面上找到并打开「卓易通」应用。</li><li style=\"margin-bottom: 0.5rem;\">在「卓易通」应用内，找到并进入「搜应用」功能。</li><li style=\"margin-bottom: 0.5rem;\">在「搜应用」的搜索框中输入“快连VPN”或“LetsVPN”，然后开始搜索。</li><li style=\"margin-bottom: 0.5rem;\">从搜索结果中找到快连VPN，点击“下载”或“安装”按钮，并根据提示完成安装。</li></ol><p>[图片占位符：展示在“卓易通”中搜索和安装快连VPN的系列截图]</p><p>安装完成后，您就可以在您的 HarmonyOS NEXT 设备上找到快连VPN图标，点击打开即可正常使用。</p>"
+}

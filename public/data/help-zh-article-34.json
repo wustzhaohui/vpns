@@ -1,0 +1,12 @@
+{
+  "title": "Windows 连接 VPN 后网络变地球",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over 2 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "Windows PC 疑难杂症处理", "link": "/help/zh" }
+  ],
+  "content": "<p>因 Windows 系统的不稳定性，连接 VPN 后桌面右下角的网络图标有可能会变成地球模样（如图），您可以根据以下方法来解决这个问题。</p><img src=\"/assets/use-windows-earth.png\" alt=\"网络图标变成地球\" /><h2>一、Killer 网卡影响</h2><p>如果您的 MSI、外星人、DELL、acer、雷蛇和 Lenovo 品牌的电脑可能会因为 Killer 网卡导致快连 VPN 无法正常使用，您可以根据以下步骤进行设置：</p><ol><li>按 Windows+R；</li><li>在输入框中输入 services.msc 按回车，弹出“服务”的对话框；</li><li>找到 Killer 相关开关的服务，双击进入对应服务属性操作面板；</li><li>找到“服务状态”选择“停用”，启动类型下拉菜单选择“禁用”；</li><li>点击“应用”后，重启设备。</li></ol><p>如需了解关闭 Killer 网卡相关功能的详细步骤，建议参考《<a href='#' class='text-blue-600 hover:underline'>Killer 网卡需要进行特殊设置</a>》文章教程。</p><h2>二、Intel Connectivity Network Service 不兼容问题</h2><p>若电脑存在此类服务可能会出现兼容性问题，您可以根据以下步骤进行设置：</p><ol><li>按 Windows+R；</li><li>在输入框中输入 services.msc 按回车，弹出“服务”的对话框；</li><li>找到下面三个服务:<ul><li>\"Intel Connectivity Network Service\"</li><li>\"Intel(R) Connectivity Service\"</li><li>\"Intel(R) Wireless Bluetooth(R)\"</li></ul></li><li>双击进入对应服务属性操作面板；</li><li>找到“服务状态”选择“停用”，启动类型下拉菜单选择“禁用”；</li><li>点击“应用”后重启设备。</li></ol><p>如需了解关闭 Intel 服务的详细步骤，建议参考《<a href='#' class='text-blue-600 hover:underline'>Intel Connectivity Service 服务需要进行特殊设置</a>》文章教程。</p><p>若按照这个两个方法依然无法解决您遇到的问题，请发送邮件给我们 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a> 我们将有专人来负责处理您的问题。</p><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "如何通过快连 VPN 更好的访问国际资源",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over 3 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "热门应用教程", "link": "/help/zh" }
+  ],
+  "content": "<p>快连 VPN 提供内建的国际资源导航，能在软件中直接访问 Google、Twitter、Telegram、Youtube 等知名网站，您可以通过这篇文章了解如何使用“大家都在玩”这项功能</p><p>为了让大家能够更便利的访问国际资源，咱们推出了“大家都在玩”导航，连接快连 VPN 后能直接在软件中访问想看的内容。</p><p>PS. 此功能目前仅支持移动端（Android）上使用。若您是电脑端设备也不必担心，咱们支持两个设备共享使用，您可以参考下这篇文章《只需一份费用多个设备共同使用快连 VPN》。</p><h2>“大家都在玩” 怎么使用？</h2><ol><li>连接 <strong>快连 VPN</strong>（官网：<a href='https://b4zk7yqa.onelink.me/Lm5M/khng1wzk' target='_blank' rel='noopener noreferrer' class='text-blue-600 hover:underline'>https://b4zk7yqa.onelink.me/Lm5M/khng1wzk</a>）；</li><li>点击左侧三条线菜单栏；</li><li>选择“大家都在玩”；</li><li>您可以在“大家都在玩”介面找到 <strong>海外最火爆应用</strong>、<strong>你可能感兴趣的人</strong>；</li><li>点击感兴趣的主题或是人物项目即可跳转相对应的内容查看（可参考图下）</li></ol><img src='/assets/use-international-1.png' alt='大家都在玩界面' /><h2>“大家都在玩”怎么关闭主页面置顶和敏感内容推送？</h2><ol><li>点击大家都在玩右上角的小齿轮图示；</li><li>找到主页面置顶显示、敏感内容推送；</li><li>关闭两个选项即可（可参考图下）</li></ol><img src='/assets/use-international-2.png' alt='关闭置顶和敏感内容推送' /><p>PS. 目前出现的已知问题：非简体中文介面不会显示“大家都在玩”；有些手机系统版本型号因自带限制无法匹配会显示空白，还请您见谅。</p><p>若您看过以上文章或是经过上面的操作，依然发现还是无法解决问题。请您发送邮箱 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a>，将有专人为您排忧解难。</p><hr class='my-8 border-gray-200' /><h3>Related Articles</h3><ul><li><a href='/help/article/9' class='text-blue-600 hover:underline'>如何通过快连 VPN 访问 Netflix</a></li><li><a href='#' class='text-blue-600 hover:underline'>如何通过快连 VPN 下载国际资源</a></li><li><a href='/help/article/10' class='text-blue-600 hover:underline'>如何通过快连 VPN 访问 Disney+</a></li><li><a href='#' class='text-blue-600 hover:underline'>快连VPN功能介绍-青铜与铂金会员差异</a></li><li><a href='#' class='text-blue-600 hover:underline'>快连带你畅享优惠-利用VPN解锁秘密网站！</a></li></ul><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}

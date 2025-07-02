@@ -1,0 +1,12 @@
+{
+  "title": "Killer 网卡需要进行特殊设置",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over 2 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "Windows PC 疑难杂症处理", "link": "/help/zh" }
+  ],
+  "content": "<p>若您使用的是 Killer 网卡，那么 LetsVPN 需要您在 Killer Control Center 中做一些配置才能正常使用</p><p>如果您是 MSI、外星人、DELL、acer、雷蛇和 Lenovo 品牌的电脑可能会因为 Killer 网卡设置的缘故出现无法访问网站的情况，可以通过下面几种方法让 LetsVPN 正常使用，具体操作如下所示：</p><h3>第一种：</h3><p>键盘按下 WIN + R, 输入 Services.msc 打开服务列表，找到里面 Killer 开头服务，右键点击“属性”，把“启动类型”下拉菜单选择禁用，“服务状态”选择停用，点击确定，如下图所示。</p><img src=\"/assets/use-killer-1.png\" alt=\"禁用 Killer 服务\" /><p>确认此处的服务列表，您可能需要禁用您这边所有Killer开头的服务。</p><h3>第二种：</h3><p>打开 Killer Control Center，将 Prioritization Engine 及 自动带宽分配关闭，然后将介面上方的相关设置都关闭，如下图所示。</p><img src=\"/assets/use-killer-2.png\" alt=\"关闭 Prioritization Engine\" /><h3>第三种：</h3><p>在 Killer 网卡概览界面将 lets.exe 的优先级调整为1，如下图所示。</p><img src=\"/assets/use-killer-3.png\" alt=\"设置 lets.exe 优先级\" /><h3>第四种：</h3><p>将 Killer 网卡系统设置中 Advanced Stream Detect 选项关闭，如下图所示。</p><img src=\"/assets/use-killer-4.png\" alt=\"关闭 Advanced Stream Detect\" /><p>Killer 网卡的不同版本可能有所不同，下面为另一种 Killer 网卡界面的设置方法：</p><img src=\"/assets/use-killer-5.png\" alt=\"其他版本 Killer 设置\" /><p>上述步骤都设置完成后，您将快连软件完全退出在重新打开连接，然后再重新访问下您喜欢的网站，看看是否都可以正常访问了？</p><p>若按照这个方法依然无法正常访问，请发送邮件给我们 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a> 我们将有专人来负责处理您的问题。</p><hr class='my-8 border-gray-200' /><h3>Related Articles</h3><ul><li><a href='/help/article/40' class='text-blue-600 hover:underline'>QQ 浏览器无法打开被墙网站</a></li><li><a href='#' class='text-blue-600 hover:underline'>SmartByte 软件需要进行特殊设置</a></li><li><a href='#' class='text-blue-600 hover:underline'>ExpressConnect 服务需要进行特殊设置</a></li><li><a href='#' class='text-blue-600 hover:underline'>Intel Connectivity Service 服务需要进行特殊设置</a></li><li><a href='#' class='text-blue-600 hover:underline'>Host Network Service 服务需要进行特殊设置</a></li></ul><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}

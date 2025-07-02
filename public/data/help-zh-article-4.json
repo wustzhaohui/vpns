@@ -1,0 +1,11 @@
+{
+  "title": "MacOS 版本安装教程",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over 4 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" }
+  ],
+  "content": "<p>很多 macOS 用户点击下载安装后会出现没有反应的情况，只需要依照教程就能正常安装并运行，具体操作如下（App Store 下载用户请忽略）：</p><p><b>小提醒：</b>目前快连有支持macOS 10.13及以上使用哦</p><h3>如何安裝：</h3><p>官网 <a href='https://b4zk7yqa.onelink.me/Lm5M/khng1wzk' target='_blank' rel='noopener noreferrer' class='text-blue-600 hover:underline'>https://b4zk7yqa.onelink.me/Lm5M/khng1wzk</a> 点击 mac 下载，打开 dmg 安裝包；</p><img src=\"/assets/mac-install-1.png\" alt=\"下载并打开DMG安装包\" /><p>将 LetsVPN 图标 拖曳到 Applications 里面；</p><img src=\"/assets/mac-install-2.gif\" alt=\"拖拽到Applications文件夹\" /><h3>如何開啟：</h3><p><b>错误方式：</b>桌面快连图标，双击不会有反应</p><p>安装完成后，桌面的快连图标，不是应用捷径，是安装文件夹</p><img src=\"/assets/mac-install-3.png\" alt=\"桌面图标非快捷方式\" /><p><b>正确方式：</b>在应用程序，打开快连</p><p>在底部程序坞打开 访达 (Finder)→ 应用程序，找到安装完成的 快连，双击点开</p><img src=\"/assets/mac-install-4.png\" alt=\"从应用程序打开\" /><h3>如何使用：</h3><p>首次打开 快连 连接，需要通过电脑系统验证，输入您电脑的「锁屏密码」，完成后即显示成功连接。</p><img src=\"/assets/mac-install-5.png\" alt=\"输入锁屏密码验证\" /><h3>常見問題：</h3><p>若要开启快连，先到应用程序打开，打开后图标会显示顶部菜单栏，不会在底部程序坞中。</p><img src=\"/assets/mac-install-6.png\" alt=\"顶部菜单栏图标\" /><p>若您依然有使用问题，可以通过本文章右边客服按钮 or 发送邮件给 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a>  我们将有专人来负责处理您的问题。</p><hr class='my-8 border-gray-200'><h3>Related Articles</h3><ul><li><a href='#' class='text-blue-600 hover:underline'>安卓设备无法安装怎么办？</a></li><li><a href='#' class='text-blue-600 hover:underline'>快连 VPN 被第三方应用程序禁用</a></li><li><a href='#' class='text-blue-600 hover:underline'>Windows 版本快连双击闪退解决教程</a></li><li><a href='#' class='text-blue-600 hover:underline'>如何在安卓手机上安装谷歌三件套？完整教程来了！</a></li><li><a href='#' class='text-blue-600 hover:underline'>HarmonyOS NEXT 纯血鸿蒙 如何下载快连 VPN</a></li></ul>"
+}

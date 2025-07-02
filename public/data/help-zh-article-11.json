@@ -1,0 +1,12 @@
+{
+  "title": "如何访问 Bilibili 港澳台地区",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over 4 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "热门应用教程", "link": "/help/zh" }
+  ],
+  "content": "<p>通过快连 VPN 连接后无法访问 Bilibili（哔哩哔哩）港澳台地区，您可以按照这篇文章操作解决问题</p><p>Bilibili（中文：哔哩哔哩）又称 B站，在 Bilibili 上会有限定港澳台地区观看的番剧，若未在相应地区则会出现下图中的提示，无法正常观看。请您根据以下方法设置，连接 快连 VPN（官网：<a href='https://b4zk7yqa.onelink.me/Lm5M/khng1wzk' target='_blank' rel='noopener noreferrer' class='text-blue-600 hover:underline'>https://b4zk7yqa.onelink.me/Lm5M/khng1wzk</a>）后就可以解决问题了。</p><p><b>解决办法：</b>开启快连 VPN 点击菜单栏 → 变更国家和地区 → 切换至安全模式（全局代理）→ 选择台湾/香港线路 → 确认连接即可访问</p><p>PS. 安全模式只有铂金会员才有办法使用，若您当前还是青铜会员则无法使用此功能，您可以购买任一铂金会员套餐，所有的服务则会一同帮您做升级，非常划算哒。若有任何关于两者会员的问题您可以点击《青铜和铂金的区别》了解下差异。</p><img src='/assets/use-bilibili.png' alt='Bilibili region lock message' /><p>若您经过上面的操作，依然发现还是无法解决问题。请您发送邮 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a>，将有专为您排忧解难。</p><hr class='my-8 border-gray-200' /><h3>Related Articles</h3><ul><li><a href='#' class='text-blue-600 hover:underline'>快连 VPN 帮您隐藏微博访问地址</a></li><li><a href='/help/article/7' class='text-blue-600 hover:underline'>如何更好的使用 Telegram</a></li><li><a href='/help/article/8' class='text-blue-600 hover:underline'>如何更好的使用 X (Twitter) 客户端</a></li><li><a href='/help/article/9' class='text-blue-600 hover:underline'>如何通过快连 VPN 访问 Netflix</a></li><li><a href='/help/article/10' class='text-blue-600 hover:underline'>如何通过快连 VPN 访问 Disney+</a></li></ul><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}

@@ -3,7 +3,11 @@
   "description": "非常感谢您使用我们的服务，在这里您可以找到一些常见的问题处理方法",
   "authors": {
     "names": "By Jamie and 4 others",
-    "avatars": ["/assets/avatar-01.png", "/assets/avatar-02.jpg", "/assets/avatar-03.jpg"]
+    "avatars": [
+      "/assets/avatar-01.png",
+      "/assets/avatar-02.jpg",
+      "/assets/avatar-03.jpg"
+    ]
   },
   "articleCount": "58 articles",
   "categories": [
@@ -11,46 +15,326 @@
       "id": "intro",
       "title": "",
       "articles": [
-        { "id": "1", "title": "如何通过 快连VPN 下载国际资源", "link": "/help/article/1" },
-        { "id": "2", "title": "如何下载得到快连 VPN", "link": "#" },
-        { "id": "3", "title": "HarmonyOS NEXT 纯血鸿蒙 如何下载快连 VPN", "link": "#" },
-        { "id": "4", "title": "MacOS 版本安装教程", "link": "#" }
+        {
+          "id": "1",
+          "title": "如何通过 快连VPN 下载国际资源",
+          "link": "/help/article/1"
+        },
+        {
+          "id": "2",
+          "title": "如何下载得到快连 VPN",
+          "link": "/help/article/2"
+        },
+        {
+          "id": "3",
+          "title": "HarmonyOS NEXT 纯血鸿蒙 如何下载快连 VPN",
+          "link": "/help/article/3"
+        },
+        { "id": "4", "title": "MacOS 版本安装教程", "link": "/help/article/4" }
       ]
     },
     {
       "id": "hot-apps",
       "title": "热门应用教程",
       "articles": [
-        { "id": "ha1", "title": "热门专题ChatGPT-保姆级注册教程", "link": "#" },
-        { "id": "ha2", "title": "ChatGPT 相关错误提示及解决办法", "link": "#" },
-        { "id": "ha3", "title": "如何更好的使用 Telegram", "link": "#" },
-        { "id": "ha4", "title": "如何更好的使用 X（Twitter）客户端", "link": "#" },
-        { "id": "ha5", "title": "如何通过快连 VPN 访问 Netflix", "link": "#" },
-        { "id": "ha6", "title": "如何通过快连 VPN 访问 Disney+", "link": "#" },
-        { "id": "ha7", "title": "如何访问 Bilibili 港澳台地区", "link": "#" },
-        { "id": "ha8", "title": "快连 VPN 帮您隐藏微博访问地址", "link": "#" },
-        { "id": "ha9", "title": "快连 VPN 带你畅刷海外抖音-Tiktok", "link": "#" },
-        { "id": "ha10", "title": "如何通过快连 VPN 更好的访问国际资源", "link": "#" },
-        { "id": "ha11", "title": "Netflix 隐藏代码教学", "link": "#" },
-        { "id": "ha12", "title": "推特账户注册教程", "link": "#" }
+        {
+          "id": "ha1",
+          "title": "热门专题ChatGPT-保姆级注册教程",
+          "link": "/help/article/5"
+        },
+        {
+          "id": "ha2",
+          "title": "ChatGPT 相关错误提示及解决办法",
+          "link": "/help/article/6"
+        },
+        {
+          "id": "ha3",
+          "title": "如何更好的使用 Telegram",
+          "link": "/help/article/7"
+        },
+        {
+          "id": "ha4",
+          "title": "如何更好的使用 X（Twitter）客户端",
+          "link": "/help/article/8"
+        },
+        {
+          "id": "ha5",
+          "title": "如何通过快连 VPN 访问 Netflix",
+          "link": "/help/article/9"
+        },
+        {
+          "id": "ha6",
+          "title": "如何通过快连 VPN 访问 Disney+",
+          "link": "/help/article/10"
+        },
+        {
+          "id": "ha7",
+          "title": "如何访问 Bilibili 港澳台地区",
+          "link": "/help/article/11"
+        },
+        {
+          "id": "ha8",
+          "title": "快连 VPN 帮您隐藏微博访问地址",
+          "link": "/help/article/12"
+        },
+        {
+          "id": "ha9",
+          "title": "快连 VPN 带你畅刷海外抖音-Tiktok",
+          "link": "/help/article/13"
+        },
+        {
+          "id": "ha10",
+          "title": "如何通过快连 VPN 更好的访问国际资源",
+          "link": "/help/article/14"
+        },
+        {
+          "id": "ha11",
+          "title": "Netflix 隐藏代码教学",
+          "link": "/help/article/15"
+        },
+        {
+          "id": "ha12",
+          "title": "推特账户注册教程",
+          "link": "/help/article/16"
+        }
       ]
     },
     {
       "id": "apple-help",
       "title": "苹果使用帮助",
       "articles": [
-        { "id": "ah1", "title": "苹果版本快连 VPN 不好用怎么办？", "link": "#" },
-        { "id": "ah2", "title": "苹果版本快连 VPN 更新遇到问题怎么办？", "link": "#" },
-        { "id": "ah3", "title": "快连 VPN 被第三方应用程序禁用", "link": "#" }
+        {
+          "id": "ah1",
+          "title": "苹果版本快连 VPN 不好用怎么办？",
+          "link": "/help/article/17"
+        },
+        {
+          "id": "ah2",
+          "title": "苹果版本快连 VPN 更新遇到问题怎么办？",
+          "link": "/help/article/18"
+        },
+        {
+          "id": "ah3",
+          "title": "快连 VPN 被第三方应用程序禁用",
+          "link": "/help/article/19"
+        }
       ]
     },
     {
       "id": "payment-issues",
       "title": "支付购买问题",
       "articles": [
-        { "id": "pi1", "title": "青铜会员&铂金会员区别", "link": "#" },
-        { "id": "pi2", "title": "如何恢复 ID 变化导致丢失的购买时间", "link": "#" },
-        { "id": "pi3", "title": "如何查找快连 VPN 支付详情信息", "link": "#" }
+        {
+          "id": "pi1",
+          "title": "青铜会员&铂金会员区别",
+          "link": "/help/article/20"
+        },
+        {
+          "id": "pi2",
+          "title": "如何恢复 ID 变化导致丢失的购买时间",
+          "link": "/help/article/21"
+        },
+        {
+          "id": "pi3",
+          "title": "如何查找快连 VPN 支付详情信息",
+          "link": "/help/article/22"
+        }
+      ]
+    },
+    {
+      "id": "android-help",
+      "title": "安卓使用帮助",
+      "articles": [
+        {
+          "id": "android1",
+          "title": "安卓设备无法安装怎么办？",
+          "link": "/help/article/23"
+        },
+        {
+          "id": "android2",
+          "title": "鸿蒙系统 3.0 如何设定让 LetsVPN 稳定运行",
+          "link": "/help/article/24"
+        },
+        {
+          "id": "android3",
+          "title": "华为手机如何设定让 LetsVPN 稳定运行",
+          "link": "/help/article/25"
+        },
+        {
+          "id": "android4",
+          "title": "每隔几分钟就不好用了，快连 VPN 太不稳定了？",
+          "link": "/help/article/26"
+        },
+        {
+          "id": "android5",
+          "title": "小米手机如何关闭杀后台让快连 VPN 稳定运行",
+          "link": "/help/article/27"
+        },
+        {
+          "id": "android6",
+          "title": "关闭 OPPO 杀后台让快连 VPN 稳定运行",
+          "link": "/help/article/28"
+        },
+        {
+          "id": "android7",
+          "title": "关闭 Vivo 高耗电限制让快连 VPN 不会中断",
+          "link": "/help/article/29"
+        },
+        {
+          "id": "android8",
+          "title": "允许快连 VPN 在魅族手机后台运行",
+          "link": "/help/article/30"
+        },
+        {
+          "id": "android9",
+          "title": "关闭一加手机电池优化让快连 VPN 稳定运行",
+          "link": "/help/article/31"
+        },
+        {
+          "id": "android10",
+          "title": "关闭三星手机杀后台让快连 VPN 稳定运行",
+          "link": "/help/article/32"
+        }
+      ]
+    },
+    {
+      "id": "windows-pc-help",
+      "title": "Windows PC 疑难杂症处理",
+      "articles": [
+        {
+          "id": "win1",
+          "title": "Windows 平台获取免费会员失败怎么办？",
+          "link": "/help/article/33"
+        },
+        {
+          "id": "win2",
+          "title": "Windows 连接 VPN 后网络变地球",
+          "link": "/help/article/34"
+        },
+        {
+          "id": "win3",
+          "title": "Windows 版本提示网卡初始化失败如何解决",
+          "link": "/help/article/35"
+        },
+        {
+          "id": "win4",
+          "title": "Windows 版本快连双击闪退解决教程",
+          "link": "/help/article/36"
+        },
+        {
+          "id": "win5",
+          "title": "教您如何解决 .NET Framework 无法运行",
+          "link": "/help/article/37"
+        },
+        {
+          "id": "win6",
+          "title": "连接成功后什么网站都无法访问怎么办？",
+          "link": "/help/article/38"
+        },
+        {
+          "id": "win7",
+          "title": "Chrome 浏览器无法打开被墙网站怎么办？",
+          "link": "/help/article/39"
+        },
+        {
+          "id": "win8",
+          "title": "QQ 浏览器无法打开被墙网站",
+          "link": "/help/article/40"
+        },
+        {
+          "id": "win9",
+          "title": "如何设定 360 卫士让快连 VPN 正常工作",
+          "link": "/help/article/41"
+        },
+        {
+          "id": "win10",
+          "title": "Killer 网卡需要进行特殊设置",
+          "link": "/help/article/42"
+        },
+        {
+          "id": "win11",
+          "title": "Intel Connectivity Service 服务需要进行特殊设置",
+          "link": "/help/article/43"
+        },
+        {
+          "id": "win12",
+          "title": "SmartByte 软件需要进行特殊设置",
+          "link": "/help/article/44"
+        },
+        {
+          "id": "win13",
+          "title": "ExpressConnect 服务需要进行特殊设置",
+          "link": "/help/article/45"
+        },
+        {
+          "id": "win14",
+          "title": "Host Network Service 服务需要进行特殊设置",
+          "link": "/help/article/46"
+        }
+      ]
+    },
+    {
+      "id": "general-issues",
+      "title": "安装与一般使用问题",
+      "articles": [
+        {
+          "id": "gen1",
+          "title": "如何在快连 VPN 中退出设备",
+          "link": "/help/article/47"
+        },
+        {
+          "id": "gen2",
+          "title": "忘记快连 VPN 帐户密码怎么办？",
+          "link": "/help/article/48"
+        },
+        {
+          "id": "gen3",
+          "title": "如何在快连 VPN 中注销帐户",
+          "link": "/help/article/49"
+        },
+        {
+          "id": "gen4",
+          "title": "只需一份费用多个设备同时使用快连 VPN",
+          "link": "/help/article/50"
+        },
+        {
+          "id": "gen5",
+          "title": "如何查看是否使用了快连 VPN 最新版本",
+          "link": "/help/article/51"
+        },
+        {
+          "id": "gen6",
+          "title": "账户转移使用时间的规则",
+          "link": "/help/article/52"
+        },
+        {
+          "id": "gen7",
+          "title": "提示绑定设备达到上限怎么办？",
+          "link": "/help/article/53"
+        },
+        {
+          "id": "gen8",
+          "title": "如何解决 iOS18 MDM 导致设备 VPN 配置启动失败？",
+          "link": "/help/article/54"
+        }
+      ]
+    },
+    {
+      "id": "engineer-help",
+      "title": "如何与工程师一起解决问题",
+      "articles": [
+        { "id": "eng1", "title": "如何上传日志", "link": "#" },
+        {
+          "id": "eng2",
+          "title": "如何使用 Anydesk 配合工程师调试",
+          "link": "#"
+        },
+        {
+          "id": "eng3",
+          "title": "如何使用 TeamViewer 配合工程师调试",
+          "link": "#"
+        },
+        { "id": "eng4", "title": "Windows 远程调试需要的分析工具", "link": "#" }
       ]
     }
   ]

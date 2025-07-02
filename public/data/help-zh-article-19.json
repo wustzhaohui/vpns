@@ -1,0 +1,12 @@
+{
+  "title": "快连 VPN 被第三方应用程序禁用",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over 5 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "苹果使用帮助", "link": "/help/zh" }
+  ],
+  "content": "<p>在 Mac 环境下使用快连 VPN 的过程中被第三方应用程序禁用，您可以通过这篇文章解决问题。</p><p>快连 VPN（官网：<a href='https://b4zk7yqa.onelink.me/Lm5M/khng1wzk' target='_blank' rel='noopener noreferrer' class='text-blue-600 hover:underline'>https://b4zk7yqa.onelink.me/Lm5M/khng1wzk</a>）成功安装后点击链接提示：错误 9 或快连被第三方应用程序禁用（如下图）是因为受到清理软件的限制，若您遇到以下情况，您可以通以下对应的方法解决问题。</p><img src='/assets/use-nouse-1.png' alt='快连 VPN 错误提示' /><p><b>检查设备中是否安装 Tencent Lemon 这类的清理软件</b></p><p>如果您安装了 腾讯柠檬（Tencent Lemon）或是其他类似杀毒软件，您在里面找到快连设置为开机启动。若已经卸载了，麻烦重新安装回来，再设置开机启动即可。</p><p><b>设置步骤：</b></p><ol><li>打开腾讯柠檬（Tencent Lemon）或是其他类似杀毒软件；</li><li>找到开机启动项管理；</li><li>找到 world.letsgo....helper；</li><li>设置成允许即可</li></ol><p>PS. 腾讯柠檬有分两个版本，需要下载完整版才可以完成设置（如下图）</p><img src='/assets/use-nouse-2.png' alt='腾讯柠檬版本对比' /><p>PS. 若您是因为其他应用而受到限制，您也可以联系软件内的在线客服或是邮箱至 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a>，说明下具体的情况，将有专人为您排忧解难。</p><hr class='my-8 border-gray-200' /><h3>Related Articles</h3><ul><li><a href='#' class='text-blue-600 hover:underline'>允许快连 VPN 在魅族手机后台运行</a></li><li><a href='/help/article/7' class='text-blue-600 hover:underline'>如何更好的使用 Telegram</a></li><li><a href='/help/article/9' class='text-blue-600 hover:underline'>如何通过快连 VPN 访问 Netflix</a></li><li><a href='#' class='text-blue-600 hover:underline'>忘记快连 VPN 帐户密码怎么办？</a></li><li><a href='#' class='text-blue-600 hover:underline'>Windows 版本快连双击闪退解决教程</a></li></ul><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}

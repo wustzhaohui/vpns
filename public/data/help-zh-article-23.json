@@ -1,0 +1,12 @@
+{
+  "title": "安卓设备无法安装怎么办？",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over 7 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "安卓使用帮助", "link": "/help/zh" }
+  ],
+  "content": "<p>若小米手机安装提示风险/华为手机（鸿蒙系统）提示安装失败，请参考本篇文章解决</p><p>安卓设备经过不断的更新，安装 VPN 软件时会出现安装失败的情况，主要是因为不同厂家的系统对安装的应用开启了授权限制，从而导致了这个情况的出现，请参考以下解决方法：</p><h2>小米设备</h2><p>部分小米设备安装时会提示如下图下：</p><img src='/assets/use-android-noinstall-1.png' alt='小米设备安装风险提示' /><p>请您根据以下步骤完成设置即可安装成功：</p><ol><li>在手机找到 设置；</li><li>找到更多设置后，找到开发者选项；</li><li>关闭开发者选项里的最下面的“MIUI优化”高风险功能提醒；</li><li>若安装有提示需要输入密码，请输入自己的小米帐号密码即可（提示如图下）</li></ol><img src='/assets/use-android-noinstall-2.png' alt='小米账号密码验证' /><h2>华为设备</h2><p>部分华为设备安装时会提示如下图下：</p><img src='/assets/use-android-noinstall-3.png' alt='华为设备安全提醒' /><img src='/assets/use-android-noinstall-4.png' alt='华为设备安装失败' /><p>请您根据以下步骤完成设置即可安装成功：</p><ol><li>找到在手机设置；</li><li>找到 系统和更新；</li><li>找到 纯净模式；</li><li>点击 退出</li></ol><p>P.S 若您下载后遇到被杀后台的情况，您可以打开这篇文章进行设置 &lt;&lt;<a href='#' class='text-blue-600 hover:underline'>每隔几分钟就不好用了，快连 VPN 太不稳定了？</a>&gt;&gt;</p><p>若您看过以上文章或是经过上面的操作，依然发现还是无法解决问题，请您发送邮 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a>，将有专人为您排忧解难。</p><hr class='my-8 border-gray-200' /><h3>Related Articles</h3><ul><li><a href='#' class='text-blue-600 hover:underline'>MacOS 版本安装教程</a></li><li><a href='#' class='text-blue-600 hover:underline'>连接成功后什么网站都无法访问怎么办？</a></li><li><a href='#' class='text-blue-600 hover:underline'>华为手机如何设定让 LetsVPN 稳定运行</a></li><li><a href='#' class='text-blue-600 hover:underline'>如何在安卓手机上安装谷歌三件套？完整教程来了！</a></li><li><a href='#' class='text-blue-600 hover:underline'>HarmonyOS NEXT 纯血鸿蒙 如何下载快连 VPN</a></li></ul><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}
