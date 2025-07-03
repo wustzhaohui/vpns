@@ -1,339 +1,174 @@
 {
   "pageTitle": "Help Documents",
-  "description": "Advice and answers from the LetsVPN Team.",
+  "description": "Thank you very much for using LetsVPN, you can find the solutions to common questions here.",
   "authors": {
-    "names": "By Jamie and 4 others",
+    "names": "By Jamie and 2 others",
     "avatars": [
       "/assets/avatar-01.png",
       "/assets/avatar-02.jpg",
       "/assets/avatar-03.jpg"
     ]
   },
-  "articleCount": "58 articles",
+  "articleCount": "25 articles",
   "categories": [
     {
-      "id": "intro",
-      "title": "Getting Started",
+      "id": "getting-started",
+      "title": "",
       "articles": [
         {
-          "id": "1",
-          "title": "How to download international resources via LetsVPN",
+          "id": "gs1",
+          "title": "How to download LetsVPN",
           "link": "/help/en/article/1"
         },
         {
-          "id": "2",
-          "title": "How to download LetsVPN",
+          "id": "gs2",
+          "title": "Use one subscription on multiple devices",
           "link": "/help/en/article/2"
         },
         {
-          "id": "3",
-          "title": "How to download LetsVPN on HarmonyOS NEXT",
-          "link": "#"
-        },
-        {
-          "id": "4",
-          "title": "macOS Version Installation Tutorial",
-          "link": "#"
+          "id": "gs3",
+          "title": "How to delete account in LetsVPN?",
+          "link": "/help/en/article/3"
         }
       ]
     },
     {
-      "id": "hot-apps",
-      "title": "Popular App Tutorials",
+      "id": "purchase-questions",
+      "title": "Purchase Questions",
       "articles": [
         {
-          "id": "ha1",
-          "title": "Hot Topic: Nanny-level Registration Tutorial for ChatGPT",
-          "link": "#"
+          "id": "pq1",
+          "title": "How to recover my remaining time when ID changes",
+          "link": "/help/en/article/21"
         },
         {
-          "id": "ha2",
-          "title": "ChatGPT Related Error Messages and Solutions",
-          "link": "#"
-        },
-        { "id": "ha3", "title": "How to Better Use Telegram", "link": "#" },
-        {
-          "id": "ha4",
-          "title": "How to Better Use X (Twitter) Client",
-          "link": "#"
+          "id": "pq2",
+          "title": "The difference between Standard and Platinum subscription",
+          "link": "/help/en/article/20"
         },
         {
-          "id": "ha5",
-          "title": "How to Access Netflix via LetsVPN",
-          "link": "#"
-        },
-        {
-          "id": "ha6",
-          "title": "How to Access Disney+ via LetsVPN",
-          "link": "#"
-        },
-        {
-          "id": "ha7",
-          "title": "How to Access Bilibili for Hong Kong, Macau, and Taiwan Regions",
-          "link": "#"
-        },
-        {
-          "id": "ha8",
-          "title": "LetsVPN Helps You Hide Your Weibo Access Location",
-          "link": "#"
-        },
-        {
-          "id": "ha9",
-          "title": "Enjoy Overseas TikTok with LetsVPN",
-          "link": "#"
-        },
-        {
-          "id": "ha10",
-          "title": "How to Better Access International Resources with LetsVPN",
-          "link": "#"
-        },
-        { "id": "ha11", "title": "Netflix Hidden Codes Tutorial", "link": "#" },
-        {
-          "id": "ha12",
-          "title": "Twitter Account Registration Tutorial",
-          "link": "#"
+          "id": "pq3",
+          "title": "How to find my purchase history",
+          "link": "/help/en/article/22"
         }
       ]
     },
     {
-      "id": "apple-help",
-      "title": "Apple Usage Help",
+      "id": "faq-android",
+      "title": "FAQ for Android",
       "articles": [
         {
-          "id": "ah1",
-          "title": "What to do if the Apple version of LetsVPN is not working well?",
-          "link": "#"
+          "id": "fa1",
+          "title": "How to fix my unstable LetsVPN connection?",
+          "link": "/help/en/article/26"
         },
         {
-          "id": "ah2",
-          "title": "What to do if you encounter problems updating the Apple version of LetsVPN?",
-          "link": "#"
+          "id": "fa2",
+          "title": "Keep LetsVPN running in the background (for Huawei users)",
+          "link": "/help/en/article/25"
         },
         {
-          "id": "ah3",
-          "title": "LetsVPN is disabled by a third-party application",
-          "link": "#"
+          "id": "fa3",
+          "title": "Keep LetsVPN running in the background (for Xiaomi users)",
+          "link": "/help/en/article/27"
+        },
+        {
+          "id": "fa4",
+          "title": "Keep LetsVPN running in the background (for Samsung users)",
+          "link": "/help/en/article/32"
         }
       ]
     },
     {
-      "id": "payment-issues",
-      "title": "Payment and Purchase Issues",
+      "id": "faq-windows",
+      "title": "FAQ for Windows",
       "articles": [
         {
-          "id": "pi1",
-          "title": "Difference between Bronze & Platinum Membership",
-          "link": "#"
+          "id": "fw1",
+          "title": "What to do if you can't access any website when you connect to the VPN",
+          "link": "/help/en/article/38"
         },
         {
-          "id": "pi2",
-          "title": "How to recover purchase time lost due to ID change",
-          "link": "#"
+          "id": "fw2",
+          "title": "What if I can't get free trials on Windows?",
+          "link": "/help/en/article/33"
         },
         {
-          "id": "pi3",
-          "title": "How to find LetsVPN payment details",
-          "link": "#"
+          "id": "fw3",
+          "title": "Special settings for Killer Networking products",
+          "link": "/help/en/article/42"
+        },
+        {
+          "id": "fw4",
+          "title": "Special Settings for Intel Connectivity Service",
+          "link": "/help/en/article/43"
+        },
+        {
+          "id": "fw5",
+          "title": "Special Settings for SmartByte",
+          "link": "/help/en/article/44"
+        },
+        {
+          "id": "fw6",
+          "title": "Special Settings for ExpressConnect",
+          "link": "/help/en/article/45"
+        },
+        {
+          "id": "fw7",
+          "title": "Special Settings for Host Network Service",
+          "link": "/help/en/article/46"
+        },
+        {
+          "id": "fw8",
+          "title": "How to Troubleshoot .NET Framework Not Running",
+          "link": "/help/en/article/37"
         }
       ]
     },
     {
-      "id": "android-help",
-      "title": "Android Usage Help",
+      "id": "frequently-asked",
+      "title": "Frequently asked questions",
       "articles": [
         {
-          "id": "android1",
-          "title": "What to do if Android device cannot be installed?",
+          "id": "faq1",
+          "title": "Find the software version on my device",
+          "link": "/help/en/article/51"
+        },
+        {
+          "id": "faq2",
+          "title": "What if I reached maximum connection limit",
           "link": "#"
         },
         {
-          "id": "android2",
-          "title": "How to set up LetsVPN to run stably on HarmonyOS 3.0",
+          "id": "faq3",
+          "title": "Tips about account transfer",
           "link": "#"
         },
         {
-          "id": "android3",
-          "title": "How to set up LetsVPN to run stably on Huawei phones",
-          "link": "#"
-        },
-        {
-          "id": "android4",
-          "title": "It stops working every few minutes, is LetsVPN too unstable?",
-          "link": "#"
-        },
-        {
-          "id": "android5",
-          "title": "How to disable background killing for LetsVPN on Xiaomi phones",
-          "link": "#"
-        },
-        {
-          "id": "android6",
-          "title": "How to disable background killing for LetsVPN on OPPO phones",
-          "link": "#"
-        },
-        {
-          "id": "android7",
-          "title": "How to prevent high power consumption restrictions from interrupting LetsVPN on Vivo",
-          "link": "#"
-        },
-        {
-          "id": "android8",
-          "title": "Allow LetsVPN to run in the background on Meizu phones",
-          "link": "#"
-        },
-        {
-          "id": "android9",
-          "title": "How to disable battery optimization for LetsVPN on OnePlus phones",
-          "link": "#"
-        },
-        {
-          "id": "android10",
-          "title": "How to disable background killing for LetsVPN on Samsung phones",
-          "link": "#"
-        }
-      ]
-    },
-    {
-      "id": "windows-pc-help",
-      "title": "Windows PC Troubleshooting",
-      "articles": [
-        {
-          "id": "win1",
-          "title": "What to do if getting a free membership on Windows fails?",
-          "link": "#"
-        },
-        {
-          "id": "win2",
-          "title": "Network icon shows a globe after connecting to VPN on Windows",
-          "link": "#"
-        },
-        {
-          "id": "win3",
-          "title": "How to fix 'Network adapter initialization failed' on Windows",
-          "link": "#"
-        },
-        {
-          "id": "win4",
-          "title": "Solution for LetsVPN crashing on double-click in Windows",
-          "link": "#"
-        },
-        {
-          "id": "win5",
-          "title": "How to fix .NET Framework not running",
-          "link": "#"
-        },
-        {
-          "id": "win6",
-          "title": "What to do if no websites can be accessed after successful connection?",
-          "link": "#"
-        },
-        {
-          "id": "win7",
-          "title": "What to do if Chrome browser cannot open blocked websites?",
-          "link": "#"
-        },
-        {
-          "id": "win8",
-          "title": "QQ browser cannot open blocked websites",
-          "link": "#"
-        },
-        {
-          "id": "win9",
-          "title": "How to configure 360 Security Guard for LetsVPN to work properly",
-          "link": "#"
-        },
-        {
-          "id": "win10",
-          "title": "Killer network card requires special settings",
-          "link": "#"
-        },
-        {
-          "id": "win11",
-          "title": "Intel Connectivity Service requires special settings",
-          "link": "#"
-        },
-        {
-          "id": "win12",
-          "title": "SmartByte software requires special settings",
-          "link": "#"
-        },
-        {
-          "id": "win13",
-          "title": "ExpressConnect service requires special settings",
-          "link": "#"
-        },
-        {
-          "id": "win14",
-          "title": "Host Network Service requires special settings",
-          "link": "#"
-        }
-      ]
-    },
-    {
-      "id": "general-issues",
-      "title": "Installation and General Usage",
-      "articles": [
-        {
-          "id": "gen1",
-          "title": "How to log out of devices in LetsVPN",
-          "link": "#"
-        },
-        {
-          "id": "gen2",
-          "title": "What to do if you forget your LetsVPN account password?",
-          "link": "#"
-        },
-        {
-          "id": "gen3",
-          "title": "How to delete your LetsVPN account",
-          "link": "#"
-        },
-        {
-          "id": "gen4",
-          "title": "Use one subscription on multiple devices simultaneously",
-          "link": "#"
-        },
-        {
-          "id": "gen5",
-          "title": "How to check if you are using the latest version of LetsVPN",
-          "link": "#"
-        },
-        {
-          "id": "gen6",
-          "title": "Rules for transferring usage time between accounts",
-          "link": "#"
-        },
-        {
-          "id": "gen7",
-          "title": "What to do if you see 'device binding limit reached'?",
-          "link": "#"
-        },
-        {
-          "id": "gen8",
-          "title": "How to fix VPN configuration startup failure caused by iOS 18 MDM",
+          "id": "faq4",
+          "title": "Fixing VPN Startup Issues Caused by iOS 18 MDM",
           "link": "#"
         }
       ]
     },
     {
       "id": "engineer-help",
-      "title": "Solving Problems with an Engineer",
+      "title": "How to solve problems with engineers",
       "articles": [
-        { "id": "eng1", "title": "How to upload logs", "link": "#" },
         {
-          "id": "eng2",
-          "title": "How to use Anydesk to cooperate with engineer for debugging",
-          "link": "#"
+          "id": "eh1",
+          "title": "How to upload logs?",
+          "link": "/help/en/article/55"
         },
         {
-          "id": "eng3",
-          "title": "How to use TeamViewer to cooperate with engineer for debugging",
-          "link": "#"
+          "id": "eh2",
+          "title": "How to download Microsoft Network Monitor",
+          "link": "/help/en/article/58"
         },
         {
-          "id": "eng4",
-          "title": "Analysis tools needed for Windows remote debugging",
-          "link": "#"
+          "id": "eh3",
+          "title": "Remote debugging over TeamViewer",
+          "link": "/help/en/article/57"
         }
       ]
     }

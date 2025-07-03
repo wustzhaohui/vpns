@@ -1,0 +1,12 @@
+{
+  "title": "如何使用 Anydesk 配合工程师调试",
+  "author": "Eden",
+  "authorAvatar": "/assets/avatar-03.jpg",
+  "updated": "Updated over 7 months ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "如何与工程师一起解决问题", "link": "/help/zh" }
+  ],
+  "content": "<p>Anydesk 是一个远程控制软件，当您使用快连出现一些难以解决的问题时，工程师会利用 Anydesk 来远程帮您调试。</p><p>由于电脑操作系统环境较为复杂，快连在运行时可能偶尔会出现您无法自行排解的问题。为了能够快速帮助您解决问题，我们推荐您使用 AnyDesk 远程控制软件进行调试。</p><p>AnyDesk 是轻量级的远程控制软件，您可以直接运行，无需安装，且软件设计注重隐私安全，为您的信息提供保护。P.S. 快连与 AnyDesk 并无合作关系</p><p>您可以按照以下步骤快速开始使用 AnyDesk：</p><h2>一、联系快连客服</h2><p>若您需要远程需要先与咱们软件内的在线客服预约远程时间，并通过以下步骤下载远程软件，方便后续工程师协助给您</p><h2>二、下载 Anydesk 远程软件</h2><ul><li>进入 <a href='https://anydesk.com/zhs' target='_blank' rel='noopener noreferrer' class='text-blue-600 hover:underline'>AnyDesk 官网</a>，先选择系统版本，点击“立即下载”</li></ul><img src='/assets/use-anydesk-1.png' alt='下载 Anydesk' /><h2>三、打开 Anydesk 获取远程控制识别码</h2><ul><li>打开下载档案不需安装，会自动跳转到远程介面首页，在首页可以看到远程识别码</li><li>将远程识别码复制后，发送给客服人员，他们会第一时间帮您反馈给相关人员处理。</li></ul><img src='/assets/use-anydesk-2.png' alt='获取远程控制识别码' /><h2>四、等待技术人员发送远程请求</h2><ul><li>工程师发起远程请求后会自动点击“接受”，还请您留意 Anydesk 中的画面</li></ul><img src='/assets/use-anydesk-3.png' alt='接受远程请求' /><h2>五、调试成功，关闭 Anydesk 即可</h2><ul><li>工程师帮您调试成功后，关闭 Anydesk 即可</li></ul><p>若您经过上面的操作，依然发现还是无法解决问题。请您发送邮件 <a href='mailto:letsvpn@rbox.me' class='text-blue-600 hover:underline'>letsvpn@rbox.me</a>，将有专人为您排忧解难。</p><hr class='my-8 border-gray-200' /><h3>Related Articles</h3><ul><li><a href='#' class='text-blue-600 hover:underline'>如何使用 TeamViewer 配合工程师调试</a></li><li><a href='#' class='text-blue-600 hover:underline'>Windows 远程调试需要的分析工具</a></li><li><a href='/help/article/51' class='text-blue-600 hover:underline'>如何查看是否使用了快连 VPN 最新版本</a></li><li><a href='/help/article/7' class='text-blue-600 hover:underline'>如何更好的使用 Telegram</a></li><li><a href='/help/article/19' class='text-blue-600 hover:underline'>快连 VPN 被第三方应用程序禁用</a></li></ul><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}

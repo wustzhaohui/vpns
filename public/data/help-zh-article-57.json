@@ -1,0 +1,12 @@
+{
+  "title": "如何使用 TeamViewer 配合工程师调试",
+  "author": "Jamie",
+  "authorAvatar": "/assets/avatar-02.jpg",
+  "updated": "Updated over a year ago",
+  "breadcrumb": [
+    { "name": "All Collections", "link": "/help" },
+    { "name": "中文帮助", "link": "/help/zh" },
+    { "name": "如何与工程师一起解决问题", "link": "/help/zh" }
+  ],
+  "content": "<p>TeamViewer 是一个强大的远程工具，当您使用快连出现一些难以解决的问题时，工程师会利用 TeamViewer 来远程帮您调试。</p><p>由于电脑操作系统环境非常复杂，所以在快连在运行时，偶尔会出现一些“疑难杂症”，用户自己难以解决。这时，为了能快速帮助您解决问题，快连工程师会使用 TeamViewer 来远程帮您调试。</p><p>使用 TeamViewer 的方法非常简单，您只需按照下面的步骤操作即可：</p><h2>1. 下载 TeamViewer</h2><p>进入 <a href='https://www.teamviewer.com/' target='_blank' rel='noopener noreferrer' class='text-blue-600 hover:underline'>TeamViewer 官网</a>，点击绿色按钮进行下载。</p><img src='/assets/use-teamviewer-1.png' alt='下载 TeamViewer' /><h2>2.安装 TeamViewer</h2><p>下载完成后，打开安装包，按照它的安装步骤安装即可。这里请注意，一定要选择“个人/非商业用户”这个选项。</p><img src='/assets/use-teamviewer-2.png' alt='安装 TeamViewer' /><h2>3.打开 TeamViewer 获取远程控制 ID 与密码</h2><p>安装完成后，打开 TeamViewer 会看到下图这个界面，红框内有一个允许远程控制的 ID 和密码，您需要将这个 ID 和密码告诉我们，这样工程师就可以开始远程帮您调试程序了。</p><img src='/assets/use-teamviewer-3.png' alt='获取远程控制 ID 与密码' /><h2>4.调试成功，关闭 TeamViewer</h2><p>工程师帮您调试成功后，关闭 TeamViewer 即可。</p><p>注：TeamViewer 中远程控制 ID 是固定的，但每次打开 TeamViewer 客户端，密码都会变化。没有密码任何人都无法对您的电脑进行控制，所以您无需担心安全问题。</p><h3>参考文件：</h3><ul><li><a href='#' class='text-blue-600 hover:underline'>Windows 远程调试需要的分析工具</a><br/>这篇文章中介绍的工具，能够帮助工程师尽快定位问题，但并不是必须的，您若方便也请阅读并安装一下。</li></ul><hr class='my-8 border-gray-200' /><h3>Related Articles</h3><ul><li><a href='/help/article/55' class='text-blue-600 hover:underline'>如何上传日志</a></li><li><a href='#' class='text-blue-600 hover:underline'>Windows 远程调试需要的分析工具</a></li><li><a href='/help/article/21' class='text-blue-600 hover:underline'>如何恢复 ID 变化导致丢失的购买时间</a></li><li><a href='/help/article/41' class='text-blue-600 hover:underline'>如何设定 360 卫士让快连 VPN 正常工作</a></li><li><a href='/help/article/56' class='text-blue-600 hover:underline'>如何使用 Anydesk 配合工程师调试</a></li></ul><div class='mt-10 pt-6 border-t border-gray-200 text-center'><p class='text-gray-600 mb-4'>Did this answer your question?</p><div class='flex justify-center space-x-4 mt-2'><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Dissatisfied'>😞</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Neutral'>😐</button><button class='text-4xl p-2 rounded-full hover:bg-gray-100 transition-colors' aria-label='Satisfied'>😃</button></div></div>"
+}

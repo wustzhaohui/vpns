@@ -302,20 +302,12 @@
           "title": "如何查看是否使用了快连 VPN 最新版本",
           "link": "/help/article/51"
         },
-        {
-          "id": "gen6",
-          "title": "账户转移使用时间的规则",
-          "link": "/help/article/52"
-        },
-        {
-          "id": "gen7",
-          "title": "提示绑定设备达到上限怎么办？",
-          "link": "/help/article/53"
-        },
+        { "id": "gen6", "title": "账户转移使用时间的规则", "link": "#" },
+        { "id": "gen7", "title": "提示绑定设备达到上限怎么办？", "link": "#" },
         {
           "id": "gen8",
           "title": "如何解决 iOS18 MDM 导致设备 VPN 配置启动失败？",
-          "link": "/help/article/54"
+          "link": "#"
         }
       ]
     },
@@ -323,18 +315,22 @@
       "id": "engineer-help",
       "title": "如何与工程师一起解决问题",
       "articles": [
-        { "id": "eng1", "title": "如何上传日志", "link": "#" },
+        { "id": "eng1", "title": "如何上传日志", "link": "/help/article/55" },
         {
           "id": "eng2",
           "title": "如何使用 Anydesk 配合工程师调试",
-          "link": "#"
+          "link": "/help/article/56"
         },
         {
           "id": "eng3",
           "title": "如何使用 TeamViewer 配合工程师调试",
-          "link": "#"
+          "link": "/help/article/57"
         },
-        { "id": "eng4", "title": "Windows 远程调试需要的分析工具", "link": "#" }
+        {
+          "id": "eng4",
+          "title": "Windows 远程调试需要的分析工具",
+          "link": "/help/article/58"
+        }
       ]
     }
   ]
