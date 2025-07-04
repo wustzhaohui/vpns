@@ -39,17 +39,17 @@
         {
           "id": "pq1",
           "title": "How to recover my remaining time when ID changes",
-          "link": "/help/en/article/21"
+          "link": "/help/en/article/4"
         },
         {
           "id": "pq2",
           "title": "The difference between Standard and Platinum subscription",
-          "link": "/help/en/article/20"
+          "link": "/help/en/article/5"
         },
         {
           "id": "pq3",
           "title": "How to find my purchase history",
-          "link": "/help/en/article/22"
+          "link": "/help/en/article/6"
         }
       ]
     },
@@ -60,22 +60,22 @@
         {
           "id": "fa1",
           "title": "How to fix my unstable LetsVPN connection?",
-          "link": "/help/en/article/26"
+          "link": "/help/en/article/7"
         },
         {
           "id": "fa2",
           "title": "Keep LetsVPN running in the background (for Huawei users)",
-          "link": "/help/en/article/25"
+          "link": "/help/en/article/8"
         },
         {
           "id": "fa3",
           "title": "Keep LetsVPN running in the background (for Xiaomi users)",
-          "link": "/help/en/article/27"
+          "link": "/help/en/article/9"
         },
         {
           "id": "fa4",
           "title": "Keep LetsVPN running in the background (for Samsung users)",
-          "link": "/help/en/article/32"
+          "link": "/help/en/article/10"
         }
       ]
     },
@@ -85,43 +85,43 @@
       "articles": [
         {
           "id": "fw1",
-          "title": "What to do if you can't access any website when you connect to the VPN",
-          "link": "/help/en/article/38"
+          "title": "What to do if you can’t access any website when you connect to the VPN",
+          "link": "/help/en/article/11"
         },
         {
           "id": "fw2",
           "title": "What if I can't get free trials on Windows?",
-          "link": "/help/en/article/33"
+          "link": "/help/en/article/12"
         },
         {
           "id": "fw3",
           "title": "Special settings for Killer Networking products",
-          "link": "/help/en/article/42"
+          "link": "/help/en/article/13"
         },
         {
           "id": "fw4",
           "title": "Special Settings for Intel Connectivity Service",
-          "link": "/help/en/article/43"
+          "link": "/help/en/article/14"
         },
         {
           "id": "fw5",
           "title": "Special Settings for SmartByte",
-          "link": "/help/en/article/44"
+          "link": "/help/en/article/15"
         },
         {
           "id": "fw6",
           "title": "Special Settings for ExpressConnect",
-          "link": "/help/en/article/45"
+          "link": "/help/en/article/16"
         },
         {
           "id": "fw7",
           "title": "Special Settings for Host Network Service",
-          "link": "/help/en/article/46"
+          "link": "/help/en/article/17"
         },
         {
           "id": "fw8",
           "title": "How to Troubleshoot .NET Framework Not Running",
-          "link": "/help/en/article/37"
+          "link": "/help/en/article/18"
         }
       ]
     },
@@ -132,22 +132,22 @@
         {
           "id": "faq1",
           "title": "Find the software version on my device",
-          "link": "/help/en/article/51"
+          "link": "/help/en/article/19"
         },
         {
           "id": "faq2",
           "title": "What if I reached maximum connection limit",
-          "link": "#"
+          "link": "/help/en/article/20"
         },
         {
           "id": "faq3",
           "title": "Tips about account transfer",
-          "link": "#"
+          "link": "/help/en/article/21"
         },
         {
           "id": "faq4",
           "title": "Fixing VPN Startup Issues Caused by iOS 18 MDM",
-          "link": "#"
+          "link": "/help/en/article/22"
         }
       ]
     },
@@ -158,17 +158,17 @@
         {
           "id": "eh1",
           "title": "How to upload logs?",
-          "link": "/help/en/article/55"
+          "link": "/help/en/article/23"
         },
         {
           "id": "eh2",
           "title": "How to download Microsoft Network Monitor",
-          "link": "/help/en/article/58"
+          "link": "/help/en/article/24"
         },
         {
           "id": "eh3",
           "title": "Remote debugging over TeamViewer",
-          "link": "/help/en/article/57"
+          "link": "/help/en/article/25"
         }
       ]
     }
