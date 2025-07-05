@@ -69,15 +69,14 @@ const HelpArticleEnPage: React.FC = () => {
     : 'text-[1.6rem]';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F8FA]">
+    <div className="min-h-screen flex flex-col bg-white">
       <HelpCenterHeader
         t={t}
-        i18n={i18n}
         heroTitleFontSize={heroTitleFontSize}
         internalHeaderNavFontSize={internalHeaderNavFontSize}
       />
 
-      <main className="flex-grow bg-transparent -mt-[18rem] md:-mt-[16rem] relative z-10">
+      <main className="flex-grow  -mt-[18rem] md:-mt-[16rem] relative z-10">
         <div className="main-container mx-auto px-4 sm:px-6 lg:px-0 max-w-[800px] text-left">
           {loading && (
             <p className="text-center text-gray-500 py-10">
@@ -114,7 +113,7 @@ const HelpArticleEnPage: React.FC = () => {
               <div className="bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-md">
                 <article>
                   <header className="mb-8 pb-8 border-b border-gray-200">
-                    <h1 className="text-2xl md:text-3xl font-bold text-brand-text-primary mb-4 leading-tight">
+                    <h1 className="text-[3.2rem] font-bold text-brand-text-primary mb-4 leading-tight">
                       {article.title}
                     </h1>
                     <div className="flex items-center text-gray-500 text-sm">

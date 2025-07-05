@@ -260,8 +260,8 @@
     "goHomeButton": "返回首页"
   },
   "helpCenterPage": {
-    "title": "来自 LetsVPN 团队的建议与解答",
-    "searchPlaceholder": "搜索文章...",
+    "title": "Advice and answers from the LetsVPN Team",
+    "searchPlaceholder": "search article...",
     "searchIconLabel": "搜索",
     "internalHeader": {
       "ariaLabel": "帮助中心导航",

@@ -6,8 +6,18 @@ import HelpCenterHeader from '@/components/helpcenter/HelpCenterHeader';
 import HelpCenterFooter from '@/components/helpcenter/HelpCenterFooter';
 
 const ChevronRightIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" {...props}>
-    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-5 w-5"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+      clipRule="evenodd"
+    />
   </svg>
 );
 
@@ -31,7 +41,9 @@ const HelpArticlePage: React.FC = () => {
     const fetchArticle = async () => {
       try {
         setLoading(true);
-        const response = await axios.get<ArticleData>(`/data/help-zh-article-${articleId}.json`);
+        const response = await axios.get<ArticleData>(
+          `/data/help-zh-article-${articleId}.json`
+        );
         setArticle(response.data);
         setError(null);
       } catch (err) {
@@ -47,54 +59,80 @@ const HelpArticlePage: React.FC = () => {
     }
   }, [articleId]);
 
-  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
-  const heroTitleFontSize = useLargeFont ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[3.8rem]' : 'text-[2.5rem] sm:text-[3rem] md:text-[3.2rem]';
-  const internalHeaderNavFontSize = useLargeFont ? 'text-[1.7rem]' : 'text-[1.6rem]';
+  const useLargeFont =
+    i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+  const heroTitleFontSize = useLargeFont
+    ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[3.8rem]'
+    : 'text-[2.5rem] sm:text-[3rem] md:text-[3.2rem]';
+  const internalHeaderNavFontSize = useLargeFont
+    ? 'text-[1.7rem]'
+    : 'text-[1.6rem]';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F8FA]">
+    <div className="min-h-screen flex flex-col bg-white">
       <HelpCenterHeader
         t={t}
-        i18n={i18n}
         heroTitleFontSize={heroTitleFontSize}
         internalHeaderNavFontSize={internalHeaderNavFontSize}
       />
 
-      <main className="flex-grow bg-transparent -mt-[18rem] md:-mt-[16rem] relative z-10">
+      <main className="flex-grow -mt-[18rem] md:-mt-[16rem] relative z-10">
         <div className="main-container mx-auto px-4 sm:px-6 lg:px-0 max-w-[800px] text-left">
-          {loading && <p className="text-center text-gray-500 py-10">Loading article...</p>}
+          {loading && (
+            <p className="text-center text-gray-500 py-10">
+              Loading article...
+            </p>
+          )}
           {error && <p className="text-center text-red-500 py-10">{error}</p>}
-          
+
           {article && (
             <>
-              <nav className="mb-6 flex items-center text-sm text-gray-500 flex-wrap" aria-label="Breadcrumb">
+              <nav
+                className="mb-6 flex items-center text-[1.4rem] text-gray-500 flex-wrap"
+                aria-label="Breadcrumb"
+              >
                 {article.breadcrumb.map((crumb, index) => (
-                  <div key={index} className="flex items-center">
-                    <Link to={crumb.link} className="text-sm text-gray-400 hover:text-brand-purple transition-colors">
+                  <div
+                    key={index}
+                    className="flex items-center"
+                  >
+                    <Link
+                      to={crumb.link}
+                      className="text-gray-400 hover:text-brand-purple transition-colors"
+                    >
                       {crumb.name}
                     </Link>
                     <ChevronRightIcon className="w-4 h-4 text-gray-400 mx-2 flex-shrink-0" />
                   </div>
                 ))}
-                <span className="text-sm text-gray-700 font-medium truncate">{article.title}</span>
+                <span className="text-gray-700 font-medium truncate">
+                  {article.title}
+                </span>
               </nav>
 
               <div className="bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-md">
                 <article>
                   <header className="mb-8 pb-8 border-b border-gray-200">
-                    <h1 className="text-2xl md:text-3xl font-bold text-brand-text-primary mb-4 leading-tight">
+                    <h1 className="text-[3.2rem] font-bold text-brand-text-primary mb-4 leading-tight">
                       {article.title}
                     </h1>
                     <div className="flex items-center text-gray-500 text-sm">
-                      <img src={article.authorAvatar} alt={article.author} className="w-10 h-10 rounded-full mr-3" />
+                      <img
+                        src={article.authorAvatar}
+                        alt={article.author}
+                        className="w-10 h-10 rounded-full mr-3"
+                      />
                       <div>
-                        Written by <span className="font-semibold text-gray-700">{article.author}</span>
-                        <br/>
+                        Written by{' '}
+                        <span className="font-semibold text-gray-700">
+                          {article.author}
+                        </span>
+                        <br />
                         <span className="text-xs">{article.updated}</span>
                       </div>
                     </div>
                   </header>
-                  <div 
+                  <div
                     className="article-content"
                     dangerouslySetInnerHTML={{ __html: article.content }}
                   />

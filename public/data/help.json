@@ -23,14 +23,6 @@
       "authorsKey": "helpCenterPage.categories.2.authors",
       "articleCountKey": "helpCenterPage.categories.2.articleCount",
       "link": "/help/ru"
-    },
-    {
-      "id": "3",
-      "titleKey": "helpCenterPage.categories.3.title",
-      "descriptionKey": "helpCenterPage.categories.3.description",
-      "authorsKey": "helpCenterPage.categories.3.authors",
-      "articleCountKey": "helpCenterPage.categories.3.articleCount",
-      "link": "#"
     }
   ]
 }

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -86,7 +87,6 @@ const HelpCenterEnPage: React.FC = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <HelpCenterHeader
         t={t}
-        i18n={i18n}
         heroTitleFontSize={heroTitleFontSize}
         internalHeaderNavFontSize={internalHeaderNavFontSize}
       />

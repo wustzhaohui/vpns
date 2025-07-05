@@ -302,12 +302,20 @@
           "title": "如何查看是否使用了快连 VPN 最新版本",
           "link": "/help/article/51"
         },
-        { "id": "gen6", "title": "账户转移使用时间的规则", "link": "#" },
-        { "id": "gen7", "title": "提示绑定设备达到上限怎么办？", "link": "#" },
+        {
+          "id": "gen6",
+          "title": "账户转移使用时间的规则",
+          "link": "/help/article/52"
+        },
+        {
+          "id": "gen7",
+          "title": "提示绑定设备达到上限怎么办？",
+          "link": "/help/article/53"
+        },
         {
           "id": "gen8",
           "title": "如何解决 iOS18 MDM 导致设备 VPN 配置启动失败？",
-          "link": "#"
+          "link": "/help/article/54"
         }
       ]
     },

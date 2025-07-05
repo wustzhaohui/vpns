@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -78,20 +79,14 @@ const HelpCenterRuPage: React.FC = () => {
     fetchData();
   }, []);
 
-  const useLargeFont =
-    i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
-  const heroTitleFontSize = useLargeFont
-    ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[3.8rem]'
-    : 'text-[2.5rem] sm:text-[3rem] md:text-[3.2rem]';
-  const internalHeaderNavFontSize = useLargeFont
-    ? 'text-[1.7rem]'
-    : 'text-[1.6rem]';
+  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+  const heroTitleFontSize = useLargeFont ? 'text-[2.8rem] sm:text-[3.5rem] md:text-[3.8rem]' : 'text-[2.5rem] sm:text-[3rem] md:text-[3.2rem]';
+  const internalHeaderNavFontSize = useLargeFont ? 'text-[1.7rem]' : 'text-[1.6rem]';
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <HelpCenterHeader
         t={t}
-        i18n={i18n}
         heroTitleFontSize={heroTitleFontSize}
         internalHeaderNavFontSize={internalHeaderNavFontSize}
       />
@@ -100,80 +95,51 @@ const HelpCenterRuPage: React.FC = () => {
         <div className="main-container mx-auto px-4 sm:px-6 lg:px-0 max-w-[960px]">
           {loading && <p className="text-center text-gray-500">Loading...</p>}
           {error && <p className="text-center text-red-500">{error}</p>}
-
+          
           {data && (
             <>
               {/* Breadcrumbs & Title Section */}
               <div className="text-left mb-6">
-                <nav
-                  className="flex items-center text-[1.4rem] text-gray-400 mb-6"
-                  aria-label="Breadcrumb"
-                >
-                  <Link
-                    to="/help"
-                    className="hover:text-brand-purple transition-colors"
-                  >
-                    All Collections
-                  </Link>
+                <nav className="flex items-center text-[1.4rem] text-gray-400 mb-6" aria-label="Breadcrumb">
+                  <Link to="/help" className="hover:text-brand-purple transition-colors">All Collections</Link>
                   <ChevronRightIcon className="w-4 h-4 text-gray-400 mx-1" />
-                  <span className="font-medium text-gray-600">
-                    {data.pageTitle}
-                  </span>
+                  <span className="font-medium text-gray-600">{data.pageTitle}</span>
                 </nav>
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 bg-blue-500 w-[56px] h-[56px] rounded-lg flex items-center justify-center">
-                    <HelpCategoryIcon className="w-9 h-9 text-white" />
-                  </div>
-                  <div>
-                    <h1 className="text-[3.2rem] font-bold text-brand-text-primary">
-                      {data.pageTitle}
-                    </h1>
-                    <p className="text-gray-600 mt-1 text-[1.6rem]">
-                      {data.description}
-                    </p>
-                    <div className="flex items-center text-[1.4rem] text-gray-500 mt-2">
-                      <div className="flex -space-x-2 mr-2">
-                        {data.authors.avatars.map((avatar, index) => (
-                          <img
-                            key={index}
-                            src={avatar}
-                            alt={`Author ${index + 1}`}
-                            className="inline-block h-6 w-6 rounded-full ring-2 ring-white"
-                          />
-                        ))}
-                      </div>
-                      <span>{data.authors.names}</span>
-                      <span className="mx-2">•</span>
-                      <span>{data.articleCount}</span>
+                    <div className="flex-shrink-0 bg-blue-500 w-[56px] h-[56px] rounded-lg flex items-center justify-center">
+                        <HelpCategoryIcon className="w-9 h-9 text-white" />
                     </div>
-                  </div>
+                    <div>
+                        <h1 className="text-[3.2rem] font-bold text-brand-text-primary">{data.pageTitle}</h1>
+                        <p className="text-gray-600 mt-1 text-[1.6rem]">{data.description}</p>
+                        <div className="flex items-center text-[1.4rem] text-gray-500 mt-2">
+                            <div className="flex -space-x-2 mr-2">
+                                {data.authors.avatars.map((avatar, index) => (
+                                    <img key={index} src={avatar} alt={`Author ${index + 1}`} className="inline-block h-6 w-6 rounded-full ring-2 ring-white" />
+                                ))}
+                            </div>
+                            <span>{data.authors.names}</span>
+                            <span className="mx-2">•</span>
+                            <span>{data.articleCount}</span>
+                        </div>
+                    </div>
                 </div>
               </div>
 
               {/* Articles List */}
               <div className="space-y-4">
                 {data.categories.map((category) => (
-                  <div
-                    key={category.id}
-                    className="bg-white rounded-lg shadow-md overflow-hidden p-[1.2rem]"
-                  >
+                  <div key={category.id} className="bg-white rounded-lg shadow-md overflow-hidden p-[1.2rem]">
                     {category.title && (
                       <div className="border-b border-gray-200">
-                        <h2 className="text-[2.2rem] font-semibold text-brand-text-primary pb-[2.4rem]">
-                          {category.title}
-                        </h2>
+                        <h2 className="text-[2.2rem] font-semibold text-brand-text-primary pb-[2.4rem]">{category.title}</h2>
                       </div>
                     )}
                     <ul className="space-y-0 pt-[1.2rem]">
                       {category.articles.map((article) => (
                         <li key={article.id}>
-                          <Link
-                            to={article.link}
-                            className="flex justify-between items-center group py-[1.2rem] hover:bg-gray-50 transition-colors -mx-[1.2rem] px-[1.2rem]"
-                          >
-                            <span className="text-[1.6rem] text-gray-700 group-hover:text-brand-purple transition-colors">
-                              {article.title}
-                            </span>
+                          <Link to={article.link} className="flex justify-between items-center group py-[1.2rem] hover:bg-gray-50 transition-colors -mx-[1.2rem] px-[1.2rem]">
+                            <span className="text-[1.6rem] text-gray-700 group-hover:text-brand-purple transition-colors">{article.title}</span>
                             <ChevronRightIcon className="w-5 h-5 text-gray-400 group-hover:text-brand-purple" />
                           </Link>
                         </li>
