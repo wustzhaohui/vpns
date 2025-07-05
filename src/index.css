@@ -118,7 +118,7 @@ body {
 @layer components {
   /* Styles for Help Article Page Content */
   .article-content p {
-    @apply mb-4 text-[1.6rem] leading-relaxed text-gray-700;
+    @apply mb-4 md:text-[1.6rem] text-[1.4rem] leading-relaxed text-gray-700;
   }
   .article-content h2 {
     @apply text-[2rem] font-bold mt-8 mb-4 text-brand-text-primary;
@@ -137,6 +137,6 @@ body {
     @apply list-disc list-outside mb-4 pl-4 space-y-2 text-gray-700;
   }
   .article-content li {
-    @apply text-[1.6rem];
+    @apply md:text-[1.6rem] text-[1.4rem];
   }
 }
