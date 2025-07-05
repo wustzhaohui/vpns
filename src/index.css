@@ -134,7 +134,7 @@ body {
     @apply my-6 rounded-lg shadow-md max-w-full h-auto mx-auto;
   }
   .article-content ul {
-    @apply list-disc list-inside mb-4 pl-4 space-y-2 text-gray-700;
+    @apply list-disc list-outside mb-4 pl-4 space-y-2 text-gray-700;
   }
   .article-content li {
     @apply text-[1.6rem];
