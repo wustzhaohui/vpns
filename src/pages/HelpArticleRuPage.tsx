@@ -76,7 +76,7 @@ const HelpArticleRuPage: React.FC = () => {
         internalHeaderNavFontSize={internalHeaderNavFontSize}
       />
 
-      <main className="flex-grow  -mt-[18rem] md:-mt-[16rem] relative z-10">
+      <main className="flex-grow  -mt-[12rem] md:-mt-[16rem] relative z-10">
         <div className="main-container mx-auto px-4 sm:px-6 lg:px-0 max-w-[800px] text-left">
           {loading && (
             <p className="text-center text-gray-500 py-10">
