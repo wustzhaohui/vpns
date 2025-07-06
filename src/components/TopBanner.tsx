@@ -4,19 +4,25 @@ import { useTranslation } from 'react-i18next';
 const TopBanner: React.FC = () => {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(true);
-  const [isMac, setIsMac] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+  const [deviceInfo, setDeviceInfo] = useState({
+    isMobile: window.innerWidth < 768,
+    isMac: false,
+    isAndroid: false,
+  });
 
-  // Effect for device detection (mobile/mac) on mount and resize
+  // Effect for device detection on mount and resize
   useEffect(() => {
     const checkDevice = () => {
-      setIsMobileView(window.innerWidth < 768);
-      // More robust check for Mac, trying to exclude iPads which can report 'MacIntel'
+      const userAgent = navigator.userAgent.toLowerCase();
       const platform = navigator?.platform?.toLowerCase() || '';
-      // 'macintel' can be on iPad, so check for touch support to differentiate.
+
+      const isMobile = window.innerWidth < 768;
+      const isAndroid = userAgent.includes('android');
+      // More robust check for Mac, trying to exclude iPads which can report 'MacIntel'
       const isLikelyMac =
         platform.includes('mac') && !('ontouchend' in document);
-      setIsMac(isLikelyMac);
+
+      setDeviceInfo({ isMobile, isMac: isLikelyMac, isAndroid });
     };
 
     window.addEventListener('resize', checkDevice);
@@ -48,32 +54,45 @@ const TopBanner: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isVisible]); // Re-run effect only if isVisible changes (for adding/removing listener)
+  }, [isVisible]);
 
   if (!isVisible) {
     return null;
   }
 
-  // Determine if we should show the special Mac banner.
-  // Condition: Not mobile view AND detected as a Mac device.
-  const showMacBanner = !isMobileView && isMac;
+  let bannerContent;
 
-  const bannerContent = showMacBanner
-    ? {
-        icon: '/assets/icon_appStore.82074fd6.png',
-        altTextKey: 'altTexts.appStoreIcon',
-        textKey: 'homePage.hero.subtitle',
-        link: null,
-      }
-    : {
-        icon: '/assets/appEsteem-trans.png',
-        altTextKey: 'topBanner.altText',
-        textKey: 'topBanner.text',
-        link: {
-          url: 'https://certification.appesteem.com/certified?vendor=LETGO',
-          textKey: 'topBanner.detailsLink',
-        },
-      };
+  if (deviceInfo.isMobile && deviceInfo.isAndroid) {
+    // Android Mobile banner
+    bannerContent = {
+      icon: '/assets/icon-google.png',
+      altTextKey: 'altTexts.googleIcon',
+      textKey: 'homePage.hero.googleSafetyAudit',
+      link: {
+        url: 'https://certification.appesteem.com/certified?vendor=LETGO',
+        textKey: 'topBanner.detailsLink',
+      },
+    };
+  } else if (!deviceInfo.isMobile && deviceInfo.isMac) {
+    // Mac Desktop banner
+    bannerContent = {
+      icon: '/assets/icon_appStore.82074fd6.png',
+      altTextKey: 'altTexts.appStoreIcon',
+      textKey: 'homePage.hero.subtitle',
+      link: null,
+    };
+  } else {
+    // Default banner for iOS, Windows, Linux, etc.
+    bannerContent = {
+      icon: '/assets/appEsteem-trans.png',
+      altTextKey: 'topBanner.altText',
+      textKey: 'topBanner.text',
+      link: {
+        url: 'https://certification.appesteem.com/certified?vendor=LETGO',
+        textKey: 'topBanner.detailsLink',
+      },
+    };
+  }
 
   const containerClasses = `h-[3rem] md:h-[5rem] flex items-center justify-center text-white relative z-[51] bg-black`;
   const textClasses = 'text-center text-[1.2rem] md:text-[1.6rem]';
