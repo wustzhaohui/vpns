@@ -106,9 +106,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
   const { t } = useTranslation();
 
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
-  const [detectedOS, setDetectedOS] = useState<'ios' | 'android' | 'unknown'>(
-    'unknown'
-  );
   const [detectedDesktopOS, setDetectedDesktopOS] = useState<
     'mac' | 'windows' | 'other'
   >('other');
@@ -119,20 +116,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
     };
     window.addEventListener('resize', handleResize);
     handleResize(); // Initial check
-
-    // Basic OS detection for mobile using User-Agent
-    const userAgent =
-      navigator.userAgent || navigator.vendor || (window as any).opera;
-    if (/android/i.test(userAgent)) {
-      setDetectedOS('android');
-    } else if (
-      /iPad|iPhone|iPod/.test(userAgent) &&
-      !(window as any).MSStream
-    ) {
-      setDetectedOS('ios');
-    } else {
-      setDetectedOS('ios'); // Default to iOS if unknown or for other OS like desktop
-    }
 
     // OS detection for desktop
     const platform = navigator.platform.toLowerCase();
@@ -256,28 +239,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
               className={`${subtitleFontSize} font-bold leading-normal mb-[2.5rem] md:mb-[4.5rem] text-white/90 flex items-center justify-center pc:justify-start`}
             >
               {isMobileView ? (
-                detectedOS === 'ios' || detectedOS === 'unknown' ? ( // iOS or unknown mobile OS
-                  <>
-                    <img
-                      src="/assets/icon_appStore.82074fd6.png"
-                      alt={t('altTexts.appStoreIcon')}
-                      className={`${subtitleIconBaseClass} inline-block`}
-                    />
-                    <span>{t('homePage.hero.subtitle')}</span>{' '}
-                    {/* Reverted to desktop subtitle for iOS mobile */}
-                  </>
-                ) : (
-                  // Android mobile OS
-                  <>
-                    <img
-                      src="/assets/icon-google.png" // Updated icon for Android
-                      alt={t('altTexts.googleIcon')} // Updated alt text
-                      className={`${subtitleIconBaseClass} inline-block`}
-                    />
-                    <span>{t('homePage.hero.googleSafetyAudit')}</span>{' '}
-                    {/* Text for Google audit */}
-                  </>
-                )
+                // Android mobile OS
+                <>
+                  <img
+                    src="/assets/icon-google.png" // Updated icon for Android
+                    alt={t('altTexts.googleIcon')} // Updated alt text
+                    className={`${subtitleIconBaseClass} inline-block`}
+                  />
+                  <span>{t('homePage.hero.googleSafetyAudit')}</span>{' '}
+                  {/* Text for Google audit */}
+                </>
               ) : (
                 // Desktop view
                 <>
@@ -346,24 +317,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
             <div className="flex flex-col items-center">
               {isMobileView ? (
                 <>
-                  {detectedOS === 'ios' && (
-                    <button className={`${mobileButtonBaseClass} mb-4`}>
-                      <AppleIcon className={mobileIconClass} />
-                      {t('homePage.hero.buttons.iosDownload')}
-                    </button>
-                  )}
-                  {detectedOS === 'android' && (
-                    <button className={`${mobileButtonBaseClass} mb-4`}>
-                      <NewAndroidIcon className={mobileIconClass} />
-                      {t('homePage.hero.buttons.androidDownload')}
-                    </button>
-                  )}
-                  {detectedOS === 'unknown' && ( // Default/Fallback for mobile
-                    <button className={`${mobileButtonBaseClass} mb-4`}>
-                      <AppleIcon className={mobileIconClass} />
-                      {t('homePage.hero.buttons.iosDownload')}
-                    </button>
-                  )}
+                  <button className={`${mobileButtonBaseClass} mb-4`}>
+                    <NewAndroidIcon className={mobileIconClass} />
+                    {t('homePage.hero.buttons.androidDownload')}
+                  </button>
 
                   <button
                     onClick={handleScrollToFreeTrial}
@@ -456,37 +413,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
       {isMobileView && (
         <svg
           data-v-0d88526f=""
-          viewBox="0 0 1242 565.48"
-          className="wave"
-          style={{
-            display: 'block',
-            width: '100%',
-            height: 'auto',
-            position: 'absolute',
-            right: 0,
-            bottom: '-0.0161rem',
-            zIndex: 2,
-          }}
+          viewBox="0 0 1440 320"
+          className="w-full absolute bottom-0 left-0 z-0"
+          style={{ transform: 'translateY(1px)' }} // Prevent anti-aliasing gap
           aria-hidden="true"
         >
-          <g
+          <path
             data-v-0d88526f=""
-            id="图层_2"
-            data-name="图层 2"
-          >
-            <g
-              data-v-0d88526f=""
-              id="图层_1-2"
-              data-name="图层 1"
-            >
-              <path
-                data-v-0d88526f=""
-                d="M0,532.56c137.19,9.68,314.14-2.62,467-106.47,136.89-93,158.2-194,295.85-293.49C857.38,64.31,1005.4-2.26,1242,.06V565.48H0Z"
-                className="cls-1"
-                fill="#FFFFFF" // Assuming white fill, adjust if cls-1 handles it or another color is needed
-              />
-            </g>
-          </g>
+            fill="#F8FAFF"
+            fillOpacity="1"
+            d="M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,186.7C672,192,768,160,864,133.3C960,107,1056,85,1152,90.7C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
         </svg>
       )}
     </section>

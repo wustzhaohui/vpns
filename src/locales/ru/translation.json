@@ -1,4 +1,3 @@
-
 {
   "header": {
     "home": "Главная",
@@ -58,11 +57,9 @@
   "homePage": {
     "hero": {
       "title": "VPN, который всегда подключается",
-      "subtitle": "macOS AppStore Гонконг Инструменты Топ 3",
+      "subtitle": "iOS AppStore Гонконг Инструменты Топ 5",
       "googleSafetyAudit": "Прошла независимую проверку безопасности Google",
       "appEsteemAudit": "Сертифицировано AppEsteem в области международной сетевой безопасности",
-      "subtitleIosMobile": "iOS AppStore Гонконг Инструменты Топ 5",
-      "googleInstallationAudit": "Прошла независимую проверку установки Google",
       "stats": {
         "connectSpeed": "Молниеносное соединение",
         "freeTrial": "Бесплатная пробная версия",
@@ -187,134 +184,25 @@
       }
     ],
     "illustrations": {
-      "referralBonus": "Иллюстрация реферального бонуса",
-      "weeklyBonus": "Иллюстрация еженедельного бонуса",
-      "settlement": "Иллюстрация расчета"
+      "referralBonus": "Иллюстрация ре"
     }
   },
-  "blogPage": {
-    "featuredPostBadge": "Последний\nпост",
-    "imagePlaceholder": "Заполнитель изображения: {{title}}",
-    "posts": [
-      {
-        "title": "LetsVPN поздравляет китайских пользователей по всему миру с наступающим годом Змеи!",
-        "summary": "В канун Нового года команда LetsVPN желает вам процветания в год Змеи, стремительного успеха, изобилия и счастья!",
-        "badgeText": "Последний\nпост"
-      },
-      {
-        "title": "Антивирус сообщает, что VPN - это вирус. Действительно ли VPN безопасен?",
-        "summary": ""
-      },
-      {
-        "title": "Невозможно даже поделиться на нескольких устройствах, команда LetsVPN расслабилась?",
-        "summary": ""
-      },
-      {
-        "title": "Люди уже попадаются! Новейшая афера, нацеленная на китайских пользователей VPN",
-        "summary": ""
-      },
-      {
-        "title": "Подробный обзор: Какова скорость и стабильность LetsVPN?",
-        "summary": ""
-      },
-      {
-        "title": "Дилемма выбора VPN? Этой одной статьи достаточно!",
-        "summary": ""
-      },
-      {
-        "title": "Защитите свою онлайн-конфиденциальность: важность VPN",
-        "summary": ""
-      }
-    ]
-  },
-  "loginPage": {
-    "login": {
-      "title": "Войти в аккаунт LetsVPN",
-      "usernamePlaceholder": "Имя пользователя или Email",
-      "passwordPlaceholder": "Пароль",
-      "loginButton": "Войти",
-      "forgotPasswordLink": "Забыли пароль?",
-      "registerLink": "Зарегистрировать аккаунт",
-      "showPassword": "Показать пароль",
-      "hidePassword": "Скрыть пароль",
-      "loginAttemptMessage": "Функция входа еще не реализована. (Симуляция)"
-    },
-    "forgotPassword": {
-      "title": "Забыли пароль",
-      "description": "Вы можете просмотреть свое имя пользователя и пароль в управлении аккаунтом клиента. Если у вас нет клиента, пожалуйста, вернитесь на главную страницу официального сайта, чтобы загрузить его.",
-      "goHomeButton": "Перейти на главную",
-      "haveAccount": "Уже есть аккаунт?",
-      "goToLogin": "Перейти к входу"
-    },
-    "register": {
-      "title": "Зарегистрировать аккаунт LetsVPN",
-      "description": "Регистрация аккаунта на сайте временно недоступна. Пожалуйста, зарегистрируйтесь в клиенте. Если у вас нет клиента, пожалуйста, вернитесь на главную страницу официального сайта, чтобы загрузить его.",
-      "goHomeButton": "Перейти на главную",
-      "haveAccount": "Уже есть аккаунт?",
-      "goToLogin": "Перейти к входу"
-    }
-  },
-  "notFoundPage": {
-    "title": "Ой! Страница не найдена.",
-    "description": "Страница, которую вы ищете, могла быть удалена, ее название изменено или она временно недоступна.",
-    "goHomeButton": "Перейти на главную"
-  },
-  "helpCenterPage": {
-    "title": "Советы и ответы от команды LetsVPN",
-    "searchPlaceholder": "Поиск статей...",
-    "searchIconLabel": "Поиск",
-    "internalHeader": {
-      "ariaLabel": "Навигация по Центру помощи",
-      "goToLetsVPN": "Перейти на LetsVPN",
-      "account": "Аккаунт",
-      "language": "English",
-      "languageAriaLabel": "Текущий язык: Английский",
-      "openMenuAriaLabel": "Открыть меню",
-      "closeMenuAriaLabel": "Закрыть меню",
-      "menuTitle": "Меню"
-    },
-    "categories": [
-      {
-        "avatarAlt": "Аватар {{name}}",
-        "title": "Help Documents",
-        "description": "Thank you very much for using LetsVPN, you can find the solutions to common questions here.",
-        "authors": "От Jamie и еще 2",
-        "articleCount": "25 статей"
-      },
-      {
-        "avatarAlt": "Аватар {{name}}",
-        "title": "中文帮助",
-        "description": "非常感谢您使用我们的服务，在这里您可以找到一些常见的问题处理方法",
-        "authors": "От Jamie и еще 4",
-        "articleCount": "58 статей"
-      },
-      {
-        "avatarAlt": "Аватар {{name}}",
-        "title": "Помощь с русским языком",
-        "description": "Огромное спасибо за использование наших сервисов, в этой статье можете найти...",
-        "authors": "От Jamie и еще 1",
-        "articleCount": "21 статья"
-      },
-      {
-        "avatarAlt": "Аватар LetsVPN",
-        "title": "境外新鲜事儿",
-        "description": "",
-        "authors": "От LetsVPN",
-        "articleCount": "643 статьи"
-      }
-    ]
+  "topBanner": {
+    "text": "LetsVPN сертифицирован AppEsteem в области международной сетевой безопасности.",
+    "detailsLink": "Подробнее >",
+    "altText": "Сертифицировано AppEsteem"
   },
   "altTexts": {
-    "logo": "Логотип LetsVPN",
-    "footerLogo": "Логотип LetsVPN в подвале",
-    "appStoreIcon": "Значок App Store",
-    "googleIcon": "Значок Google",
-    "qrCodeDownload": "QR-код для загрузки приложения",
-    "scanToDownloadQR": "Сканируйте QR для загрузки приложения",
-    "telegramQrCode": "QR-код Telegram",
-    "telegramIcon": "Значок Telegram",
-    "referralAnimation": "Анимация реферального бонуса",
-    "loginIllustration": "Иллюстрация входа",
-    "vpnConnectionAnimation": "Анимация VPN-соединения"
+    "logo": "LetsVPN Logo",
+    "footerLogo": "LetsVPN Footer Logo",
+    "appStoreIcon": "App Store Icon",
+    "googleIcon": "Google Icon",
+    "qrCodeDownload": "APP Download QR Code",
+    "scanToDownloadQR": "Scan QR to Download APP",
+    "telegramQrCode": "Telegram QR Code",
+    "telegramIcon": "Telegram Icon",
+    "referralAnimation": "Referral Bonus Animation",
+    "loginIllustration": "Login Illustration",
+    "vpnConnectionAnimation": "VPN Connection Animation"
   }
 }
