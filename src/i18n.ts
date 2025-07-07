@@ -32,7 +32,7 @@ i18n
       escapeValue: false, // React already safes from xss
     },
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      order: ['localStorage', 'htmlTag'],
       caches: ['localStorage'],
       // Add 'querystring' to detection order if you want to test languages via URL (e.g. ?lng=ru)
       // order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
