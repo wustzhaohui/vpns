@@ -249,6 +249,12 @@
       "goHomeButton": "Go to Homepage",
       "haveAccount": "Already have an account?",
       "goToLogin": "Go to Login"
+    },
+    "modal": {
+      "title": "Login Unavailable",
+      "description": "Account login on the website is temporarily unavailable. Please log in through the client. If you don't have the client, please return to the homepage to download it.",
+      "okButton": "OK",
+      "closeButton": "Close"
     }
   },
   "notFoundPage": {

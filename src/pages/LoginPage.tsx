@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const LoginPage: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const useLargeFont = i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
+  const useLargeFont =
+    i18n.language.startsWith('zh') || i18n.language.startsWith('zh-Hant');
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewMode, setViewMode] = useState<
     'login' | 'forgotPassword' | 'register'
   >('login');
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isModalOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,29 +47,34 @@ const LoginPage: React.FC = () => {
 
     if (isValid) {
       console.log('Login attempt:', { username, password });
-      // Simulating a successful login for demonstration if needed, or actual logic
-      // For now, it just logs and alerts
-      alert(t('loginPage.login.loginAttemptMessage')); // Using a translated message
+      setIsModalOpen(true);
     }
   };
 
   const titleFontSize = useLargeFont ? 'md:text-[42px]' : 'md:text-[36px]';
-  const descriptionFontSize = useLargeFont ? 'md:text-[1.8rem]' : 'md:text-[1.6rem]';
-  const inputPlaceholderFontSize = useLargeFont ? 'md:placeholder:text-[20px] md:text-[20px]' : 'md:placeholder:text-[18px] md:text-[18px]';
+  const descriptionFontSize = useLargeFont
+    ? 'md:text-[1.8rem]'
+    : 'md:text-[1.6rem]';
+  const inputPlaceholderFontSize = useLargeFont
+    ? 'md:placeholder:text-[20px] md:text-[20px]'
+    : 'md:placeholder:text-[18px] md:text-[18px]';
   const buttonTextFontSize = useLargeFont ? 'md:text-[20px]' : 'md:text-[18px]';
   const linkTextFontSize = useLargeFont ? 'md:text-[18px]' : 'md:text-[16px]';
-
 
   const renderContent = () => {
     if (viewMode === 'forgotPassword') {
       return (
         <>
           <div className="mb-6 md:mb-8">
-            <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}>
+            <h2
+              className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}
+            >
               {t('loginPage.forgotPassword.title')}
             </h2>
           </div>
-          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-10 leading-relaxed`}>
+          <p
+            className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-10 leading-relaxed`}
+          >
             {t('loginPage.forgotPassword.description')}
           </p>
           <div className="w-full mb-6 md:mb-8">
@@ -69,8 +87,12 @@ const LoginPage: React.FC = () => {
             </Link>
           </div>
           <div className="text-left">
-            <div className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}>
-              <span className="text-brand-text-primary">{t('loginPage.forgotPassword.haveAccount')}</span>
+            <div
+              className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}
+            >
+              <span className="text-brand-text-primary">
+                {t('loginPage.forgotPassword.haveAccount')}
+              </span>
               <button
                 type="button"
                 onClick={() => setViewMode('login')}
@@ -89,11 +111,15 @@ const LoginPage: React.FC = () => {
       return (
         <>
           <div className="mb-6 md:mb-8">
-            <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}>
+            <h2
+              className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary`}
+            >
               {t('loginPage.register.title')}
             </h2>
           </div>
-          <p className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-10 leading-relaxed`}>
+          <p
+            className={`text-left text-base ${descriptionFontSize} text-brand-text-muted mb-8 md:mb-10 leading-relaxed`}
+          >
             {t('loginPage.register.description')}
           </p>
           <div className="w-full mb-6 md:mb-8">
@@ -106,8 +132,12 @@ const LoginPage: React.FC = () => {
             </Link>
           </div>
           <div className="text-left">
-            <div className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}>
-              <span className="text-brand-text-primary">{t('loginPage.register.haveAccount')}</span>
+            <div
+              className={`font-medium text-sm sm:text-base ${linkTextFontSize}`}
+            >
+              <span className="text-brand-text-primary">
+                {t('loginPage.register.haveAccount')}
+              </span>
               <button
                 type="button"
                 onClick={() => setViewMode('login')}
@@ -125,7 +155,9 @@ const LoginPage: React.FC = () => {
     return (
       <>
         <div className="mb-6 md:mb-8">
-          <h2 className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary md:whitespace-nowrap`}>
+          <h2
+            className={`text-left text-3xl ${titleFontSize} font-bold text-brand-text-primary md:whitespace-nowrap`}
+          >
             {t('loginPage.login.title')}
           </h2>
         </div>
@@ -145,7 +177,7 @@ const LoginPage: React.FC = () => {
             <span className="text-input-icon-placeholder mr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 md:h-6 md:w-6"
+                className="h-5 w-5 md:h-10 md:w-10"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -189,7 +221,7 @@ const LoginPage: React.FC = () => {
             <span className="text-input-icon-placeholder mr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 md:h-6 md:w-6"
+                className="h-5 w-5 md:h-10 md:w-10"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -220,7 +252,11 @@ const LoginPage: React.FC = () => {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="text-input-icon-placeholder hover:text-brand-text-primary focus:outline-none p-2"
-              aria-label={t(showPassword ? 'loginPage.login.hidePassword' : 'loginPage.login.showPassword')}
+              aria-label={t(
+                showPassword
+                  ? 'loginPage.login.hidePassword'
+                  : 'loginPage.login.showPassword'
+              )}
             >
               {showPassword ? (
                 <svg
@@ -270,7 +306,6 @@ const LoginPage: React.FC = () => {
               {t('loginPage.login.loginButton')}
             </button>
           </div>
-
           <div className="flex flex-row items-center justify-between mt-6 md:mt-8">
             <button
               type="button"
@@ -295,21 +330,74 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] overflow-y-auto flex items-start justify-start pt-[3rem] pb-8 px-4 sm:py-12 sm:px-6 md:items-center md:justify-center md:py-8 lg:py-8 lg:px-8 bg-slate-50">
-      <div className="w-full max-w-container-wide mx-auto rounded-xl overflow-hidden">
-        <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-0">
-          <div className="order-1 md:order-none pt-0 pb-6 sm:pb-8 md:py-12 px-4 sm:px-6 md:px-8 flex flex-col justify-center">
-            <div className="w-full max-w-lg mx-auto">{renderContent()}</div>
-          </div>
-          <div className="flex order-2 md:order-none flex-col items-center justify-center p-4 sm:p-6 md:p-12 mt-6 md:mt-0">
+    <div className="min-h-screen bg-[#F2F7FF] text-brand-text-primary flex items-center justify-center">
+      <div className="w-full h-full flex flex-col pc:flex-row">
+        {/* Illustration Section */}
+        <div className="w-full pc:w-1/2 flex items-center justify-center p-8 order-1 pc:order-1">
+          <div className="w-full">
             <img
-              className="max-w-full h-auto block object-contain max-h-[200px] sm:max-h-[250px] md:max-h-full"
               src="/assets/login_info.8a76c6cc.png"
               alt={t('altTexts.loginIllustration')}
+              className="w-full h-auto"
             />
           </div>
         </div>
+
+        {/* Form Section */}
+        <div className="w-full pc:w-1/2 flex items-center justify-center p-8 order-2 pc:order-2">
+          <div className="w-full text-center pc:w-[80%]">{renderContent()}</div>
+        </div>
       </div>
+
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4"
+          onClick={() => setIsModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="login-modal-title"
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 text-center max-w-sm w-full mx-auto relative animate-modal-pop-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label={t('loginPage.modal.closeButton')}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <h3
+              id="login-modal-title"
+              className="text-xl md:text-2xl font-bold text-brand-text-primary mb-4"
+            >
+              {t('loginPage.modal.title')}
+            </h3>
+            <p className="text-brand-text-muted mb-6 md:mb-8 text-base md:text-lg">
+              {t('loginPage.modal.description')}
+            </p>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="w-full h-12 md:h-14 rounded-full text-lg font-semibold flex items-center justify-center text-white bg-gradient-to-r from-brand-gradient-from to-brand-gradient-to hover:opacity-95 transition-opacity"
+            >
+              {t('loginPage.modal.okButton')}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -249,6 +249,12 @@
       "goHomeButton": "返回首頁",
       "haveAccount": "已有帳戶？",
       "goToLogin": "去登入"
+    },
+    "modal": {
+      "title": "登入暫不可用",
+      "description": "暫時不支援在網站上登入帳戶，請您在客戶端中進行登入，如果沒有客戶端請返回官網首頁下載。",
+      "okButton": "確定",
+      "closeButton": "關閉"
     }
   },
   "notFoundPage": {

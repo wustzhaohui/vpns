@@ -249,6 +249,12 @@
       "goHomeButton": "返回首页",
       "haveAccount": "已有账户？",
       "goToLogin": "去登录"
+    },
+    "modal": {
+      "title": "登录暂不可用",
+      "description": "暂时不支持在网站上登录账户，请您在客户端中进行登录，如果没有客户端请返回官网首页下载。",
+      "okButton": "确定",
+      "closeButton": "关闭"
     }
   },
   "notFoundPage": {
