@@ -11,6 +11,9 @@ import HelpCenterEnPage from './pages/HelpCenterEnPage'; // Added
 import HelpArticlePage from './pages/HelpArticlePage';
 import HelpArticleEnPage from './pages/HelpArticleEnPage'; // Added
 import HelpArticleRuPage from './pages/HelpArticleRuPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
+import RegistrationAgreementPage from './pages/RegistrationAgreementPage';
 import NotFoundPage from './pages/NotFoundPage';
 import LanguageEffect from './components/LanguageEffect';
 
@@ -70,6 +73,18 @@ function App() {
                 <Route
                   path="/login"
                   element={<LoginPage />}
+                />
+                <Route
+                  path="/privacy-policy"
+                  element={<PrivacyPolicyPage />}
+                />
+                <Route
+                  path="/terms-of-service"
+                  element={<TermsOfServicePage />}
+                />
+                <Route
+                  path="/registration-agreement"
+                  element={<RegistrationAgreementPage />}
                 />
                 <Route
                   path="*"
