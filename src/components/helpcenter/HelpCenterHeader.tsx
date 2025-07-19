@@ -152,7 +152,7 @@ const HelpCenterHeader: React.FC<HelpCenterHeaderProps> = ({
             </Link>
             <nav className="hidden md:flex items-center space-x-5 lg:space-x-7">
               <a
-                href="https://letsvpn.world/"
+                href="https://www.letsvpn.us/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${internalHeaderNavFontSize} hover:text-gray-200 transition-colors`}
@@ -257,7 +257,7 @@ const HelpCenterHeader: React.FC<HelpCenterHeaderProps> = ({
             </div>
             <nav className="flex flex-col px-4 py-2 space-y-0.5 flex-grow overflow-y-auto">
               <a
-                href="https://letsvpn.world/"
+                href="https://www.letsvpn.us/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
