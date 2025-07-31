@@ -135,7 +135,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
   const buttonTextFontSize = 'text-[1.4rem] md:text-[1.8rem] lg:text-[2rem]';
 
   const handleScrollToFreeTrial = (
-    event: React.MouseEvent<HTMLButtonElement>
+    event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => {
     event.preventDefault();
     const freeTrialSection = document.getElementById('free-trial-section');
@@ -317,10 +317,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
             <div className="flex flex-col items-center">
               {isMobileView ? (
                 <>
-                  <button className={`${mobileButtonBaseClass} mb-4`}>
+                  <a
+                    href="https://www.letsvpn.us/download/Android"
+                    className={`${mobileButtonBaseClass} mb-4`}
+                  >
                     <NewAndroidIcon className={mobileIconClass} />
                     {t('homePage.hero.buttons.androidDownload')}
-                  </button>
+                  </a>
 
                   <button
                     onClick={handleScrollToFreeTrial}
@@ -343,18 +346,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
                     // Fallback for Linux/Unknown: Show both buttons, and link below.
                     <>
                       <div className="flex flex-col items-center sm:flex-row gap-y-4 sm:gap-x-[2rem] justify-center pc:justify-start">
-                        <button className={primaryButtonClasses}>
+                        <a
+                          href="https://www.letsvpn.us/download/MacOS"
+                          className={primaryButtonClasses}
+                        >
                           <AppleIcon
                             className={`${primaryButtonIconClasses} fill-current`}
                           />
                           {t('homePage.hero.buttons.macDownload')}
-                        </button>
-                        <button className={primaryButtonClasses}>
+                        </a>
+                        <a
+                          href="https://www.letsvpn.us/download/Windows"
+                          className={primaryButtonClasses}
+                        >
                           <NewWindowsIcon
                             className={primaryButtonIconClasses}
                           />
                           {t('homePage.hero.buttons.pcDownload')}
-                        </button>
+                        </a>
                       </div>
                       <button
                         onClick={handleScrollToFreeTrial}
@@ -371,22 +380,29 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
                     // Detected OS (Win/Mac): Show one primary + one secondary button side-by-side.
                     <div className="flex flex-col items-center sm:flex-row gap-y-4 sm:gap-x-[2rem] justify-center pc:justify-start">
                       {detectedDesktopOS === 'windows' && (
-                        <button className={primaryButtonClasses}>
+                        <a
+                          href="https://www.letsvpn.us/download/Windows"
+                          className={primaryButtonClasses}
+                        >
                           <NewWindowsIcon
                             className={primaryButtonIconClasses}
                           />
                           {t('homePage.hero.buttons.pcDownload')}
-                        </button>
+                        </a>
                       )}
                       {detectedDesktopOS === 'mac' && (
-                        <button className={primaryButtonClasses}>
+                        <a
+                          href="https://www.letsvpn.us/download/MacOS"
+                          className={primaryButtonClasses}
+                        >
                           <AppleIcon
                             className={`${primaryButtonIconClasses} fill-current`}
                           />
                           {t('homePage.hero.buttons.macDownload')}
-                        </button>
+                        </a>
                       )}
-                      <button
+                      <a
+                        href="#free-trial-section"
                         onClick={handleScrollToFreeTrial}
                         className={secondaryButtonClasses}
                         aria-label={t(
@@ -397,7 +413,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isAtTop = true }) => {
                           className={primaryButtonIconClasses}
                         />
                         {t('homePage.hero.buttons.otherPlatforms')}
-                      </button>
+                      </a>
                     </div>
                   )}
                 </div>

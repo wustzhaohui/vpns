@@ -71,10 +71,19 @@ const Footer: React.FC = () => {
   }, []);
 
   const softwareDownloads = [
-    { nameKey: 'footer.softwareDownloads.pc', href: '#' },
-    { nameKey: 'footer.softwareDownloads.android', href: '#' },
+    {
+      nameKey: 'footer.softwareDownloads.pc',
+      href: 'https://www.letsvpn.us/download/Windows',
+    },
+    {
+      nameKey: 'footer.softwareDownloads.android',
+      href: 'https://www.letsvpn.us/download/Android',
+    },
     { nameKey: 'footer.softwareDownloads.ios', href: '#' },
-    { nameKey: 'footer.softwareDownloads.mac', href: '#' },
+    {
+      nameKey: 'footer.softwareDownloads.mac',
+      href: 'https://www.letsvpn.us/download/MacOS',
+    },
   ];
 
   const relatedResources = [
@@ -224,12 +233,12 @@ const Footer: React.FC = () => {
                   <ul className="space-y-2">
                     {softwareDownloads.map((link) => (
                       <li key={`mobile-${link.nameKey}`}>
-                        <Link
-                          to={link.href}
+                        <a
+                          href={link.href}
                           className="text-[1.2rem] text-brand-text-mobile-footer-links hover:text-brand-purple transition-colors duration-200"
                         >
                           {t(link.nameKey)}
-                        </Link>
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -379,12 +388,12 @@ const Footer: React.FC = () => {
                   <ul className="space-y-3 md:space-y-4">
                     {softwareDownloads.map((link) => (
                       <li key={link.nameKey}>
-                        <Link
-                          to={link.href}
+                        <a
+                          href={link.href}
                           className={`${desktopFooterLinkFontSize} text-gray-600 hover:text-[#747E8B] transition-colors duration-200`}
                         >
                           {t(link.nameKey)}
-                        </Link>
+                        </a>
                       </li>
                     ))}
                   </ul>
